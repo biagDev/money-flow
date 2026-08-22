@@ -1,0 +1,4 @@
+pandas>=2.0
+requests>=2.31
+jsonschema>=4.20
+pytest>=8.0

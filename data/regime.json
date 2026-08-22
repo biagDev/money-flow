@@ -1,0 +1,78 @@
+{
+ "as_of": "2026-08-22T04:03:49Z",
+ "stale": false,
+ "probabilities": {
+  "expansion": 0.52,
+  "peak": 0.265,
+  "contraction": 0.0,
+  "recovery": 0.215
+ },
+ "needle": "expansion",
+ "projection": "recovery",
+ "projection_basis": "momentum",
+ "in_regime_since": "2026-06-01",
+ "narrative": "Inflation is holding at 3.7% (above the 2% target) while unemployment holds near 4.1% with no stress \u2014 the market is pricing a hawkish-leaning Fed, which historically marks the EXPANSION phase. Watch: stocks \u25b2, gold \u25b2, dollar \u25bc.",
+ "scores": [
+  {
+   "input": "inflation",
+   "value": "PCE 3.7% YoY, +0.13pp/3mo",
+   "vote": "peak",
+   "weight": 0.3,
+   "distribution": {
+    "expansion": 0.45,
+    "peak": 0.55,
+    "contraction": 0.0,
+    "recovery": 0.0
+   }
+  },
+  {
+   "input": "employment",
+   "value": "UNRATE 4.1%, Sahm gap +0.10pp",
+   "vote": "expansion",
+   "weight": 0.25,
+   "distribution": {
+    "expansion": 0.6,
+    "peak": 0.4,
+    "contraction": 0.0,
+    "recovery": 0.0
+   }
+  },
+  {
+   "input": "fed_stance",
+   "value": "cutting / priced to cut (last move 254d ago)",
+   "vote": "recovery",
+   "weight": 0.2,
+   "distribution": {
+    "expansion": 0.4,
+    "peak": 0.0,
+    "contraction": 0.0,
+    "recovery": 0.6
+   }
+  },
+  {
+   "input": "yield_curve",
+   "value": "10Y\u22123M +0.86pp, -0.03pp/3mo (normal)",
+   "vote": "expansion",
+   "weight": 0.15,
+   "distribution": {
+    "expansion": 0.7,
+    "peak": 0.0,
+    "contraction": 0.0,
+    "recovery": 0.3
+   }
+  },
+  {
+   "input": "liquidity",
+   "value": "WALCL +2.0%/6mo (expanding (QE-side))",
+   "vote": "expansion",
+   "weight": 0.1,
+   "distribution": {
+    "expansion": 0.5,
+    "peak": 0.0,
+    "contraction": 0.0,
+    "recovery": 0.5
+   }
+  }
+ ],
+ "schema_version": 1
+}

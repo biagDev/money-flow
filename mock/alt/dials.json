@@ -1,0 +1,76 @@
+{
+ "as_of": "2026-08-14T10:10:00Z",
+ "inflation": {
+  "pce_yoy": 1.6,
+  "cpi_yoy": 1.9,
+  "target": 2.0,
+  "trend_3mo": -0.35,
+  "direction": "falling",
+  "sub": {
+   "ppi_yoy": 0.8,
+   "breakeven_5y": 1.95,
+   "oil": {
+    "last": 61.4,
+    "spark": [
+     84.0,
+     84.78,
+     81.41,
+     80.72,
+     82.39,
+     79.91,
+     77.78,
+     79.5,
+     78.41,
+     75.35,
+     76.3,
+     76.61,
+     73.41,
+     73.07,
+     74.35,
+     71.78,
+     70.1,
+     71.61,
+     70.21,
+     67.55,
+     68.54,
+     68.43,
+     65.46,
+     65.39,
+     66.26,
+     63.7,
+     62.41,
+     63.66,
+     62.05,
+     59.79
+    ]
+   }
+  }
+ },
+ "employment": {
+  "unrate": 4.7,
+  "direction": "softening",
+  "sub": {
+   "nfp": {
+    "actual": 42
+   },
+   "claims_4wk": 268,
+   "jolts": 6.8
+  }
+ },
+ "verdict": {
+  "bias": "dovish",
+  "lines": [
+   {
+    "dial": "inflation",
+    "reading": "Inflation is falling at 1.6% (below the 2% target)",
+    "implication": "argues CUT/HOLD"
+   },
+   {
+    "dial": "employment",
+    "reading": "unemployment is creeping up from its lows (4.7%)",
+    "implication": "forces the Fed dovish"
+   }
+  ]
+ },
+ "schema_version": 1
+}

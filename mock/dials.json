@@ -1,0 +1,76 @@
+{
+ "as_of": "2026-08-14T10:10:00Z",
+ "inflation": {
+  "pce_yoy": 2.9,
+  "cpi_yoy": 3.1,
+  "target": 2.0,
+  "trend_3mo": 0.4,
+  "direction": "rising",
+  "sub": {
+   "ppi_yoy": 2.2,
+   "breakeven_5y": 2.45,
+   "oil": {
+    "last": 96.2,
+    "spark": [
+     78.0,
+     80.11,
+     78.27,
+     78.98,
+     82.04,
+     80.98,
+     80.22,
+     83.45,
+     83.77,
+     81.94,
+     84.46,
+     86.33,
+     84.21,
+     85.35,
+     88.41,
+     86.92,
+     86.44,
+     89.92,
+     89.8,
+     88.0,
+     90.95,
+     92.51,
+     90.15,
+     91.76,
+     94.75,
+     92.83,
+     92.7,
+     96.39,
+     95.77,
+     94.09
+    ]
+   }
+  }
+ },
+ "employment": {
+  "unrate": 4.1,
+  "direction": "stable",
+  "sub": {
+   "nfp": {
+    "actual": 187
+   },
+   "claims_4wk": 231,
+   "jolts": 7.9
+  }
+ },
+ "verdict": {
+  "bias": "hawkish",
+  "lines": [
+   {
+    "dial": "inflation",
+    "reading": "Inflation is rising at 2.9% (above the 2% target)",
+    "implication": "argues HIKE/HOLD"
+   },
+   {
+    "dial": "employment",
+    "reading": "unemployment holds near 4.1% with no stress",
+    "implication": "gives the Fed room to be hawkish"
+   }
+  ]
+ },
+ "schema_version": 1
+}

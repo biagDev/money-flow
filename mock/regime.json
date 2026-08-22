@@ -1,0 +1,78 @@
+{
+ "as_of": "2026-08-14T10:10:00Z",
+ "stale": false,
+ "probabilities": {
+  "expansion": 0.25,
+  "peak": 0.55,
+  "contraction": 0.15,
+  "recovery": 0.05
+ },
+ "needle": "peak",
+ "projection": "contraction",
+ "projection_basis": "momentum",
+ "in_regime_since": "2026-03-01",
+ "narrative": "Inflation is rising at 2.9% (above the 2% target) while unemployment holds near 4.1% with no stress \u2014 the market is pricing a hawkish Fed, which historically marks the PEAK phase. Watch: yields \u25b2, dollar \u25b2, gold \u25bc.",
+ "scores": [
+  {
+   "input": "inflation",
+   "value": "PCE 2.9% YoY, +0.40pp/3mo",
+   "vote": "peak",
+   "weight": 0.3,
+   "distribution": {
+    "expansion": 0.3,
+    "peak": 0.7,
+    "contraction": 0.0,
+    "recovery": 0.0
+   }
+  },
+  {
+   "input": "employment",
+   "value": "UNRATE 4.1%, Sahm gap +0.07pp",
+   "vote": "expansion",
+   "weight": 0.25,
+   "distribution": {
+    "expansion": 0.6,
+    "peak": 0.4,
+    "contraction": 0.0,
+    "recovery": 0.0
+   }
+  },
+  {
+   "input": "fed_stance",
+   "value": "on hold, priced 27% hike (last move 210d ago)",
+   "vote": "peak",
+   "weight": 0.2,
+   "distribution": {
+    "expansion": 0.3,
+    "peak": 0.3,
+    "contraction": 0.2,
+    "recovery": 0.2
+   }
+  },
+  {
+   "input": "yield_curve",
+   "value": "10Y\u22123M +0.78pp, \u22120.12pp/3mo (flattening)",
+   "vote": "peak",
+   "weight": 0.15,
+   "distribution": {
+    "expansion": 0.4,
+    "peak": 0.6,
+    "contraction": 0.0,
+    "recovery": 0.0
+   }
+  },
+  {
+   "input": "liquidity",
+   "value": "WALCL \u22122.1%/6mo (contracting, QT-side)",
+   "vote": "peak",
+   "weight": 0.1,
+   "distribution": {
+    "expansion": 0.0,
+    "peak": 0.6,
+    "contraction": 0.4,
+    "recovery": 0.0
+   }
+  }
+ ],
+ "schema_version": 1
+}

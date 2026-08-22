@@ -1,0 +1,62 @@
+{
+ "as_of": "2026-08-22T04:07:06Z",
+ "upcoming": [
+  {
+   "date": "2026-08-26",
+   "event": "PCE (Personal Income & Outlays)",
+   "feeds": "inflation",
+   "hint": "Hot print \u2192 strengthens hike case \u2192 dollar \u25b2 gold \u25bc"
+  },
+  {
+   "date": "2026-08-26",
+   "event": "GDP",
+   "feeds": "both",
+   "hint": "Growth surprise shifts the whole regime read"
+  },
+  {
+   "date": "2026-08-27",
+   "event": "Jobless Claims",
+   "feeds": "employment",
+   "hint": "Weak print \u2192 strengthens cut case \u2192 gold \u25b2 dollar \u25bc"
+  },
+  {
+   "date": "2026-09-01",
+   "event": "JOLTS",
+   "feeds": "employment",
+   "hint": "Weak print \u2192 strengthens cut case \u2192 gold \u25b2 dollar \u25bc"
+  },
+  {
+   "date": "2026-09-03",
+   "event": "Jobless Claims",
+   "feeds": "employment",
+   "hint": "Weak print \u2192 strengthens cut case \u2192 gold \u25b2 dollar \u25bc"
+  },
+  {
+   "date": "2026-09-04",
+   "event": "Employment Situation (NFP)",
+   "feeds": "employment",
+   "hint": "Weak print \u2192 strengthens cut case \u2192 gold \u25b2 dollar \u25bc"
+  }
+ ],
+ "recent": [
+  {
+   "reference_month": "2026-07-01",
+   "event": "CPI",
+   "reactions": {
+    "dxy_48h": -0.26,
+    "gold_48h": 2.13,
+    "spx_48h": 0.72
+   }
+  },
+  {
+   "reference_month": "2026-07-01",
+   "event": "Employment Situation (NFP)",
+   "reactions": {
+    "dxy_48h": -0.26,
+    "gold_48h": 2.13,
+    "spx_48h": 0.72
+   }
+  }
+ ],
+ "schema_version": 1
+}

@@ -1,0 +1,30 @@
+name: weekly-cot
+on:
+  schedule:
+    - cron: "45 20 * * 5"   # Fri 20:45 UTC ≈ 16:45 ET, after CFTC 15:30 ET publish
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: data-update
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip}
+      - run: pip install -r requirements.txt
+      - name: Full build including COT
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python -m pipeline.build
+      - run: python -m pytest tests/test_schemas.py -q
+      - name: Commit if changed
+        run: |
+          git config user.name "money-flow-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "data(cot): $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push

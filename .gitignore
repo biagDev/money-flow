@@ -1,0 +1,9 @@
+# Fetcher disk caches — raw vendor responses, never belong in the repo
+pipeline/.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/

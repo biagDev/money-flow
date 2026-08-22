@@ -1,0 +1,63 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MONEY FLOW — wiring test</title>
+<style>
+  :root { color-scheme: dark; }
+  body { background:#0b0d10; color:#e6e9ef; margin:0;
+         font:15px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace; padding:2rem 1.25rem; }
+  main { max-width:46rem; margin:0 auto; }
+  h1 { font-size:.8rem; letter-spacing:.22em; text-transform:uppercase;
+       color:#69727f; font-weight:500; margin:0 0 1.75rem; }
+  .needle { font-size:2.6rem; letter-spacing:.05em; margin:0; text-transform:uppercase; }
+  .sub { color:#69727f; font-size:.82rem; margin:.4rem 0 2rem; }
+  table { border-collapse:collapse; width:100%; margin:0 0 2rem; }
+  td { padding:.3rem 0; vertical-align:baseline; }
+  td.k { width:7.5rem; color:#9aa4b2; }
+  td.b { font-family:inherit; white-space:pre; color:#4f9dff; }
+  td.v { width:4rem; text-align:right; color:#9aa4b2; }
+  tr.top td.b { color:#7dd3a0; }
+  tr.top td.k { color:#e6e9ef; }
+  p.narr { border-left:2px solid #232833; padding-left:1rem; margin:0 0 2rem; color:#c3cad6; }
+  footer { color:#4b5361; font-size:.75rem; border-top:1px solid #1a1e26; padding-top:1rem; }
+  .err { color:#ff6b6b; }
+</style>
+<main>
+  <h1>Money Flow — placeholder</h1>
+  <div id="app">loading…</div>
+</main>
+<script>
+const BARW = 28;
+const fmtPct = n => (n * 100).toFixed(1) + "%";
+
+function render(d) {
+  const probs = d.probabilities || {};
+  // rank every regime present in the JSON — nothing about them is hardcoded
+  const entries = Object.entries(probs).sort((a, b) => b[1] - a[1]);
+  const rows = entries.map(([name, p]) => {
+    const filled = Math.round(p * BARW);
+    const bar = "█".repeat(filled) + "·".repeat(BARW - filled);
+    const isTop = name === d.needle;
+    return `<tr class="${isTop ? "top" : ""}">
+              <td class="k">${name}</td>
+              <td class="b">${bar}</td>
+              <td class="v">${fmtPct(p)}</td>
+            </tr>`;
+  }).join("");
+
+  document.getElementById("app").innerHTML = `
+    <p class="needle">${d.needle ?? "—"}</p>
+    <p class="sub">projection: ${d.projection ?? "—"} · in regime since ${d.in_regime_since ?? "—"}</p>
+    <table>${rows}</table>
+    <p class="narr">${d.narrative ?? ""}</p>
+    <footer>as_of ${d.as_of ?? "—"} · schema v${d.schema_version ?? "?"}</footer>`;
+}
+
+fetch("../data/regime.json", { cache: "no-store" })
+  .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+  .then(render)
+  .catch(e => {
+    document.getElementById("app").innerHTML =
+      `<p class="err">could not load ../data/regime.json — ${e.message}</p>`;
+  });
+</script>

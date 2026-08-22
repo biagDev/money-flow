@@ -1,0 +1,78 @@
+{
+ "as_of": "2026-08-14T10:10:00Z",
+ "stale": false,
+ "probabilities": {
+  "expansion": 0.18,
+  "peak": 0.05,
+  "contraction": 0.17,
+  "recovery": 0.6
+ },
+ "needle": "recovery",
+ "projection": "expansion",
+ "projection_basis": "momentum",
+ "in_regime_since": "2026-05-01",
+ "narrative": "Inflation is falling at 1.6% (below the 2% target) while unemployment is creeping up from its lows (4.7%) \u2014 the market is pricing a dovish Fed, which historically marks the RECOVERY phase. Watch: gold \u25b2, stocks bottoming, dollar \u25bc.",
+ "scores": [
+  {
+   "input": "inflation",
+   "value": "PCE 1.6% YoY, \u22120.35pp/3mo",
+   "vote": "contraction",
+   "weight": 0.3,
+   "distribution": {
+    "expansion": 0.0,
+    "peak": 0.0,
+    "contraction": 0.5,
+    "recovery": 0.5
+   }
+  },
+  {
+   "input": "employment",
+   "value": "UNRATE 4.7%, Sahm gap +0.43pp",
+   "vote": "peak",
+   "weight": 0.25,
+   "distribution": {
+    "expansion": 0.0,
+    "peak": 0.5,
+    "contraction": 0.5,
+    "recovery": 0.0
+   }
+  },
+  {
+   "input": "fed_stance",
+   "value": "cutting / priced to cut",
+   "vote": "recovery",
+   "weight": 0.2,
+   "distribution": {
+    "expansion": 0.0,
+    "peak": 0.0,
+    "contraction": 0.4,
+    "recovery": 0.6
+   }
+  },
+  {
+   "input": "yield_curve",
+   "value": "10Y\u22123M +0.95pp, +0.44pp/3mo (steepening post-inversion)",
+   "vote": "contraction",
+   "weight": 0.15,
+   "distribution": {
+    "expansion": 0.0,
+    "peak": 0.0,
+    "contraction": 0.8,
+    "recovery": 0.2
+   }
+  },
+  {
+   "input": "liquidity",
+   "value": "WALCL +3.4%/6mo (expanding, QE-side)",
+   "vote": "recovery",
+   "weight": 0.1,
+   "distribution": {
+    "expansion": 0.5,
+    "peak": 0.0,
+    "contraction": 0.0,
+    "recovery": 0.5
+   }
+  }
+ ],
+ "schema_version": 1
+}

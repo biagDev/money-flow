@@ -1,0 +1,40 @@
+name: update-data
+on:
+  schedule:
+    # Every 30 min, 12:00–22:30 UTC, weekdays (≈ 8:00–18:30 ET during EDT).
+    # Catches 8:30 ET releases within ~30–60 min of FRED ingestion.
+    - cron: "0,30 12-22 * * 1-5"
+    # One overnight run for late updates + non-US data
+    - cron: "15 3 * * 2-6"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-update
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Build data (COT skipped on weekdays intraday)
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python -m pipeline.build --no-cot
+      - name: Validate schemas
+        run: python -m pytest tests/test_schemas.py -q
+      - name: Commit if changed
+        run: |
+          git config user.name "money-flow-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "data: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
