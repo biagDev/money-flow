@@ -1,0 +1,39 @@
+{
+ "id": 8,
+ "slug": "dollar-follows-yields",
+ "title": "Why the dollar follows interest rates",
+ "hook": "What decides whether the dollar goes up or down against other money?",
+ "metaphor": "Two piggy banks sit side by side. One pays 5% a year, one pays 1%. Where would you put a billion dollars?",
+ "body": [
+  "Big money parks where safe savings pay the most.",
+  "To park money in America, you must first buy dollars.",
+  "So when US rates rise faster than elsewhere, the dollar usually rises.",
+  "Most currency moves are this one comparison, repeated all day."
+ ],
+ "live": {
+  "template": "The dollar is {dxy_dir} over 3 months ({dxy_3mo}%), and the market prices about {hike}% odds of a rate rise.",
+  "slots": {
+   "dxy_dir": {
+    "file": "flows.json",
+    "path": "nodes[asset=dollar].trend_3mo",
+    "map": "updown_word"
+   },
+   "dxy_3mo": {
+    "file": "flows.json",
+    "path": "nodes[asset=dollar].trend_3mo",
+    "round": 1
+   },
+   "hike": {
+    "file": "scenarios.json",
+    "path": "market_pricing.hike",
+    "map": "percent",
+    "round": 0
+   }
+  }
+ },
+ "caveat": "Rate gaps explain most currency moves, not all. Trade flows and panics can override them for months.",
+ "see_it": {
+  "module": "flows",
+  "anchor": "dollar"
+ }
+}

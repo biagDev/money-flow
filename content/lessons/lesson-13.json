@@ -1,0 +1,39 @@
+{
+ "id": 13,
+ "slug": "the-bet-not-the-news",
+ "title": "Markets move on the bet, not the announcement",
+ "hook": "The Fed raised rates exactly as expected — so why did nothing move?",
+ "metaphor": "It is like a match everyone already knows the score of. The betting happens for weeks. The final whistle changes nothing.",
+ "body": [
+  "Traders bet on Fed decisions weeks ahead of the meeting.",
+  "Prices adjust as those odds shift, long before the day arrives.",
+  "If the decision matches the bet, prices often barely move.",
+  "The surprise is what moves money, not the announcement itself."
+ ],
+ "live": {
+  "template": "For the next meeting on {next_fomc}, the market prices about {hike}% odds of a rise and {hold}% odds of no change.",
+  "slots": {
+   "next_fomc": {
+    "file": "scenarios.json",
+    "path": "next_fomc"
+   },
+   "hike": {
+    "file": "scenarios.json",
+    "path": "market_pricing.hike",
+    "map": "percent",
+    "round": 0
+   },
+   "hold": {
+    "file": "scenarios.json",
+    "path": "market_pricing.hold",
+    "map": "percent",
+    "round": 0
+   }
+  }
+ },
+ "caveat": "These odds come from futures prices and move every day. They are a live bet, not a forecast.",
+ "see_it": {
+  "module": "scenarios",
+  "anchor": "market_pricing"
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "id": 4,
+ "slug": "markets-move-first",
+ "title": "Markets move before the news arrives",
+ "hook": "The recession started in 2008 — so why did stocks top out in 2007?",
+ "metaphor": "Markets are a room full of people betting on next year's weather. They act on the forecast, not on today's rain.",
+ "body": [
+  "Investors try to guess the economy six to nine months ahead.",
+  "So prices turn before the official numbers turn.",
+  "By the time a recession is announced, markets often already fell.",
+  "This is why waiting for confirmation usually means arriving late."
+ ],
+ "live": {
+  "template": "The needle reads {needle} today, but the momentum is pointing toward {projection}.",
+  "slots": {
+   "needle": {
+    "file": "regime.json",
+    "path": "needle"
+   },
+   "projection": {
+    "file": "regime.json",
+    "path": "projection"
+   }
+  }
+ },
+ "caveat": "Markets guess wrong often. They have predicted far more downturns than actually happened.",
+ "see_it": {
+  "module": "regime",
+  "anchor": "projection"
+ }
+}

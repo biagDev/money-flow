@@ -1,0 +1,57 @@
+{
+ "as_of": "2026-08-14T10:10:00Z",
+ "stale": false,
+ "mood": {
+  "label": "CAUTIOUS",
+  "line": "Prices are rising too fast, so the Fed may raise rates."
+ },
+ "assets": [
+  {
+   "asset": "stocks",
+   "expected": "sideways",
+   "actual": "up",
+   "agree": false,
+   "why": "Stocks tend to stall while the economy loses speed.",
+   "lesson": 10
+  },
+  {
+   "asset": "gold",
+   "expected": "down",
+   "actual": "down",
+   "agree": true,
+   "why": "Gold usually falls while bonds still pay well after inflation.",
+   "lesson": 9
+  },
+  {
+   "asset": "dollar",
+   "expected": "up",
+   "actual": "up",
+   "agree": true,
+   "why": "The dollar usually rises as worried money parks in US savings.",
+   "lesson": 8
+  },
+  {
+   "asset": "bonds",
+   "expected": "up",
+   "actual": "up",
+   "agree": true,
+   "why": "Bond payouts usually rise while prices are still climbing fast.",
+   "lesson": 6
+  }
+ ],
+ "bullets": [
+  "Prices: rising about 4.4% a year. The Fed wants 2%.",
+  "Jobs: hiring is steady at about +180K a month.",
+  "Next big date: Inflation report on Aug 20."
+ ],
+ "next_big_date": {
+  "date": "2026-08-20",
+  "event": "Inflation report",
+  "lesson": 5
+ },
+ "changed": {
+  "recent": true,
+  "line": "The prices picture cooled this month. The mood is now cautious."
+ },
+ "schema_version": 1
+}

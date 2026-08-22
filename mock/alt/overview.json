@@ -1,0 +1,57 @@
+{
+ "as_of": "2026-08-14T10:10:00Z",
+ "stale": false,
+ "mood": {
+  "label": "CLEARING",
+  "line": "The worst looks past. The Fed is lowering rates to help growth."
+ },
+ "assets": [
+  {
+   "asset": "stocks",
+   "expected": "up",
+   "actual": "up",
+   "agree": true,
+   "why": "Money usually flows into stocks while the economy grows.",
+   "lesson": 10
+  },
+  {
+   "asset": "gold",
+   "expected": "up",
+   "actual": "up",
+   "agree": true,
+   "why": "Gold usually climbs when savings pay less after inflation.",
+   "lesson": 9
+  },
+  {
+   "asset": "dollar",
+   "expected": "down",
+   "actual": "down",
+   "agree": true,
+   "why": "The dollar usually falls when money looks abroad for better returns.",
+   "lesson": 8
+  },
+  {
+   "asset": "bonds",
+   "expected": "down",
+   "actual": "down",
+   "agree": true,
+   "why": "Bond payouts usually fall when investors rush to buy safety.",
+   "lesson": 6
+  }
+ ],
+ "bullets": [
+  "Prices: steady at about 1.6% a year. The Fed wants 2%.",
+  "Jobs: companies are cutting about 40K jobs a month.",
+  "Next big date: Jobs report on Sep 4."
+ ],
+ "next_big_date": {
+  "date": "2026-09-04",
+  "event": "Jobs report",
+  "lesson": 13
+ },
+ "changed": {
+  "recent": true,
+  "line": "The Fed picture warmed this month. The mood is now clearing."
+ },
+ "schema_version": 1
+}

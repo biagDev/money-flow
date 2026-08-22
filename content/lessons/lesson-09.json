@@ -1,0 +1,38 @@
+{
+ "id": 9,
+ "slug": "gold-vs-real-yields",
+ "title": "Why gold hates real yields",
+ "hook": "A war just started — so why did gold go DOWN?",
+ "metaphor": "Gold and bonds are two lifeguards applying for the same job: protecting your money from rising prices. The one that pays more gets hired.",
+ "body": [
+  "Bonds pay interest. Gold pays nothing at all.",
+  "So the real question is: after inflation, do bonds still pay something?",
+  "When bonds pay well after inflation, big money picks bonds. Gold falls or sleeps.",
+  "When bonds stop paying after inflation, gold gets the job. That is when it runs."
+ ],
+ "live": {
+  "template": "Right now bonds pay about {real_5y}% after inflation, and gold has been {gold_dir} over the last 3 months ({gold_3mo}%). The seesaw in action.",
+  "slots": {
+   "real_5y": {
+    "file": "evidence.json",
+    "path": "real_yields_gold.real_5y[-1]",
+    "round": 1
+   },
+   "gold_dir": {
+    "file": "flows.json",
+    "path": "nodes[asset=gold].trend_3mo",
+    "map": "updown_word"
+   },
+   "gold_3mo": {
+    "file": "flows.json",
+    "path": "nodes[asset=gold].trend_3mo",
+    "round": 1
+   }
+  }
+ },
+ "caveat": "This is a strong pattern, not a law. Gold has ignored it for stretches — like when central banks were buying tons of it.",
+ "see_it": {
+  "module": "evidence",
+  "anchor": "real_yields_gold"
+ }
+}

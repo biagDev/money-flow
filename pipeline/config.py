@@ -346,4 +346,121 @@ WATCHLIST_REACTION_MAP = {"dollar": "dxy_48h", "gold": "gold_48h", "stocks": "sp
 EVENT_TREND_INVERTED = {"Jobless Claims": True}
 WATCHLIST_RESOLUTION_NOTE = "{label} \u2014 {detail}."
 
+# ---- Layer 1: plain-English overview -------------------------------------
+# VOICE RULES for every string below: <=15 words per sentence, one idea each,
+# no unexplained jargon, rounded numbers, explicit direction (up/down/
+# sideways), "usually"/"tends to" rather than hedging mush.
+
+ENGINE_VERSION = "2.0.0"
+
+# Two families drive the plain-English why-lines.
+REGIME_FAMILY = {"expansion": "growing", "recovery": "growing",
+                 "peak": "slowing", "contraction": "slowing"}
+
+# Ordered rules, first match wins. Worst weather is tested first so a
+# Sahm-triggered labour market can never render as SUNNY.
+MOOD_RULES = [
+    {"mood": "STORMY",   "when": {"needle": ["contraction"]}},
+    {"mood": "STORMY",   "when": {"sahm_triggered": True}},
+    {"mood": "CLEARING", "when": {"needle": ["recovery"]}},
+    {"mood": "CAUTIOUS", "when": {"needle": ["peak"]}},
+    {"mood": "CAUTIOUS", "when": {"bias_hawkish": True, "inflation_above_target": True}},
+    {"mood": "SUNNY",    "when": {"needle": ["expansion"]}},
+]
+MOOD_FALLBACK = "CAUTIOUS"
+MOOD_LINES = {
+    "SUNNY":    "The economy is growing and prices are calm. The Fed can relax.",
+    "CAUTIOUS": "Prices are rising too fast, so the Fed may raise rates.",
+    "STORMY":   "Jobs are weakening and growth is stalling. The Fed may cut rates.",
+    "CLEARING": "The worst looks past. The Fed is lowering rates to help growth.",
+}
+
+# REGIME_EXPECTATIONS speaks in series keys; Layer 1 speaks in asset names.
+OVERVIEW_ASSET_KEYS = {"bonds": "y10_bp", "dollar": "dxy",
+                       "gold": "gold", "stocks": "spx"}
+OVERVIEW_ASSET_ORDER = ["stocks", "gold", "dollar", "bonds"]
+DIRECTION_WORDS = {"up": "up", "down": "down", "flat": "sideways", "na": "sideways"}
+
+# Which lesson explains each asset's driver, and each event class.
+ASSET_LESSON = {"stocks": 10, "gold": 9, "dollar": 8, "bonds": 6}
+EVENT_LESSON_DEFAULT = 13
+EVENT_LESSON = {"FOMC": 13, "CPI": 5, "PCE (Personal Income & Outlays)": 5,
+                "Employment Situation (NFP)": 13}
+
+# Friendly names so bullets never say "Employment Situation".
+EVENT_FRIENDLY_NAMES = {
+    "Employment Situation (NFP)": "jobs report",
+    "CPI": "inflation report",
+    "PCE (Personal Income & Outlays)": "inflation report",
+    "PPI": "producer prices report",
+    "JOLTS": "job openings report",
+    "Jobless Claims": "weekly jobless claims",
+    "GDP": "growth report",
+    "FOMC": "Fed decision",
+}
+
+# (asset, expected-direction, regime-family) -> why line, <=12 words.
+# Phrased as what USUALLY happens, never as a claim about today: the table is
+# keyed on what the regime EXPECTS, while `actual` may differ. "The dollar is
+# falling" next to actual: sideways would contradict the card itself.
+OVERVIEW_ASSET_WHY = {
+    ("stocks", "up", "growing"):      "Money usually flows into stocks while the economy grows.",
+    ("stocks", "down", "growing"):    "Stocks tend to slip even while the economy still grows.",
+    ("stocks", "sideways", "growing"):"Stocks tend to drift while investors wait for a clearer signal.",
+    ("stocks", "up", "slowing"):      "Stocks can keep climbing even as the economy cools.",
+    ("stocks", "down", "slowing"):    "Stocks usually fall as growth slows and profits get harder.",
+    ("stocks", "sideways", "slowing"):"Stocks tend to stall while the economy loses speed.",
+
+    ("gold", "up", "growing"):        "Gold usually climbs when savings pay less after inflation.",
+    ("gold", "down", "growing"):      "Gold usually eases when bonds pay more after inflation.",
+    ("gold", "sideways", "growing"):  "Gold tends to hold steady while inflation and rates balance out.",
+    ("gold", "up", "slowing"):        "Gold usually rises as people look for a safer place.",
+    ("gold", "down", "slowing"):      "Gold usually falls while bonds still pay well after inflation.",
+    ("gold", "sideways", "slowing"):  "Gold tends to sit flat when safety and high rates cancel.",
+
+    ("dollar", "up", "growing"):      "The dollar usually rises when US savings pay more than abroad.",
+    ("dollar", "down", "growing"):    "The dollar usually falls when money looks abroad for better returns.",
+    ("dollar", "sideways", "growing"):"The dollar tends to sit flat while rates here and abroad match.",
+    ("dollar", "up", "slowing"):      "The dollar usually rises as worried money parks in US savings.",
+    ("dollar", "down", "slowing"):    "The dollar usually falls as the Fed moves closer to cutting.",
+    ("dollar", "sideways", "slowing"):"The dollar tends to drift while the next Fed move stays unclear.",
+
+    ("bonds", "up", "growing"):       "Bond payouts usually rise while the economy runs warm.",
+    ("bonds", "down", "growing"):     "Bond payouts usually fall when investors rush to buy safety.",
+    ("bonds", "sideways", "growing"): "Bond payouts tend to sit still while the Fed stays on hold.",
+    ("bonds", "up", "slowing"):       "Bond payouts usually rise while prices are still climbing fast.",
+    ("bonds", "down", "slowing"):     "Bond payouts usually fall as investors expect rate cuts.",
+    ("bonds", "sideways", "slowing"): "Bond payouts tend to drift while the Fed waits and watches.",
+}
+
+OVERVIEW_BULLETS = {
+    "prices":      "Prices: {word} about {level:.1f}% a year. The Fed wants {target:.0f}%.",
+    "prices_flat": "Prices: steady at about {level:.1f}% a year. The Fed wants {target:.0f}%.",
+    "prices_min":  "Prices: the latest reading is not available yet.",
+    "jobs_stress": "Jobs: companies are cutting about {p3:.0f}K jobs a month.",
+    "jobs_soft":   "Jobs: hiring has slowed to about {p3:+.0f}K a month.",
+    "jobs_firm":   "Jobs: hiring is steady at about {p3:+.0f}K a month.",
+    "jobs_unrate": "Jobs: unemployment is about {unrate:.1f}%.",
+    "jobs_min":    "Jobs: the latest reading is not available yet.",
+    "next_date":   "Next big date: {event} on {date}.",
+}
+PRICE_DIRECTION_WORDS = {"up": "rising", "down": "falling", "flat": "holding near"}
+
+OVERVIEW_CHANGED = {
+    "voter":  "The {topic} picture {verb} this month. The mood is now {mood}.",
+    "regime": "The overall read moved to {word} this month. The mood is now {mood}.",
+}
+VOTER_TOPIC = {"inflation": "prices", "employment": "jobs", "fed_stance": "Fed",
+               "yield_curve": "bond market", "liquidity": "money supply"}
+CHANGE_VERBS = {("growing", "slowing"): "cooled", ("slowing", "growing"): "warmed"}
+CHANGE_VERB_DEFAULT = "shifted"
+REGIME_PLAIN_WORDS = {"expansion": "growth", "peak": "a top",
+                      "contraction": "a slowdown", "recovery": "a rebound"}
+OVERVIEW_CHANGED_DAYS = 45      # in_regime_since within this many days counts as recent
+
+# Words that must never reach a reader in simple mode.
+BANNED_JARGON = ["bullish", "bearish", "hawkish", "dovish", "basis point",
+                 "basis-point", "bps"]
+VOICE_MAX_CHARS = 120
+
 SCHEMA_VERSION = 1

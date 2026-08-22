@@ -1,0 +1,37 @@
+{
+ "id": 10,
+ "slug": "stocks-are-risk-appetite",
+ "title": "Stocks measure how brave people feel",
+ "hook": "Why do stocks sometimes rise on bad news about the economy?",
+ "metaphor": "Lending to a lemonade stand gets you fixed interest. Owning a slice gets you a share of the profits. One is safe, one is hopeful.",
+ "body": [
+  "A share is a slice of a real company and its future profits.",
+  "An index like the S&P 500 is a slice of five hundred of them.",
+  "People buy shares when they feel brave and money is easy to get.",
+  "So stocks track confidence and available cash more than today's economy."
+ ],
+ "live": {
+  "template": "Stocks are {spx_dir} about {spx_3mo}% over 3 months, while the engine reads the economy as {needle}.",
+  "slots": {
+   "spx_dir": {
+    "file": "flows.json",
+    "path": "nodes[asset=stocks].trend_3mo",
+    "map": "updown_word"
+   },
+   "spx_3mo": {
+    "file": "flows.json",
+    "path": "nodes[asset=stocks].trend_3mo",
+    "round": 1
+   },
+   "needle": {
+    "file": "regime.json",
+    "path": "needle"
+   }
+  }
+ },
+ "caveat": "A handful of giant companies can carry a whole index. The average share may be doing something else.",
+ "see_it": {
+  "module": "flows",
+  "anchor": "stocks"
+ }
+}

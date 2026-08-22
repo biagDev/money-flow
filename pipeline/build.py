@@ -23,6 +23,7 @@ from .fetch_cot import build_cot
 from .fetch_prices import implied_fed_odds, gold_series
 from . import narrative as nar
 from . import watchlist as wl
+from . import overview as ov
 
 T = config.THRESHOLDS
 
@@ -290,9 +291,15 @@ def build_live(out_dir: Path, do_cot: bool = True) -> None:
         if res:
             e["resolution"] = res
 
+    # --- layer 1: plain-English overview (additive) ---
+    overview = ov.build_overview(
+        d, core, calendar, now=now, bias=bias, pce_now=pce_now, pce_mom=pce_mom,
+        unrate=unrate_now, sahm=sahm, since=since, priced=priced)
+
     changed = []
     for fname, obj in (("regime", regime), ("dials", dials), ("scenarios", scenarios),
-                       ("flows", flows), ("evidence", evidence), ("calendar", calendar)):
+                       ("flows", flows), ("evidence", evidence), ("calendar", calendar),
+                       ("overview", overview)):
         if _write_if_changed(out_dir / f"{fname}.json", obj):
             changed.append(fname)
     print(f"[build] changed: {changed or 'nothing'}")

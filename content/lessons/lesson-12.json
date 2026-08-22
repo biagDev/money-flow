@@ -1,0 +1,33 @@
+{
+ "id": 12,
+ "slug": "four-seasons-of-money",
+ "title": "The four seasons of money",
+ "hook": "Does any of this repeat, or is every year a brand new mess?",
+ "metaphor": "Money has seasons like weather. Growth, then a hot top, then a cold slowdown, then a thaw. The order rarely changes.",
+ "body": [
+  "In growth, jobs are plentiful and shares tend to do well.",
+  "At the top, prices rise fast and the Fed starts pressing the brakes.",
+  "In the slowdown, jobs are lost and safe things do best.",
+  "In the thaw, the Fed helps again and the cycle restarts."
+ ],
+ "live": {
+  "template": "It is currently {needle}, and the engine puts about {prob}% confidence on that read.",
+  "slots": {
+   "needle": {
+    "file": "regime.json",
+    "path": "needle"
+   },
+   "prob": {
+    "file": "regime.json",
+    "path": "probabilities.$needle",
+    "map": "percent",
+    "round": 0
+   }
+  }
+ },
+ "caveat": "Seasons blur at the edges. The engine gives a best guess with odds, not a certainty.",
+ "see_it": {
+  "module": "regime",
+  "anchor": "probabilities"
+ }
+}

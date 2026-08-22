@@ -68,16 +68,32 @@ def _dir_of(value: float | None, flat_band: float) -> str:
     return "up" if value > 0 else "down"
 
 
-def scorecard(regime: str, d: dict, cot: list[dict]) -> dict:
-    exp = config.REGIME_EXPECTATIONS[regime]
-    band = config.SCORECARD_FLAT_BAND
+def asset_moves(d: dict) -> dict:
+    """The 3-month moves for the four assets.
+
+    SINGLE SOURCE OF TRUTH. The Evidence scorecard and the Layer-1 overview
+    both read this. Computing them twice with different windows or bands is
+    how Layer 1 would start contradicting the scorecard, so it must not be
+    reimplemented anywhere.
+    """
     y10 = d.get("y10")
-    moves = {
+    return {
         "y10_bp": (diff_days(y10, 92) or 0) * 100 if y10 is not None else None,
         "dxy": pct_change_days(d.get("dxy_proxy"), 92) if d.get("dxy_proxy") is not None else None,
         "gold": pct_change_days(d.get("gold"), 92) if d.get("gold") is not None else None,
         "spx": pct_change_days(d.get("spx"), 92) if d.get("spx") is not None else None,
     }
+
+
+def move_direction(key: str, value: float | None) -> str:
+    """up | down | flat, using the scorecard's own flat bands."""
+    return _dir_of(value, config.SCORECARD_FLAT_BAND.get(key, 0.0))
+
+
+def scorecard(regime: str, d: dict, cot: list[dict]) -> dict:
+    exp = config.REGIME_EXPECTATIONS[regime]
+    band = config.SCORECARD_FLAT_BAND
+    moves = asset_moves(d)
     gold_cot = next((c for c in cot if c["market"] == "gold"), None)
     moves["cot_gold"] = float(gold_cot["wow_delta"]) if gold_cot else None
 

@@ -1,0 +1,32 @@
+{
+ "id": 7,
+ "slug": "the-recession-alarm",
+ "title": "When short loans pay more than long ones",
+ "hook": "Would you accept less to lend your money for longer? Sometimes the market does.",
+ "metaphor": "Normally a ten-year loan pays more than a three-month one, because waiting is riskier. When that flips, the machine is running backwards.",
+ "body": [
+  "Lending longer should pay more. That is the normal shape.",
+  "Sometimes short loans pay more instead. This is called an inversion.",
+  "It means investors expect rates to be much lower in future.",
+  "They expect that because they expect the economy to weaken."
+ ],
+ "live": {
+  "template": "The gap between 10-year and 3-month lending is about {spread} points, and the shape is {status}.",
+  "slots": {
+   "spread": {
+    "file": "evidence.json",
+    "path": "curve.spread_10y3m.series[-1]",
+    "round": 2
+   },
+   "status": {
+    "file": "evidence.json",
+    "path": "curve.spread_10y3m.status"
+   }
+  }
+ },
+ "caveat": "This is a warning light, not a timer. There are only about 12 past episodes, and the lag has ranged from months to roughly two years.",
+ "see_it": {
+  "module": "evidence",
+  "anchor": "spread_10y3m"
+ }
+}

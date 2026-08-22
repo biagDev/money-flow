@@ -1,0 +1,31 @@
+{
+ "id": 2,
+ "slug": "money-rotates",
+ "title": "Money does not burn — it moves rooms",
+ "hook": "Headlines say a trillion dollars was wiped out. Where did it actually go?",
+ "metaphor": "Picture a house with four rooms: stocks, bonds, gold, and cash. People walk between rooms. The house never loses anybody.",
+ "body": [
+  "When stocks fall hard, that money usually shows up somewhere else.",
+  "Often it moves into bonds or gold, which feel safer.",
+  "So a crash in one place is often a flood into another.",
+  "Watching which room fills up tells you what people are afraid of."
+ ],
+ "live": {
+  "template": "Today money is mostly moving toward {flow_to}. The map shows {edge_count} main paths.",
+  "slots": {
+   "flow_to": {
+    "file": "flows.json",
+    "path": "edges[0].to"
+   },
+   "edge_count": {
+    "file": "flows.json",
+    "path": "edges.length"
+   }
+  }
+ },
+ "caveat": "Some value really does vanish when prices fall. The rotation idea explains direction, not every dollar.",
+ "see_it": {
+  "module": "flows",
+  "anchor": "edges"
+ }
+}

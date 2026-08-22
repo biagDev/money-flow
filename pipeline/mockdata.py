@@ -32,6 +32,34 @@ def _watch(cls, stakes, why, setup, loud, odds=None):
     return {"stakes": stakes, "stakes_why": why, "setup": setup, "branches": branches}
 
 
+def _overview(mood_label, needle, actual, bullets, next_big, changed=None):
+    """Mock Layer-1 payload composed from the REAL config tables.
+
+    Expectations come from config.REGIME_EXPECTATIONS and why-lines from
+    config.OVERVIEW_ASSET_WHY, so a mock can never assert a direction the
+    pipeline would not. Only `actual` is authored, which is what lets a state
+    carry a deliberate agree: false card.
+    """
+    exp = config.REGIME_EXPECTATIONS[needle]
+    family = config.REGIME_FAMILY[needle]
+    assets = []
+    for asset in config.OVERVIEW_ASSET_ORDER:
+        want = config.DIRECTION_WORDS[exp[config.OVERVIEW_ASSET_KEYS[asset]]]
+        got = actual[asset]
+        assets.append({
+            "asset": asset, "expected": want, "actual": got,
+            "agree": want == got,
+            "why": config.OVERVIEW_ASSET_WHY[(asset, want, family)],
+            "lesson": config.ASSET_LESSON[asset],
+        })
+    out = {"as_of": NOW, "stale": False,
+           "mood": {"label": mood_label, "line": config.MOOD_LINES[mood_label]},
+           "assets": assets, "bullets": bullets, "next_big_date": next_big}
+    if changed:
+        out["changed"] = changed
+    return out
+
+
 def _resolution(cls, branch, as_mapped, detail):
     b = config.EVENT_BRANCH_MAPS[cls][branch]
     return {"branch": branch, "branch_label": b["label"], "as_mapped": as_mapped,
@@ -200,6 +228,16 @@ PEAK_STATE = {
             {"says": "Smart money (gold COT) down", "doing": "net reducing w/w", "status": "confirmed"},
         ], "confirmed": 5, "total": 5},
     },
+    "overview": _overview(
+        "CAUTIOUS", "peak",
+        # stocks disagree on purpose: the regime expects a stall, they are rising
+        actual={"stocks": "up", "gold": "down", "dollar": "up", "bonds": "up"},
+        bullets=["Prices: rising about 4.4% a year. The Fed wants 2%.",
+                 "Jobs: hiring is steady at about +180K a month.",
+                 "Next big date: Inflation report on Aug 20."],
+        next_big={"date": "2026-08-20", "event": "Inflation report", "lesson": 5},
+        changed={"recent": True,
+                 "line": "The prices picture cooled this month. The mood is now cautious."}),
     "calendar": {
         "as_of": NOW,
         "next_catalyst": {"date": "2026-08-20", "event": "CPI"},
@@ -374,6 +412,15 @@ RECOVERY_STATE = {
             {"says": "Smart money (gold COT) up", "doing": "net adding w/w", "status": "confirmed"},
         ], "confirmed": 5, "total": 5},
     },
+    "overview": _overview(
+        "CLEARING", "recovery",
+        actual={"stocks": "up", "gold": "up", "dollar": "down", "bonds": "down"},
+        bullets=["Prices: steady at about 1.6% a year. The Fed wants 2%.",
+                 "Jobs: companies are cutting about 40K jobs a month.",
+                 "Next big date: Jobs report on Sep 4."],
+        next_big={"date": "2026-09-04", "event": "Jobs report", "lesson": 13},
+        changed={"recent": True,
+                 "line": "The Fed picture warmed this month. The mood is now clearing."}),
     # Deliberately NOT a reference to PEAK_STATE["calendar"]: with cuts priced
     # the loud branch flips to the hot/strong side, and one event resolves
     # AGAINST its map. Swapping mock/ -> mock/alt/ must re-render both.

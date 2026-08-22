@@ -1,0 +1,33 @@
+{
+ "id": 6,
+ "slug": "bonds-are-the-boss",
+ "title": "Bonds are the market that bosses the others",
+ "hook": "Everyone talks about stocks. So why do professionals watch bonds instead?",
+ "metaphor": "A bond is an IOU with a tip attached. You lend money, and you get paid a little extra for waiting.",
+ "body": [
+  "That tip is called the yield. It is the price of borrowing money.",
+  "Every other price is judged against it. Why own anything paying less?",
+  "So when bond yields move, stocks, gold, and the dollar all react.",
+  "Learn bonds first and the rest of the map gets easier."
+ ],
+ "live": {
+  "template": "Lending to the government for 10 years pays about {y10}% today. Three months pays about {y3m}%.",
+  "slots": {
+   "y10": {
+    "file": "evidence.json",
+    "path": "curve.today[m=10Y].y",
+    "round": 2
+   },
+   "y3m": {
+    "file": "evidence.json",
+    "path": "curve.today[m=3M].y",
+    "round": 2
+   }
+  }
+ },
+ "caveat": "Yields also move on supply, foreign buying, and panic — not only on Fed expectations.",
+ "see_it": {
+  "module": "evidence",
+  "anchor": "curve"
+ }
+}

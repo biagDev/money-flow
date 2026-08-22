@@ -1,0 +1,226 @@
+{
+ "schema_version": 1,
+ "count": 44,
+ "terms": [
+  {
+   "term": "yield",
+   "plain": "The extra money a loan pays you for waiting.",
+   "lesson": 6
+  },
+  {
+   "term": "bond",
+   "plain": "An IOU: you lend money and get paid interest for waiting.",
+   "lesson": 6
+  },
+  {
+   "term": "the Fed",
+   "plain": "The US central bank. It sets the country's main interest rate.",
+   "lesson": 5
+  },
+  {
+   "term": "interest rate",
+   "plain": "The price of borrowing money, given as a percent per year.",
+   "lesson": 5
+  },
+  {
+   "term": "inflation",
+   "plain": "How fast prices rise. At 3%, things cost 3% more than last year.",
+   "lesson": 5
+  },
+  {
+   "term": "PCE",
+   "plain": "The Fed's favourite measure of how fast prices are rising.",
+   "lesson": 5
+  },
+  {
+   "term": "CPI",
+   "plain": "The best known measure of how fast shop prices are rising.",
+   "lesson": 5
+  },
+  {
+   "term": "PPI",
+   "plain": "How fast prices are rising for producers, before they reach shops.",
+   "lesson": 5
+  },
+  {
+   "term": "unemployment rate",
+   "plain": "The share of people who want a job but do not have one.",
+   "lesson": 5
+  },
+  {
+   "term": "jobs report",
+   "plain": "A monthly count of how many jobs America added or lost.",
+   "lesson": 13
+  },
+  {
+   "term": "NFP",
+   "plain": "Short for the monthly jobs count. It means non-farm payrolls.",
+   "lesson": 13
+  },
+  {
+   "term": "payrolls",
+   "plain": "The number of people on company payrolls, counted each month.",
+   "lesson": 13
+  },
+  {
+   "term": "jobless claims",
+   "plain": "A weekly count of people newly asking for unemployment support.",
+   "lesson": 13
+  },
+  {
+   "term": "JOLTS",
+   "plain": "A monthly count of how many job openings employers have posted.",
+   "lesson": 13
+  },
+  {
+   "term": "GDP",
+   "plain": "The total value of everything a country produces in a year.",
+   "lesson": 3
+  },
+  {
+   "term": "yield curve",
+   "plain": "A line showing what loans pay at different lengths of time.",
+   "lesson": 7
+  },
+  {
+   "term": "inversion",
+   "plain": "When short loans pay more than long ones. A recession warning light.",
+   "lesson": 7
+  },
+  {
+   "term": "real yield",
+   "plain": "What a bond pays after you subtract inflation. The number gold competes with.",
+   "lesson": 9
+  },
+  {
+   "term": "basis point",
+   "plain": "One hundredth of a percent. Fifty of them make half a percent.",
+   "lesson": 6
+  },
+  {
+   "term": "spread",
+   "plain": "The gap between two rates, such as long loans minus short ones.",
+   "lesson": 7
+  },
+  {
+   "term": "safe haven",
+   "plain": "Something people buy when they are scared, like gold or government bonds.",
+   "lesson": 9
+  },
+  {
+   "term": "risk appetite",
+   "plain": "How willing people feel about owning risky things like shares.",
+   "lesson": 10
+  },
+  {
+   "term": "QE",
+   "plain": "The Fed creating money to buy bonds. Think of a money hose turned on.",
+   "lesson": 3
+  },
+  {
+   "term": "QT",
+   "plain": "The Fed taking money back out. The money hose turned off.",
+   "lesson": 3
+  },
+  {
+   "term": "balance sheet",
+   "plain": "How much the Fed owns. It grows with the money hose on.",
+   "lesson": 3
+  },
+  {
+   "term": "COT",
+   "plain": "A weekly report showing what the largest traders are betting on.",
+   "lesson": 14
+  },
+  {
+   "term": "smart money",
+   "plain": "The largest traders, who must report their bets once a week.",
+   "lesson": 14
+  },
+  {
+   "term": "net position",
+   "plain": "Bets on prices rising minus bets on prices falling.",
+   "lesson": 14
+  },
+  {
+   "term": "percentile",
+   "plain": "Where today sits against history. The 90th means higher than 90% of the past.",
+   "lesson": 14
+  },
+  {
+   "term": "regime",
+   "plain": "Which season money is in: growth, top, slowdown, or thaw.",
+   "lesson": 12
+  },
+  {
+   "term": "recession",
+   "plain": "A stretch where the economy shrinks instead of growing.",
+   "lesson": 3
+  },
+  {
+   "term": "FOMC",
+   "plain": "The Fed meeting where the interest rate decision is made.",
+   "lesson": 13
+  },
+  {
+   "term": "VIX",
+   "plain": "The price of insurance against stocks falling. It rises when people are scared.",
+   "lesson": 11
+  },
+  {
+   "term": "dollar index",
+   "plain": "How the US dollar is doing against a basket of other currencies.",
+   "lesson": 8
+  },
+  {
+   "term": "S&P 500",
+   "plain": "A basket of 500 large US companies, used to track the whole market.",
+   "lesson": 10
+  },
+  {
+   "term": "hawkish",
+   "plain": "Leaning toward raising rates to fight rising prices.",
+   "lesson": 5
+  },
+  {
+   "term": "dovish",
+   "plain": "Leaning toward lowering rates to protect jobs.",
+   "lesson": 5
+  },
+  {
+   "term": "priced in",
+   "plain": "Already reflected in today's price, because people expected it.",
+   "lesson": 13
+  },
+  {
+   "term": "futures",
+   "plain": "A deal to buy or sell later at a price agreed today.",
+   "lesson": 13
+  },
+  {
+   "term": "Sahm rule",
+   "plain": "A jobs alarm: it fires when unemployment drifts up off its recent low.",
+   "lesson": 5
+  },
+  {
+   "term": "momentum",
+   "plain": "How fast a number is changing, not just where it sits today.",
+   "lesson": 1
+  },
+  {
+   "term": "volatility",
+   "plain": "How much a price jumps around.",
+   "lesson": 11
+  },
+  {
+   "term": "liquidity",
+   "plain": "How much spare money is sloshing around looking for a home.",
+   "lesson": 3
+  },
+  {
+   "term": "correlation",
+   "plain": "How often two things move together. It is a tendency, never a rule.",
+   "lesson": 9
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "id": 14,
+ "slug": "smart-money-cot",
+ "title": "The big players must show their cards",
+ "hook": "Is there any way to see what the largest traders are actually doing?",
+ "metaphor": "Once a week the biggest players at the table have to turn their hands face up. You get to look, but only at last Tuesday's hand.",
+ "body": [
+  "Large traders must report their positions to a US regulator.",
+  "The report shows whether they are betting on prices up or down.",
+  "When almost everyone is on one side, that side gets crowded.",
+  "Crowded bets can unwind fast when the news turns."
+ ],
+ "live": {
+  "template": "Big traders are currently {gold_side} on gold, sitting near the {gold_pctile}th percentile of the last three years.",
+  "slots": {
+   "gold_side": {
+    "file": "evidence.json",
+    "path": "cot[market=gold].current",
+    "map": "longshort_word"
+   },
+   "gold_pctile": {
+    "file": "evidence.json",
+    "path": "cot[market=gold].pctile_3yr",
+    "round": 0
+   }
+  }
+ },
+ "caveat": "The data is published Friday for positions held the previous Tuesday. It is context, never a trigger.",
+ "see_it": {
+  "module": "evidence",
+  "anchor": "cot"
+ }
+}

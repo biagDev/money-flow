@@ -1,0 +1,90 @@
+{
+ "schema_version": 1,
+ "count": 14,
+ "lessons": [
+  {
+   "id": 1,
+   "slug": "why-trends-exist",
+   "title": "Why do trends even exist?",
+   "hook": "If everyone can see the news at once, why does price drift for weeks?"
+  },
+  {
+   "id": 2,
+   "slug": "money-rotates",
+   "title": "Money does not burn — it moves rooms",
+   "hook": "Headlines say a trillion dollars was wiped out. Where did it actually go?"
+  },
+  {
+   "id": 3,
+   "slug": "the-economy-breathes",
+   "title": "The economy breathes in and out",
+   "hook": "Why can't the good times just keep going forever?"
+  },
+  {
+   "id": 4,
+   "slug": "markets-move-first",
+   "title": "Markets move before the news arrives",
+   "hook": "The recession started in 2008 — so why did stocks top out in 2007?"
+  },
+  {
+   "id": 5,
+   "slug": "the-feds-two-jobs",
+   "title": "The Fed only reads two numbers",
+   "hook": "The world economy is huge. How can two numbers run the whole thing?"
+  },
+  {
+   "id": 6,
+   "slug": "bonds-are-the-boss",
+   "title": "Bonds are the market that bosses the others",
+   "hook": "Everyone talks about stocks. So why do professionals watch bonds instead?"
+  },
+  {
+   "id": 7,
+   "slug": "the-recession-alarm",
+   "title": "When short loans pay more than long ones",
+   "hook": "Would you accept less to lend your money for longer? Sometimes the market does."
+  },
+  {
+   "id": 8,
+   "slug": "dollar-follows-yields",
+   "title": "Why the dollar follows interest rates",
+   "hook": "What decides whether the dollar goes up or down against other money?"
+  },
+  {
+   "id": 9,
+   "slug": "gold-vs-real-yields",
+   "title": "Why gold hates real yields",
+   "hook": "A war just started — so why did gold go DOWN?"
+  },
+  {
+   "id": 10,
+   "slug": "stocks-are-risk-appetite",
+   "title": "Stocks measure how brave people feel",
+   "hook": "Why do stocks sometimes rise on bad news about the economy?"
+  },
+  {
+   "id": 11,
+   "slug": "the-price-of-fear",
+   "title": "The VIX is the price of fear insurance",
+   "hook": "Can you actually measure how scared the market is?"
+  },
+  {
+   "id": 12,
+   "slug": "four-seasons-of-money",
+   "title": "The four seasons of money",
+   "hook": "Does any of this repeat, or is every year a brand new mess?"
+  },
+  {
+   "id": 13,
+   "slug": "the-bet-not-the-news",
+   "title": "Markets move on the bet, not the announcement",
+   "hook": "The Fed raised rates exactly as expected — so why did nothing move?"
+  },
+  {
+   "id": 14,
+   "slug": "smart-money-cot",
+   "title": "The big players must show their cards",
+   "hook": "Is there any way to see what the largest traders are actually doing?"
+  }
+ ]
+}

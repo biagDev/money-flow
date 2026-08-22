@@ -1,0 +1,53 @@
+{
+ "as_of": "2026-08-22T12:59:06Z",
+ "stale": false,
+ "mood": {
+  "label": "CAUTIOUS",
+  "line": "Prices are rising too fast, so the Fed may raise rates."
+ },
+ "assets": [
+  {
+   "asset": "stocks",
+   "expected": "up",
+   "actual": "up",
+   "agree": true,
+   "why": "Money usually flows into stocks while the economy grows.",
+   "lesson": 10
+  },
+  {
+   "asset": "gold",
+   "expected": "up",
+   "actual": "up",
+   "agree": true,
+   "why": "Gold usually climbs when savings pay less after inflation.",
+   "lesson": 9
+  },
+  {
+   "asset": "dollar",
+   "expected": "down",
+   "actual": "sideways",
+   "agree": false,
+   "why": "The dollar usually falls when money looks abroad for better returns.",
+   "lesson": 8
+  },
+  {
+   "asset": "bonds",
+   "expected": "up",
+   "actual": "sideways",
+   "agree": false,
+   "why": "Bond payouts usually rise while the economy runs warm.",
+   "lesson": 6
+  }
+ ],
+ "bullets": [
+  "Prices: steady at about 3.7% a year. The Fed wants 2%.",
+  "Jobs: hiring has slowed to about +20K a month.",
+  "Next big date: Jobs report on Sep 4."
+ ],
+ "next_big_date": {
+  "date": "2026-09-04",
+  "event": "Jobs report",
+  "lesson": 13
+ },
+ "schema_version": 1
+}

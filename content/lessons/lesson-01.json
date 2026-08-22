@@ -1,0 +1,33 @@
+{
+ "id": 1,
+ "slug": "why-trends-exist",
+ "title": "Why do trends even exist?",
+ "hook": "If everyone can see the news at once, why does price drift for weeks?",
+ "metaphor": "Imagine buying every apple in the country. You cannot do it in one go. You buy a truckload a day for weeks, and the price creeps up the whole time.",
+ "body": [
+  "Big funds move billions. There is never enough for sale at one price.",
+  "So they buy a slice at a time, quietly, for weeks or months.",
+  "That slow steady buying is what you see as a trend.",
+  "This is why a direction can last long after the news that started it."
+ ],
+ "live": {
+  "template": "Right now stocks are {spx_dir} over the last 3 months ({spx_3mo}%). That is one of these slow moves in progress.",
+  "slots": {
+   "spx_dir": {
+    "file": "flows.json",
+    "path": "nodes[asset=stocks].trend_3mo",
+    "map": "updown_word"
+   },
+   "spx_3mo": {
+    "file": "flows.json",
+    "path": "nodes[asset=stocks].trend_3mo",
+    "round": 1
+   }
+  }
+ },
+ "caveat": "Trends end without warning. A long move is not a promise the next day goes the same way.",
+ "see_it": {
+  "module": "flows",
+  "anchor": "nodes"
+ }
+}

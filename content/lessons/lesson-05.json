@@ -1,0 +1,38 @@
+{
+ "id": 5,
+ "slug": "the-feds-two-jobs",
+ "title": "The Fed only reads two numbers",
+ "hook": "The world economy is huge. How can two numbers run the whole thing?",
+ "metaphor": "The Fed is a thermostat with two readings: how fast prices rise, and how many people have jobs. Too hot, turn it down. Too cold, turn it up.",
+ "body": [
+  "Job one is keeping prices from rising too fast.",
+  "Job two is keeping as many people employed as possible.",
+  "Raising rates cools prices but costs jobs. Lowering rates does the opposite.",
+  "Almost every big money move starts with this one trade-off."
+ ],
+ "live": {
+  "template": "Prices are running about {pce}% a year against a {target}% goal, and unemployment is about {unrate}%.",
+  "slots": {
+   "pce": {
+    "file": "dials.json",
+    "path": "inflation.pce_yoy",
+    "round": 1
+   },
+   "target": {
+    "file": "dials.json",
+    "path": "inflation.target",
+    "round": 0
+   },
+   "unrate": {
+    "file": "dials.json",
+    "path": "employment.unrate",
+    "round": 1
+   }
+  }
+ },
+ "caveat": "The Fed watches far more than two numbers. These two just explain most of what it does.",
+ "see_it": {
+  "module": "dials",
+  "anchor": "verdict"
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "id": 11,
+ "slug": "the-price-of-fear",
+ "title": "The VIX is the price of fear insurance",
+ "hook": "Can you actually measure how scared the market is?",
+ "metaphor": "It is storm insurance for a portfolio. When the sky darkens, everyone wants a policy at once, so the price of policies jumps.",
+ "body": [
+  "Investors buy contracts that pay out if stocks fall.",
+  "The VIX tracks what those contracts cost right now.",
+  "A high VIX means people are paying a lot to feel safe.",
+  "Fear spikes hard and fades slowly. Calm is the normal state."
+ ],
+ "live": {
+  "template": "The engine reads the mood as {mood} today, and stocks are {spx_dir} over 3 months.",
+  "slots": {
+   "mood": {
+    "file": "overview.json",
+    "path": "mood.label"
+   },
+   "spx_dir": {
+    "file": "flows.json",
+    "path": "nodes[asset=stocks].trend_3mo",
+    "map": "updown_word"
+   }
+  }
+ },
+ "caveat": "You cannot hold fear insurance cheaply for long. These contracts expire and must be replaced, which slowly eats returns.",
+ "see_it": {
+  "module": "flows",
+  "anchor": "stocks"
+ }
+}

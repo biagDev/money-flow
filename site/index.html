@@ -43,11 +43,42 @@
   footer { color:#4b5361; font-size:.75rem; border-top:1px solid #1a1e26;
            padding-top:1rem; margin-top:2.5rem; }
   .err { color:#ff6b6b; }
+  .mood { font-size:.7rem; letter-spacing:.2em; padding:.15rem .5rem; border-radius:3px;
+          text-transform:uppercase; }
+  .mood.SUNNY { background:#1d3a24; color:#7dd3a0; }
+  .mood.CAUTIOUS { background:#3d3315; color:#ffc866; }
+  .mood.STORMY { background:#4a1d1d; color:#ff8f8f; }
+  .mood.CLEARING { background:#173040; color:#6fc3e8; }
+  .moodline { color:#c3cad6; margin:.6rem 0 1.5rem; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+           gap:.6rem; margin:0 0 1.5rem; }
+  .card { border:1px solid #1a1e26; border-radius:4px; padding:.7rem .85rem; }
+  .card.disagree { border-color:#5a3a12; }
+  .card .nm { color:#9aa4b2; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; }
+  .arrows { font-size:1.05rem; margin:.25rem 0; }
+  .arrows .exp { color:#69727f; } .arrows .act { color:#e6e9ef; }
+  .flag { font-size:.66rem; letter-spacing:.1em; }
+  .flag.ok { color:#7dd3a0; } .flag.no { color:#ffb454; }
+  .card .why { color:#9aa4b2; font-size:.8rem; margin-top:.35rem; }
+  ul.bul { margin:0 0 1.25rem; padding-left:1.1rem; color:#c3cad6; }
+  ul.bul li { margin:.25rem 0; }
+  .chg { border-left:2px solid #ffb454; padding-left:.75rem; color:#ffc866;
+         font-size:.85rem; margin:0 0 1.5rem; }
+  .lesson { border:1px solid #1a1e26; border-radius:4px; padding:.9rem 1rem; }
+  .lesson h3 { margin:0 0 .3rem; font-size:.95rem; color:#e6e9ef; font-weight:500; }
+  .lesson .hk { color:#ffc866; font-size:.85rem; margin:0 0 .6rem; }
+  .lesson .mt { color:#9aa4b2; font-size:.82rem; font-style:italic; margin:0 0 .6rem; }
+  .lesson .bd { color:#c3cad6; font-size:.82rem; margin:.2rem 0; }
+  .lesson .lv { border-left:2px solid #4f9dff; padding-left:.75rem; color:#e6e9ef;
+                font-size:.82rem; margin:.75rem 0; }
+  .lesson .cv { color:#69727f; font-size:.78rem; margin-top:.6rem; }
 </style>
 <main>
   <h1>Money Flow — placeholder</h1>
+  <div id="layer1"></div>
   <div id="app">loading…</div>
   <div id="watch"></div>
+  <div id="learn"></div>
 </main>
 <script>
 const BARW = 28;
@@ -134,6 +165,96 @@ function renderWatch(cal) {
   document.getElementById("watch").innerHTML = out.join("");
 }
 
+// ---- Layer 1 ----------------------------------------------------------
+const ARROW = { up: "\u2191", down: "\u2193", sideways: "\u2192" };
+
+function renderOverview(o) {
+  const cards = (o.assets || []).map(a => `
+    <div class="card ${a.agree ? "" : "disagree"}">
+      <div class="nm">${esc(a.asset)}</div>
+      <div class="arrows">
+        <span class="exp">expected ${ARROW[a.expected] ?? "?"}</span>
+        &nbsp;&nbsp;<span class="act">actual ${ARROW[a.actual] ?? "?"}</span>
+      </div>
+      <div class="flag ${a.agree ? "ok" : "no"}">
+        ${a.agree ? "AS EXPECTED \u2713" : "NOT AS EXPECTED \u2717"}
+      </div>
+      <div class="why">${esc(a.why)}</div>
+    </div>`).join("");
+
+  const nbd = o.next_big_date;
+  document.getElementById("layer1").innerHTML = `
+    <span class="mood ${esc(o.mood?.label)}">${esc(o.mood?.label)}</span>
+    <p class="moodline">${esc(o.mood?.line)}</p>
+    <div class="cards">${cards}</div>
+    ${o.changed ? `<p class="chg">${esc(o.changed.line)}</p>` : ""}
+    <ul class="bul">${(o.bullets || []).map(b => `<li>${esc(b)}</li>`).join("")}</ul>
+    ${nbd ? `<p class="sub">Next big date: ${esc(nbd.event)} on ${esc(nbd.date)}
+             &middot; lesson ${esc(nbd.lesson)}</p>` : ""}`;
+}
+
+// ---- lesson slot resolver (mirrors pipeline/lessons.py) ----------------
+const MAPS = {
+  updown_word: v => v == null ? null : v > 0 ? "up" : v < 0 ? "down" : "sideways",
+  percent: v => v == null ? null : v * 100,
+  longshort_word: v => v == null ? null
+    : v > 0 ? "betting on higher prices" : "betting on lower prices",
+};
+
+function resolvePath(root, path) {
+  let node = root;
+  for (const step of path.split(".")) {
+    if (node == null) return null;
+    const m = /^([^\[]+)?(?:\[(.+)\])?$/.exec(step);
+    if (!m) return null;
+    const [, name, sel] = m;
+    if (name) {
+      if (name === "length") { node = Array.isArray(node) ? node.length : null; continue; }
+      if (name.startsWith("$")) {
+        const key = resolvePath(root, name.slice(1));
+        node = (key == null) ? null : node?.[key];
+      } else node = node?.[name];
+    }
+    if (sel == null || node == null) continue;
+    if (!Array.isArray(node)) return null;
+    if (/^-?\d+$/.test(sel)) {
+      const i = Number(sel);
+      node = i < 0 ? node[node.length + i] : node[i];
+    } else if (sel.includes("=")) {
+      const [k, want] = sel.split("=");
+      node = node.find(x => String(x?.[k]) === want) ?? null;
+    } else return null;
+  }
+  return node ?? null;
+}
+
+function resolveLesson(lesson, files) {
+  const live = lesson.live || {};
+  const vals = {};
+  for (const [name, spec] of Object.entries(live.slots || {})) {
+    let v = resolvePath(files[spec.file] ?? null, spec.path);
+    if (spec.map && MAPS[spec.map]) v = MAPS[spec.map](v);
+    if (v != null && spec.round != null && typeof v === "number") {
+      v = spec.round === 0 ? Math.round(v) : Number(v.toFixed(spec.round));
+    }
+    vals[name] = v == null ? "\u2014" : v;
+  }
+  return (live.template || "").replace(/\{(\w+)\}/g, (_, k) => esc(vals[k] ?? "\u2014"));
+}
+
+function renderLesson(lesson, files) {
+  document.getElementById("learn").innerHTML = `
+    <h2>Learn \u00b7 lesson ${esc(lesson.id)}</h2>
+    <div class="lesson">
+      <h3>${esc(lesson.title)}</h3>
+      <p class="hk">${esc(lesson.hook)}</p>
+      <p class="mt">${esc(lesson.metaphor)}</p>
+      ${(lesson.body || []).map(b => `<p class="bd">${esc(b)}</p>`).join("")}
+      <p class="lv">${resolveLesson(lesson, files)}</p>
+      <p class="cv">${esc(lesson.caveat)}</p>
+    </div>`;
+}
+
 const grab = p => fetch(p, { cache: "no-store" })
   .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); });
 
@@ -147,4 +268,20 @@ grab("../data/regime.json")
 // the watchlist is additive: if calendar.json is missing or has no watch
 // objects, the page above still renders exactly as before
 grab("../data/calendar.json").then(renderWatch).catch(() => {});
+
+// Layer 1 + a live-hydrated lesson, proving the slot grammar end to end
+grab("../data/overview.json").then(renderOverview).catch(() => {});
+Promise.all([
+  grab("../content/lessons/lesson-09.json"),
+  grab("../data/evidence.json"),
+  grab("../data/flows.json"),
+  grab("../data/regime.json"),
+  grab("../data/scenarios.json"),
+  grab("../data/overview.json"),
+]).then(([lesson, evidence, flows, regime, scenarios, overview]) =>
+  renderLesson(lesson, {
+    "evidence.json": evidence, "flows.json": flows, "regime.json": regime,
+    "scenarios.json": scenarios, "overview.json": overview,
+  })
+).catch(() => {});
 </script>

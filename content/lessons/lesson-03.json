@@ -1,0 +1,31 @@
+{
+ "id": 3,
+ "slug": "the-economy-breathes",
+ "title": "The economy breathes in and out",
+ "hook": "Why can't the good times just keep going forever?",
+ "metaphor": "Borrowing is like a breath in. You get more to spend today. Paying it back is the breath out, and you spend less for a while.",
+ "body": [
+  "Cheap loans let people and companies spend more than they earn.",
+  "That extra spending is somebody else's income, so everything speeds up.",
+  "Eventually the loans must be paid back, and spending slows.",
+  "Whole economies do this over years. That is the cycle."
+ ],
+ "live": {
+  "template": "The engine reads the economy as {needle} right now, and it has looked that way since {since}.",
+  "slots": {
+   "needle": {
+    "file": "regime.json",
+    "path": "needle"
+   },
+   "since": {
+    "file": "regime.json",
+    "path": "in_regime_since"
+   }
+  }
+ },
+ "caveat": "Cycles do not run on a timetable. They stretch and shrink, so never count on a date.",
+ "see_it": {
+  "module": "regime",
+  "anchor": "needle"
+ }
+}
