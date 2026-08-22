@@ -72,7 +72,7 @@ def fetch_all(start: str = "1990-01-01") -> dict[str, pd.Series]:
 
 def fetch_release_dates(release_id: int, lookahead_days: int) -> list[str]:
     """Upcoming scheduled release dates from FRED's release calendar."""
-    today = pd.Timestamp.utcnow().date()
+    today = pd.Timestamp.now(tz="UTC").date()
     r = requests.get(
         f"{config.FRED_BASE}/release/dates",
         params={"release_id": release_id, "api_key": _api_key(),

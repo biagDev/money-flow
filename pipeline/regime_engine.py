@@ -168,7 +168,7 @@ VOTERS = {
 # ---- engine --------------------------------------------------------------
 def compute(d: dict, asof: pd.Timestamp | None = None,
             priced: dict | None = None) -> dict:
-    asof = asof or pd.Timestamp.utcnow().tz_localize(None)
+    asof = asof or pd.Timestamp.now(tz="UTC").tz_localize(None)
     probs = {r: 0.0 for r in R}
     scores = []
     for name, fn in VOTERS.items():
@@ -189,7 +189,7 @@ def compute(d: dict, asof: pd.Timestamp | None = None,
 
 def projection(d: dict, current: dict, priced: dict | None = None) -> str:
     """Regime whose probability momentum is strongest over the lag window."""
-    now = pd.Timestamp.utcnow().tz_localize(None)
+    now = pd.Timestamp.now(tz="UTC").tz_localize(None)
     lags = config.THRESHOLDS["projection_lags_months"]
     oldest = compute(d, now - pd.DateOffset(months=max(lags)), priced)
     momentum = {r: current["probabilities"][r] - oldest["probabilities"][r] for r in R}
@@ -201,7 +201,7 @@ def projection(d: dict, current: dict, priced: dict | None = None) -> str:
 
 def in_regime_since(d: dict, current_needle: str, priced: dict | None = None,
                     max_back_months: int = 60) -> str:
-    now = pd.Timestamp.utcnow().tz_localize(None)
+    now = pd.Timestamp.now(tz="UTC").tz_localize(None)
     since = now
     for m in range(1, max_back_months + 1):
         t = now - pd.DateOffset(months=m)

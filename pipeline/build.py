@@ -23,6 +23,8 @@ from .fetch_cot import build_cot
 from .fetch_prices import implied_fed_odds, gold_series
 from . import narrative as nar
 
+T = config.THRESHOLDS
+
 ROOT = Path(__file__).parent.parent
 DATA = ROOT / "data"
 FOMC_FILE = ROOT / "pipeline" / "fomc_dates.json"
@@ -54,7 +56,7 @@ def _write_if_changed(path: Path, obj: dict) -> bool:
 
 
 def next_fomc(fomc_dates: list[str]) -> str | None:
-    today = str(pd.Timestamp.utcnow().date())
+    today = str(pd.Timestamp.now(tz="UTC").date())
     fut = [f for f in sorted(fomc_dates) if f >= today]
     return fut[0] if fut else None
 
@@ -86,7 +88,8 @@ def build_live(out_dir: Path, do_cot: bool = True) -> None:
     sahm = (float(u.iloc[-3:].mean()) - float(u.iloc[-12:].min())) if u is not None and len(u) >= 12 else 0.0
     infl_desc = nar._infl_desc(pce_now, pce_mom)
     emp_desc = nar._emp_desc(unrate_now, sahm)
-    bias = nar.fed_bias(bool(pce_now and pce_now > 2.0), bool(pce_mom and pce_mom > 0.15), sahm)
+    bias = nar.fed_bias(bool(pce_now and pce_now > T["inflation_target"]),
+                        bool(pce_mom and pce_mom > T["inflation_momentum"]), sahm)
 
     regime = {
         "as_of": now, "stale": False,
@@ -110,8 +113,9 @@ def build_live(out_dir: Path, do_cot: bool = True) -> None:
             "cpi_yoy": round(float(cpi_y.iloc[-1]), 2) if len(cpi_y) else None,
             "target": config.THRESHOLDS["inflation_target"],
             "trend_3mo": round(pce_mom, 2) if pce_mom is not None else None,
-            "direction": ("rising" if (pce_mom or 0) > 0.15
-                          else "falling" if (pce_mom or 0) < -0.15 else "flat"),
+            "direction": ("rising" if (pce_mom or 0) > T["inflation_momentum"]
+                          else "falling" if (pce_mom or 0) < -T["inflation_momentum"]
+                          else "flat"),
             "sub": {
                 "ppi_yoy": round(float(ppi_y.iloc[-1]), 2) if len(ppi_y) else None,
                 "breakeven_5y": last(d.get("breakeven_5y")),
@@ -121,8 +125,8 @@ def build_live(out_dir: Path, do_cot: bool = True) -> None:
         },
         "employment": {
             "unrate": unrate_now,
-            "direction": ("stressed" if sahm >= 0.5
-                          else "softening" if sahm >= 0.2 else "stable"),
+            "direction": ("stressed" if sahm >= T["sahm_trigger"]
+                          else "softening" if sahm >= T["sahm_warning"] else "stable"),
             "sub": {
                 "nfp": {"actual": int(nfp.iloc[-1]) if len(nfp) else None},
                 "claims_4wk": round(float(claims.iloc[-4:].mean()) / 1000, 0)
@@ -134,9 +138,10 @@ def build_live(out_dir: Path, do_cot: bool = True) -> None:
             "bias": bias,
             "lines": [
                 {"dial": "inflation", "reading": infl_desc,
-                 "implication": "argues HIKE/HOLD" if (pce_now or 0) > 2 else "argues CUT/HOLD"},
+                 "implication": ("argues HIKE/HOLD" if (pce_now or 0) > T["inflation_target"]
+                                 else "argues CUT/HOLD")},
                 {"dial": "employment", "reading": emp_desc,
-                 "implication": ("forces the Fed dovish" if sahm >= 0.5
+                 "implication": ("forces the Fed dovish" if sahm >= T["sahm_trigger"]
                                  else "gives the Fed room to be hawkish")},
             ],
         },
@@ -214,8 +219,9 @@ def build_live(out_dir: Path, do_cot: bool = True) -> None:
     inverted_recent = bool(sp is not None and len(sp.dropna()) >= 260
                            and float(sp.dropna().iloc[-260:].min()) < 0)
     curve_status = ("inverted" if (sp_level or 1) < 0 else
-                    "steepening_post_inversion" if inverted_recent and (sp_slope or 0) > 0.25 else
-                    "flattening" if (sp_level or 1) < 0.5 else "normal")
+                    "steepening_post_inversion"
+                    if inverted_recent and (sp_slope or 0) > T["curve_steepen_3mo"] else
+                    "flattening" if (sp_level or 1) < T["curve_flat"] else "normal")
 
     cot = build_cot() if do_cot else _load_prev_cot(out_dir)
     real5, gold = d.get("real_5y"), d.get("gold")

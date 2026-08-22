@@ -19,7 +19,8 @@ REGIME_TITLE = {"expansion": "EXPANSION", "peak": "PEAK",
 def _infl_desc(pce_yoy_val: float | None, mom: float | None) -> str:
     if pce_yoy_val is None:
         return "Inflation data unavailable"
-    dir_ = "rising" if (mom or 0) > 0.15 else "falling" if (mom or 0) < -0.15 else "holding"
+    mo = config.THRESHOLDS["inflation_momentum"]
+    dir_ = "rising" if (mom or 0) > mo else "falling" if (mom or 0) < -mo else "holding"
     rel = "above" if pce_yoy_val > config.THRESHOLDS["inflation_target"] else "below"
     return f"Inflation is {dir_} at {pce_yoy_val:.1f}% ({rel} the 2% target)"
 
@@ -104,7 +105,7 @@ def scorecard(regime: str, d: dict, cot: list[dict]) -> dict:
 # ---- calendar ---------------------------------------------------------------
 def build_calendar(release_dates: dict[str, list[str]],
                    fomc_dates: list[str], d: dict) -> dict:
-    today = pd.Timestamp.utcnow().tz_localize(None).normalize()
+    today = pd.Timestamp.now(tz="UTC").tz_localize(None).normalize()
     upcoming = []
     for name, dates in release_dates.items():
         feeds = config.RELEASE_FEEDS.get(name, "both")
