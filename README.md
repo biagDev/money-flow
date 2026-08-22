@@ -58,11 +58,29 @@ pipeline/regime_engine.py # five voters -> regime probabilities (+ backtest)
 pipeline/narrative.py     # Jarvis-voice templates, verdict, scorecard, calendar
 pipeline/build.py         # orchestrator; writes data/*.json only on change
 pipeline/fomc_dates.json  # the ONE yearly manual touch — verify each December
+pipeline/overview.py      # Layer 1: the plain-English payload
+pipeline/ledger.py        # append-only record of what was claimed (hash-chained)
+pipeline/scoring.py       # resolves claims vs persistence + naive baselines
+pipeline/weekly_report.py # the Sunday report
 mock/, mock/alt/          # PEAK + RECOVERY states for frontend dev
 data/                     # live output (committed by the bot)
+content/                  # lessons, glossary, framework.md (static)
+ledger/                   # snapshots/events/divergences/health/scores (JSONL)
+reports/weekly/           # generated Sunday reports
 site/                     # Claude Design frontend goes here
 tests/                    # schema contract + engine golden states
 ```
+
+## Being judged
+
+`ledger/snapshots.jsonl` records one line per market day: the full claim state
+plus the raw input vintage that produced it, stamped with `engine_version` and
+a `config_hash`. Lines are hash-chained, so editing history breaks CI.
+
+`pipeline/scoring.py` resolves those claims at +21 and +63 trading days using
+the same flat bands as the Evidence scorecard, and reports every figure as a
+triple — **engine vs persistence vs naive**, with n. Nothing renders below
+`MIN_SAMPLE_N`. See `CONTRIBUTING.md` for the change protocol.
 
 ## Failure policy
 

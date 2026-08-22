@@ -478,4 +478,35 @@ BANNED_PRESENT_TENSE = [
 REQUIRED_TENDENCY_WORDS = ["usually", "tend to", "tends to", "can keep", "often"]
 VOICE_MAX_CHARS = 120
 
+# ---- Accuracy ledger -----------------------------------------------------
+# Append-only record of what the site actually claimed, so the engine can be
+# judged later against baselines rather than against memory.
+
+LEDGER_DIR = "ledger"
+LEDGER_FILES = {"snapshots": "snapshots.jsonl", "events": "events.jsonl",
+                "divergences": "divergences.jsonl", "health": "health.jsonl",
+                "scores": "scores.jsonl"}
+
+# One snapshot per market day, written by the LAST weekday run. update.yml's
+# intraday cron is "0,30 12-22 * * 1-5", so the final slot is 22:30 UTC.
+LEDGER_FINAL_SLOT_UTC_HOUR = 22
+
+# Tunables whose change should invalidate comparability across snapshots.
+CONFIG_HASH_KEYS = ["WEIGHTS", "THRESHOLDS", "REGIME_EXPECTATIONS",
+                    "MOOD_RULES", "EVENT_BRANCH_MAPS", "EVENT_PROBES"]
+
+# Direction claims are resolved at these horizons, in TRADING days.
+SCORING_HORIZONS = {"h21": 21, "h63": 63}
+# A projection claim expires unresolved after this long.
+PROJECTION_EXPIRY_MONTHS = 6
+# No accuracy cell is rendered below this sample size. Ever.
+MIN_SAMPLE_N = 20
+# Calibration buckets over the needle's own probability.
+CALIBRATION_BUCKETS = [(0.0, 0.35), (0.35, 0.45), (0.45, 0.55),
+                       (0.55, 0.70), (0.70, 1.01)]
+# Flag a claim type for review only when it trails persistence by this much.
+REVIEW_TRIGGER_PP = 15.0
+
+WEEKLY_REPORT_DIR = "reports/weekly"
+
 SCHEMA_VERSION = 1

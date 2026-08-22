@@ -1,0 +1,21 @@
+name: Calibration note
+description: One thing the site said that didn't match your own read of the tape.
+title: "calibration: "
+labels: ["calibration"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Morning notes, one tap. Don't polish it — a rough note today is worth
+        more than a considered one next week. These accumulate into the v2.1
+        backlog and get reviewed in the Sunday report.
+  - type: textarea
+    id: note
+    attributes:
+      label: What didn't match?
+      description: What the site said, what you thought, and why.
+      placeholder: |
+        e.g. Layer 1 says CAUTIOUS but hiring has been negative for two months
+        now — that reads STORMY to me, not CAUTIOUS.
+    validations:
+      required: true

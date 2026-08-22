@@ -24,6 +24,7 @@ from .fetch_prices import implied_fed_odds, gold_series
 from . import narrative as nar
 from . import watchlist as wl
 from . import overview as ov
+from . import ledger as led
 
 T = config.THRESHOLDS
 
@@ -303,6 +304,33 @@ def build_live(out_dir: Path, do_cot: bool = True) -> None:
         if _write_if_changed(out_dir / f"{fname}.json", obj):
             changed.append(fname)
     print(f"[build] changed: {changed or 'nothing'}")
+
+    # --- ledger (best effort, AFTER the data files are on disk) ---
+    # Deliberately last and deliberately swallowed: the six files have already
+    # shipped by this point, so nothing here can cost the site an update.
+    try:
+        sp = d.get("spread_10y3m")
+        pay = eng.payroll_state(d)
+        summary = led.record_build(
+            day=str(pd.Timestamp.now(tz="UTC").date()),
+            regime=regime, overview=overview, dials=dials, scenarios=scenarios,
+            evidence=evidence, calendar=calendar,
+            inputs={
+                "pce_yoy": pce_now, "pce_mom3": pce_mom,
+                "unrate": unrate_now, "sahm_gap": round(sahm, 4),
+                "payems_3mo": (round(pay[1], 1) if pay else None),
+                "spread_10y3m": last(sp), "spread_slope_3mo": sp_slope,
+                "walcl_6mo": pct_change_days(d.get("walcl"), 182)
+                             if d.get("walcl") is not None else None,
+                "real_5y": last(d.get("real_5y")),
+            })
+        if summary.get("snapshot") or summary.get("events"):
+            print(f"[ledger] snapshot={summary['snapshot']} "
+                  f"events={summary['events']} divergences={summary['divergences']}")
+        for missing in (k for k in config.FRED_SERIES if k not in d):
+            led.record_health("fetch_missing", missing, "series absent from build")
+    except Exception as exc:                    # the data already shipped
+        print(f"[ledger] skipped: {exc!r}")
 
 
 def _load_prev_cot(out_dir: Path) -> list[dict]:

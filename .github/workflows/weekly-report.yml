@@ -1,0 +1,39 @@
+name: weekly-report
+on:
+  schedule:
+    - cron: "0 21 * * 0"      # Sundays 21:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: weekly-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip}
+      - run: pip install -r requirements.txt
+      - name: Resolve claims and score them
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python -m pipeline.scoring
+      - name: Generate the weekly report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -m pipeline.weekly_report
+      - name: Verify the ledger chain is unbroken
+        run: python -m pytest tests/test_ledger.py -q
+      - name: Commit report and ledger
+        run: |
+          git config user.name "money-flow-bot"
+          git config user.email "actions@github.com"
+          git add ledger/ reports/ data/track_record.json
+          git diff --cached --quiet || git commit -m "weekly: $(date -u +%G-W%V)"
+          git push
