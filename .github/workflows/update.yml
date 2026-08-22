@@ -29,8 +29,8 @@ jobs:
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: python -m pipeline.build --no-cot
-      - name: Validate schemas
-        run: python -m pytest tests/test_schemas.py -q
+      - name: Validate contract + voice + consistency
+        run: python -m pytest tests/ -q
       - name: Commit if changed
         run: |
           git config user.name "money-flow-bot"
