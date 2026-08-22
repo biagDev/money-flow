@@ -25,6 +25,6 @@ jobs:
         run: |
           git config user.name "money-flow-bot"
           git config user.email "actions@github.com"
-          git add data/
+          git add data/ ledger/
           git diff --cached --quiet || git commit -m "data(cot): $(date -u +%Y-%m-%dT%H:%MZ)"
           git push
