@@ -9,55 +9,142 @@
   main { max-width:46rem; margin:0 auto; }
   h1 { font-size:.8rem; letter-spacing:.22em; text-transform:uppercase;
        color:#69727f; font-weight:500; margin:0 0 1.75rem; }
+  h2 { font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
+       color:#69727f; font-weight:500; margin:2.5rem 0 1rem; }
   .needle { font-size:2.6rem; letter-spacing:.05em; margin:0; text-transform:uppercase; }
   .sub { color:#69727f; font-size:.82rem; margin:.4rem 0 2rem; }
-  table { border-collapse:collapse; width:100%; margin:0 0 2rem; }
-  td { padding:.3rem 0; vertical-align:baseline; }
+  table.probs { border-collapse:collapse; width:100%; margin:0 0 2rem; }
+  table.probs td { padding:.3rem 0; vertical-align:baseline; }
   td.k { width:7.5rem; color:#9aa4b2; }
-  td.b { font-family:inherit; white-space:pre; color:#4f9dff; }
+  td.b { white-space:pre; color:#4f9dff; }
   td.v { width:4rem; text-align:right; color:#9aa4b2; }
   tr.top td.b { color:#7dd3a0; }
   tr.top td.k { color:#e6e9ef; }
-  p.narr { border-left:2px solid #232833; padding-left:1rem; margin:0 0 2rem; color:#c3cad6; }
-  footer { color:#4b5361; font-size:.75rem; border-top:1px solid #1a1e26; padding-top:1rem; }
+  p.narr { border-left:2px solid #232833; padding-left:1rem; margin:0 0 1.25rem; color:#c3cad6; }
+  .catalyst { font-size:.82rem; color:#9aa4b2; margin:0 0 .5rem; }
+  .catalyst b { color:#ffb454; letter-spacing:.12em; font-weight:500; }
+  .ev { border:1px solid #1a1e26; border-radius:4px; padding:.85rem 1rem; margin:0 0 .8rem; }
+  .ev-head { display:flex; gap:.6rem; align-items:baseline; flex-wrap:wrap; }
+  .date { color:#69727f; font-size:.8rem; }
+  .name { color:#e6e9ef; }
+  .stakes { font-size:.68rem; letter-spacing:.14em; padding:.1rem .45rem;
+            border-radius:3px; text-transform:uppercase; }
+  .stakes.high { background:#4a1d1d; color:#ff8f8f; }
+  .stakes.medium { background:#3d3315; color:#ffc866; }
+  .stakes.low { background:#1c2028; color:#69727f; }
+  .setup { color:#9aa4b2; font-size:.82rem; margin:.6rem 0 .75rem; }
+  .branch { border-left:2px solid #232833; padding-left:.75rem; margin:.5rem 0;
+            font-size:.82rem; color:#9aa4b2; }
+  .branch.loud { border-left-color:#ffb454; color:#c3cad6; }
+  .tag { font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:#69727f; }
+  .branch.loud .tag { color:#ffb454; }
+  .res { font-size:.8rem; color:#9aa4b2; }
+  .ok { color:#7dd3a0; } .no { color:#ff8f8f; }
+  footer { color:#4b5361; font-size:.75rem; border-top:1px solid #1a1e26;
+           padding-top:1rem; margin-top:2.5rem; }
   .err { color:#ff6b6b; }
 </style>
 <main>
   <h1>Money Flow — placeholder</h1>
   <div id="app">loading…</div>
+  <div id="watch"></div>
 </main>
 <script>
 const BARW = 28;
-const fmtPct = n => (n * 100).toFixed(1) + "%";
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const pct = n => (n * 100).toFixed(1) + "%";
 
-function render(d) {
-  const probs = d.probabilities || {};
-  // rank every regime present in the JSON — nothing about them is hardcoded
-  const entries = Object.entries(probs).sort((a, b) => b[1] - a[1]);
-  const rows = entries.map(([name, p]) => {
-    const filled = Math.round(p * BARW);
-    const bar = "█".repeat(filled) + "·".repeat(BARW - filled);
-    const isTop = name === d.needle;
-    return `<tr class="${isTop ? "top" : ""}">
-              <td class="k">${name}</td>
-              <td class="b">${bar}</td>
-              <td class="v">${fmtPct(p)}</td>
-            </tr>`;
-  }).join("");
+function renderRegime(d) {
+  // rank whatever regimes the JSON contains — no names hardcoded
+  const rows = Object.entries(d.probabilities || {})
+    .sort((a, b) => b[1] - a[1])
+    .map(([name, p]) => {
+      const filled = Math.round(p * BARW);
+      const bar = "█".repeat(filled) + "·".repeat(BARW - filled);
+      return `<tr class="${name === d.needle ? "top" : ""}">
+                <td class="k">${esc(name)}</td>
+                <td class="b">${bar}</td>
+                <td class="v">${pct(p)}</td>
+              </tr>`;
+    }).join("");
 
   document.getElementById("app").innerHTML = `
-    <p class="needle">${d.needle ?? "—"}</p>
-    <p class="sub">projection: ${d.projection ?? "—"} · in regime since ${d.in_regime_since ?? "—"}</p>
-    <table>${rows}</table>
-    <p class="narr">${d.narrative ?? ""}</p>
-    <footer>as_of ${d.as_of ?? "—"} · schema v${d.schema_version ?? "?"}</footer>`;
+    <p class="needle">${esc(d.needle ?? "—")}</p>
+    <p class="sub">projection: ${esc(d.projection ?? "—")} · in regime since ${esc(d.in_regime_since ?? "—")}</p>
+    <table class="probs">${rows}</table>
+    <p class="narr">${esc(d.narrative ?? "")}</p>
+    <footer>as_of ${esc(d.as_of ?? "—")} · schema v${esc(d.schema_version ?? "?")}</footer>`;
 }
 
-fetch("../data/regime.json", { cache: "no-store" })
-  .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-  .then(render)
+function branchHtml(b) {
+  const loud = b.pricing_effect === "forces repricing";
+  const odds = b.market_odds != null ? ` · ${pct(b.market_odds)} priced` : "";
+  const assets = Object.entries(b.assets || {})
+    .map(([k, v]) => `${esc(k)} ${esc(v)}`).join(" · ");
+  return `<div class="branch ${loud ? "loud" : ""}">
+            ${esc(b.label)} — ${esc(b.implies)}
+            <div class="tag">${esc(b.pricing_effect)}${odds}</div>
+            <div>${assets}</div>
+          </div>`;
+}
+
+function renderWatch(cal) {
+  const out = [];
+  const nc = cal.next_catalyst;
+  if (nc) {
+    out.push(`<p class="catalyst"><b>Next catalyst</b> · ${esc(nc.event)} on ${esc(nc.date)}</p>`);
+  }
+
+  const withWatch = (cal.upcoming || []).filter(e => e.watch);
+  if (withWatch.length) {
+    out.push("<h2>Watchlist</h2>");
+    for (const e of withWatch) {
+      const w = e.watch;
+      out.push(`<div class="ev">
+        <div class="ev-head">
+          <span class="date">${esc(e.date)}</span>
+          <span class="name">${esc(e.event)}</span>
+          <span class="stakes ${esc(w.stakes)}">${esc(w.stakes)}</span>
+        </div>
+        <div class="setup">${esc(w.setup)}</div>
+        ${Object.values(w.branches || {}).map(branchHtml).join("")}
+      </div>`);
+    }
+  }
+
+  const resolved = (cal.recent || []).filter(e => e.resolution);
+  if (resolved.length) {
+    out.push("<h2>Resolved</h2>");
+    for (const e of resolved) {
+      const r = e.resolution;
+      const tag = r.as_mapped
+        ? '<span class="ok">AS MAPPED ✓</span>'
+        : '<span class="no">AGAINST MAP ✗</span>';
+      out.push(`<div class="ev">
+        <div class="ev-head">
+          <span class="date">${esc(e.reference_month)}</span>
+          <span class="name">${esc(e.event)}</span>
+          ${tag}
+        </div>
+        <div class="res">${esc(r.note)}</div>
+      </div>`);
+    }
+  }
+  document.getElementById("watch").innerHTML = out.join("");
+}
+
+const grab = p => fetch(p, { cache: "no-store" })
+  .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); });
+
+grab("../data/regime.json")
+  .then(renderRegime)
   .catch(e => {
     document.getElementById("app").innerHTML =
-      `<p class="err">could not load ../data/regime.json — ${e.message}</p>`;
+      `<p class="err">could not load ../data/regime.json — ${esc(e.message)}</p>`;
   });
+
+// the watchlist is additive: if calendar.json is missing or has no watch
+// objects, the page above still renders exactly as before
+grab("../data/calendar.json").then(renderWatch).catch(() => {});
 </script>

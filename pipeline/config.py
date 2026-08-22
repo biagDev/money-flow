@@ -169,4 +169,139 @@ RELEASE_HINTS = {
 CALENDAR_LOOKAHEAD_DAYS = 14
 CALENDAR_LOOKBACK_DAYS = 30
 
+# ---- Event watchlist ----------------------------------------------------
+# Branches are TREND-RELATIVE: "hot/strong" = the print accelerates against
+# its own 3-month momentum, "cool/weak" = decelerates. No consensus feed.
+
+# Shock sizes used to test whether a plausible print can flip a voter.
+WATCHLIST_PERTURBATIONS = {
+    "inflation_pp": 0.2,        # PCE/CPI YoY, percentage points
+    "unrate_pp": 0.1,           # UNRATE, percentage points
+}
+
+EVENT_CLASSES = {               # event name -> watchlist class
+    "CPI": "inflation",
+    "PCE (Personal Income & Outlays)": "inflation",
+    "PPI": "inflation",
+    "Employment Situation (NFP)": "employment",
+    "JOLTS": "employment",
+    "Jobless Claims": "employment",
+    "GDP": "growth",
+    "FOMC": "fomc",
+}
+
+# The series whose own momentum defines "accelerating vs trend" per event.
+EVENT_TREND_SERIES = {
+    "CPI": "cpi",
+    "PCE (Personal Income & Outlays)": "pce",
+    "PPI": "ppi",
+    "Employment Situation (NFP)": "payems",
+    "Jobless Claims": "claims",
+    "JOLTS": "jolts",
+}
+
+# Which series a class perturbs, and which voter it re-runs.
+EVENT_SENSITIVITY = {
+    "inflation":  {"series": "pce", "voter": "inflation", "shock": "inflation_pp"},
+    "employment": {"series": "unrate", "voter": "employment", "shock": "unrate_pp"},
+}
+
+# Per class: branch key -> label, what it implies, the Fed direction it
+# argues for, and the four-asset direction map. Logic files read this table;
+# no asset direction is ever written in watchlist.py.
+EVENT_BRANCH_MAPS = {
+    "inflation": {
+        "a": {"label": "Hot (accelerates vs its 3-month trend)",
+              "implies": "strengthens the hike case",
+              "fed_direction": "hawkish",
+              "assets": {"bonds": "yields \u25b2", "dollar": "\u25b2",
+                         "gold": "\u25bc", "stocks": "grind \u25b2"}},
+        "b": {"label": "Cool (decelerates vs its 3-month trend)",
+              "implies": "strengthens the cut case",
+              "fed_direction": "dovish",
+              "assets": {"bonds": "yields \u25bc", "dollar": "\u25bc",
+                         "gold": "\u25b2", "stocks": "\u25b2"}},
+    },
+    "employment": {
+        "a": {"label": "Strong (payrolls above trend, unemployment holds)",
+              "implies": "Fed keeps room to be hawkish",
+              "fed_direction": "hawkish",
+              "assets": {"bonds": "yields \u25b2", "dollar": "\u25b2",
+                         "gold": "\u25bc", "stocks": "grind \u25b2"}},
+        "b": {"label": "Weak (payrolls below trend or unemployment ticks up)",
+              "implies": "cut case strengthens",
+              "fed_direction": "dovish",
+              "assets": {"bonds": "yields \u25bc", "dollar": "\u25bc",
+                         "gold": "\u25b2", "stocks": "choppy"}},
+    },
+    "growth": {
+        "a": {"label": "Above trend",
+              "implies": "less urgency to cut",
+              "fed_direction": "hawkish",
+              "assets": {"bonds": "yields \u25b2", "dollar": "\u25b2",
+                         "gold": "\u25bc", "stocks": "\u25b2"}},
+        "b": {"label": "Below trend",
+              "implies": "cut case strengthens",
+              "fed_direction": "dovish",
+              "assets": {"bonds": "yields \u25bc", "dollar": "\u25bc",
+                         "gold": "\u25b2", "stocks": "\u25bc"}},
+    },
+    "fomc": {
+        "hike": {"label": "Hike", "implies": "policy tightens further",
+                 "fed_direction": "hawkish",
+                 "assets": {"bonds": "yields \u25b2", "dollar": "\u25b2",
+                            "gold": "\u25bc", "stocks": "caution"}},
+        "hold": {"label": "Hold", "implies": "direction inherits from the dials",
+                 "fed_direction": "neutral",
+                 "assets": {"bonds": "drift", "dollar": "drift",
+                            "gold": "drift", "stocks": "\u25b2"}},
+        "cut":  {"label": "Cut", "implies": "policy eases",
+                 "fed_direction": "dovish",
+                 "assets": {"bonds": "yields \u25bc", "dollar": "\u25bc",
+                            "gold": "\u25b2", "stocks": "\u25b2"}},
+    },
+}
+
+# Last-resort lean when there is neither live pricing nor a directional bias.
+REGIME_FED_LEAN = {"expansion": "hawkish", "peak": "hawkish",
+                   "contraction": "dovish", "recovery": "dovish"}
+
+# Setup sentence templates — same voice as narrative.py. Missing values fall
+# back to the *_min variant so a sparse build still ships a sentence.
+WATCHLIST_SETUP = {
+    "inflation": ("{metric} runs {level:.1f}% YoY against the {target:.1f}% target and is "
+                  "{direction} at {mom:+.2f}pp/3mo{pricing} \u2014 this print decides whether "
+                  "the {bias} case holds."),
+    "inflation_min": "{metric} lands into a {needle} read{pricing}.",
+    "employment": ("Unemployment holds at {unrate:.1f}% with a Sahm gap of {sahm:+.2f}pp"
+                   "{pricing} \u2014 this print decides whether the {bias} case keeps its room."),
+    "employment_min": "The labour print lands into a {needle} read{pricing}.",
+    "growth": ("Growth data lands into a {needle} read{pricing} \u2014 a surprise either way "
+               "shifts the whole regime picture."),
+    "growth_min": "Growth data lands into a {needle} read{pricing}.",
+    "fomc": ("The decision itself{pricing}, with the regime needle at {needle} \u2014 "
+             "expectations have already moved the money."),
+    "fomc_min": "The decision itself, with the regime needle at {needle}.",
+}
+WATCHLIST_PRICING_CLAUSE = ", with the Fed priced {hike:.0f}% to hike / {hold:.0f}% to hold"
+
+WATCHLIST_STAKES_WHY = {
+    "high": ("A plausible {shock} move flips the {voter} voter from {frm} to {to} \u2014 "
+             "the heaviest single input to the needle can change here."),
+    "medium": ("The {voter} voter currently reads {vote} while the needle sits at {needle} "
+               "\u2014 this print feeds the contested dial without being able to flip it."),
+    "low": "Neither branch can move a voter off its current read.",
+    "high_fomc": ("The decision itself \u2014 the one scheduled event that can move the "
+                  "policy rate, and the whole curve prices off it."),
+}
+
+# Which reaction key in calendar.recent[].reactions verifies which asset.
+# bonds has no reaction series, so it is never scored.
+WATCHLIST_REACTION_MAP = {"dollar": "dxy_48h", "gold": "gold_48h", "stocks": "spx_48h"}
+
+# Series where a HIGHER print means a WEAKER economy, so "above trend"
+# maps to the weak branch rather than the strong one.
+EVENT_TREND_INVERTED = {"Jobless Claims": True}
+WATCHLIST_RESOLUTION_NOTE = "{label} \u2014 {detail}."
+
 SCHEMA_VERSION = 1

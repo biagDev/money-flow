@@ -22,6 +22,7 @@ from .fetch_fred import (fetch_all, fetch_release_dates, yoy, mom_delta,
 from .fetch_cot import build_cot
 from .fetch_prices import implied_fed_odds, gold_series
 from . import narrative as nar
+from . import watchlist as wl
 
 T = config.THRESHOLDS
 
@@ -268,6 +269,26 @@ def build_live(out_dir: Path, do_cot: bool = True) -> None:
             print(f"[calendar] {name}: {e}")
             rel[name] = []
     calendar = {"as_of": now, **nar.build_calendar(rel, fomc, d)}
+
+    # --- watchlist (purely additive: unknown events keep their current shape) ---
+    regime_state = {"needle": core["needle"], "bias": bias,
+                    "unrate": unrate_now, "sahm": sahm}
+    for e in calendar.get("upcoming", []):
+        watch = wl.branch_for_event(e.get("event", ""), e.get("feeds", ""),
+                                    d, regime_state, priced)
+        if watch:
+            e["watch"] = watch
+    catalyst = wl.next_catalyst(calendar.get("upcoming", []))
+    if catalyst:
+        calendar["next_catalyst"] = catalyst
+    for e in calendar.get("recent", []):
+        try:
+            at = pd.Timestamp(e["reference_month"])
+        except Exception:
+            continue
+        res = wl.resolve_event(e.get("event", ""), d, at, e.get("reactions"))
+        if res:
+            e["resolution"] = res
 
     changed = []
     for fname, obj in (("regime", regime), ("dials", dials), ("scenarios", scenarios),
