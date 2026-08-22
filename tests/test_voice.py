@@ -122,3 +122,39 @@ def test_flagged_overstatements_carry_their_caveat():
     vix = caveat(11)
     assert "expire" in vix or "replaced" in vix, \
         "lesson 11 must carry the VIX roll-cost caveat"
+
+
+# ---- why-lines describe tendencies, never today ---------------------------
+def test_why_lines_never_assert_present_tense_direction():
+    """A why-line is keyed on the regime's EXPECTED direction, while the card's
+    `actual` is live. "The dollar is falling" next to actual: sideways is Layer 1
+    contradicting itself — a consistency failure that lives in wording, so the
+    data-level consistency test cannot catch it. Lint the wording instead.
+    """
+    offenders = []
+    for key, text in config.OVERVIEW_ASSET_WHY.items():
+        low = text.lower()
+        for phrase in config.BANNED_PRESENT_TENSE:
+            if phrase in low:
+                offenders.append((key, phrase, text))
+    assert not offenders, (
+        "why-lines must describe what usually happens, not today's move:\n"
+        + "\n".join(f"  {k}: '{p}' in {t!r}" for k, p, t in offenders))
+
+
+def test_every_why_line_hedges_to_a_tendency():
+    missing = [(k, t) for k, t in config.OVERVIEW_ASSET_WHY.items()
+               if not any(w in t.lower() for w in config.REQUIRED_TENDENCY_WORDS)]
+    assert not missing, (
+        "every why-line needs a tendency word (usually / tends to / can keep):\n"
+        + "\n".join(f"  {k}: {t!r}" for k, t in missing))
+
+
+def test_shipped_why_lines_obey_the_same_rule():
+    """Belt and braces: lint what actually shipped, not only the table."""
+    for p in _overview_files():
+        o = json.loads(p.read_text())
+        for a in o["assets"]:
+            low = a["why"].lower()
+            hits = [ph for ph in config.BANNED_PRESENT_TENSE if ph in low]
+            assert not hits, f"{p.name} {a['asset']}: {hits} in {a['why']!r}"

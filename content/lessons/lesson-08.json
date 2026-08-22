@@ -31,7 +31,7 @@
    }
   }
  },
- "caveat": "Rate gaps explain most currency moves, not all. Trade flows and panics can override them for months.",
+ "caveat": "Rate gaps explain most currency moves, not all. Trade shocks and one-off events can override them for months.",
  "see_it": {
   "module": "flows",
   "anchor": "dollar"

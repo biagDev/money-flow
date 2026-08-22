@@ -89,12 +89,24 @@ blueprint. Caveats that correct an overstatement are sourced from the
 pipeline's own data contract where one exists, so the lesson and the module
 say the same thing:
 
-| Lesson | Caveat source |
-|---|---|
-| 7 — curve inversion | `evidence.curve.spread_10y3m.caveat` (~12 episodes; lag months to ~2 years) |
-| 14 — COT | `evidence.cot_caveat` (published Friday for Tuesday positions) |
-| 11 — VIX roll cost | **written from general knowledge — needs review against `framework.md`** |
+All 14 lessons were reconciled against `content/framework.md` on 2026-08-22.
+Part 12 of that document ("What to Trust, and What to Check Yourself") flags
+five places where the source material states things more confidently than the
+evidence supports. Each one is carried by the matching lesson's caveat:
 
-`content/framework.md` was not present in the repo when these lessons were
-authored. Every other caveat is a plain-language judgement written to the
-voice rules. Re-read them against `framework.md` once it lands.
+| framework.md flags | Lesson | How the caveat carries it |
+|---|---|---|
+| "Every inversion caused a recession" | 7 | ~12 episodes, lag months to nearly two years, "a warning light, not a stopwatch" |
+| "90% of money moves because of macro" | 8 | "Rate gaps explain most currency moves, not all" — the figure is never quoted |
+| "Gold and real yields are mathematical" | 9 | "a strong pattern, not a law" + the central-bank-buying decoupling |
+| The VIX "always" reverts | 11 | roll costs: contracts "expire and must be replaced", so "a floor does not make it safe" |
+| "Follow the smart money" via COT | 14 | "covers a wide mix of firms" + Friday-for-Tuesday lag, "context, never a trigger" |
+
+Other caveats trace to specific sections rather than to a flagged
+overstatement: lesson 3 to Part 3 (5-7 year short-term debt cycle), lesson 4
+to Part 4 (markets have priced recessions that never arrived), lesson 10 to
+Part 7 (cap-weighted indexes).
+
+One-way dependency: **data flows pipeline → content**. Lessons read shipped
+JSON through slots; pipeline code must never read `content/` to make a
+decision.

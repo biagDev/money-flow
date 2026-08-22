@@ -25,7 +25,7 @@
    }
   }
  },
- "caveat": "The data is published Friday for positions held the previous Tuesday. It is context, never a trigger.",
+ "caveat": "\"Big players\" covers a wide mix of firms. The data is published Friday for Tuesday positions, so it is context, never a trigger.",
  "see_it": {
   "module": "evidence",
   "anchor": "cot"

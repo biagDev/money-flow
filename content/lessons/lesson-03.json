@@ -8,7 +8,7 @@
   "Cheap loans let people and companies spend more than they earn.",
   "That extra spending is somebody else's income, so everything speeds up.",
   "Eventually the loans must be paid back, and spending slows.",
-  "Whole economies do this over years. That is the cycle."
+  "This runs roughly every five to seven years. That is the cycle."
  ],
  "live": {
   "template": "The engine reads the economy as {needle} right now, and it has looked that way since {since}.",
@@ -23,7 +23,7 @@
    }
   }
  },
- "caveat": "Cycles do not run on a timetable. They stretch and shrink, so never count on a date.",
+ "caveat": "Cycles do not run on a timetable. Five to seven years is an average, not a schedule.",
  "see_it": {
   "module": "regime",
   "anchor": "needle"

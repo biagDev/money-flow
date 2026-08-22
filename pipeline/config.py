@@ -461,6 +461,21 @@ OVERVIEW_CHANGED_DAYS = 45      # in_regime_since within this many days counts a
 # Words that must never reach a reader in simple mode.
 BANNED_JARGON = ["bullish", "bearish", "hawkish", "dovish", "basis point",
                  "basis-point", "bps"]
+
+# Why-lines are keyed on the regime's EXPECTED direction, so they must describe
+# what USUALLY happens. A present-tense claim ("the dollar is falling") sits on
+# the same card as a live `actual` that may say sideways — Layer 1 contradicting
+# itself in wording rather than in data, which the consistency test cannot see.
+BANNED_PRESENT_TENSE = [
+    "is rising", "is falling", "is climbing", "is dropping", "is slipping",
+    "is stalling", "is drifting", "is easing", "is holding", "is sitting",
+    "are rising", "are falling", "are climbing", "are dropping", "are slipping",
+    "are stalling", "are drifting", "are easing", "are holding",
+    "keeps ",          # "keeps flowing" asserts today; "can keep" hedges, so
+                       # bare "keep " must NOT be banned
+]
+# Every why-line must hedge to a tendency, not assert today's move.
+REQUIRED_TENDENCY_WORDS = ["usually", "tend to", "tends to", "can keep", "often"]
 VOICE_MAX_CHARS = 120
 
 SCHEMA_VERSION = 1

@@ -23,7 +23,7 @@
    }
   }
  },
- "caveat": "Markets guess wrong often. They have predicted far more downturns than actually happened.",
+ "caveat": "Markets get it wrong too. They have priced in recessions that never arrived.",
  "see_it": {
   "module": "regime",
   "anchor": "projection"

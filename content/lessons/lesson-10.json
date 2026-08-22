@@ -8,7 +8,7 @@
   "A share is a slice of a real company and its future profits.",
   "An index like the S&P 500 is a slice of five hundred of them.",
   "People buy shares when they feel brave and money is easy to get.",
-  "So stocks track confidence and available cash more than today's economy."
+  "Over long stretches shares tend to drift upward, which tilts the odds."
  ],
  "live": {
   "template": "Stocks are {spx_dir} about {spx_3mo}% over 3 months, while the engine reads the economy as {needle}.",
@@ -29,7 +29,7 @@
    }
   }
  },
- "caveat": "A handful of giant companies can carry a whole index. The average share may be doing something else.",
+ "caveat": "The index is weighted by company size. A few giants can carry it while the average share does something else.",
  "see_it": {
   "module": "flows",
   "anchor": "stocks"

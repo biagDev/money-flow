@@ -24,7 +24,7 @@
    }
   }
  },
- "caveat": "You cannot hold fear insurance cheaply for long. These contracts expire and must be replaced, which slowly eats returns.",
+ "caveat": "It has always calmed down so far. But these contracts expire and must be replaced, which quietly eats returns, so a floor does not make it safe.",
  "see_it": {
   "module": "flows",
   "anchor": "stocks"
