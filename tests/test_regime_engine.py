@@ -113,3 +113,95 @@ def test_missing_data_degrades_gracefully():
     r = eng.compute({}, ASOF)
     assert set(r["probabilities"]) == {"expansion", "peak", "contraction", "recovery"}
     assert abs(sum(r["probabilities"].values()) - 1.0) < 1e-6
+
+
+# ---- payrolls momentum ----------------------------------------------------
+def _payems_from_deltas(deltas, start=150000.0, end=ASOF):
+    """A PAYEMS level series whose month-over-month changes equal `deltas`."""
+    lvl, cur = [start], start
+    for dv in deltas:
+        cur += dv
+        lvl.append(cur)
+    return _monthly(lvl, end=end)
+
+
+def _flat_unrate_state(payems=None):
+    d = make_state(
+        pce_yoy_path=[2.2] * 36,
+        unrate_path=[4.1] * 36,          # dead flat: Sahm gap is zero
+        target_path=[3.0] * 730,
+        spread_path=[1.2] * 730,
+        walcl_path=[8000.0] * 156,
+    )
+    if payems is not None:
+        d["payems"] = payems
+    return d
+
+
+def test_payrolls_absent_leaves_the_vote_exactly_as_before():
+    """The blend must be a no-op without payrolls — this is what keeps the
+    golden states above meaningful."""
+    base, _ = eng.vote_employment(_flat_unrate_state(), ASOF)
+    d = _flat_unrate_state()
+    d.pop("payems", None)
+    again, _ = eng.vote_employment(d, ASOF)
+    assert base == again
+    assert base["expansion"] > base["peak"]      # unchanged Sahm-only shape
+
+
+def test_negative_payrolls_shift_the_voter_toward_peak_contraction():
+    """UNRATE pinned flat, but payrolls contracting: the voter must stop
+    reading expansion and move to the weak side of the board."""
+    flat = _flat_unrate_state()
+    before, _ = eng.vote_employment(flat, ASOF)
+
+    weak = _flat_unrate_state(_payems_from_deltas([120] * 20 + [-40, -55, -60]))
+    after, ev = eng.vote_employment(weak, ASOF)
+
+    assert after["contraction"] > before["contraction"]
+    assert after["expansion"] < before["expansion"]
+    assert (after["peak"] + after["contraction"]) > (before["peak"] + before["contraction"])
+    assert after["contraction"] > after["expansion"], after
+    assert "payrolls" in ev and "stress" in ev
+
+
+def test_softening_payrolls_read_between_firm_and_stress():
+    """Positive but below the soft line: peak, not contraction, not expansion."""
+    soft = _flat_unrate_state(_payems_from_deltas([120] * 20 + [30, 20, 10]))
+    v, ev = eng.vote_employment(soft, ASOF)
+    assert max(v, key=v.get) == "peak", v
+    assert "soft" in ev
+
+
+def test_firm_payrolls_do_not_blend_at_all():
+    """Payrolls are weakness evidence only. Firm hiring must leave the Sahm
+    vote untouched — blending it as expansion evidence erased the recovery
+    regime from the 2020-21 rebound."""
+    firm = _flat_unrate_state(_payems_from_deltas([120] * 23))
+    v, ev = eng.vote_employment(firm, ASOF)
+    base, _ = eng.vote_employment(_flat_unrate_state(), ASOF)
+    assert v == base
+    assert max(v, key=v.get) == "expansion", v
+    assert "firm" in ev
+
+
+def test_firm_payrolls_cannot_override_a_sahm_triggered_read():
+    """The 2020-21 regression in one test: unemployment spiked (Sahm well over
+    trigger) while payrolls rebound hard. The vote must stay on the weak side."""
+    d = make_state(
+        pce_yoy_path=[1.2] * 36,
+        unrate_path=[3.5] * 24 + [3.6, 14.0, 13.0, 11.0, 10.2, 9.0,
+                                  8.4, 7.9, 7.5, 7.0, 6.9, 6.7],
+        target_path=[0.25] * 730, spread_path=[1.2] * 730, walcl_path=[8000.0] * 156,
+    )
+    d["payems"] = _payems_from_deltas([-20000] + [1500] * 22)
+    v, _ = eng.vote_employment(d, ASOF)
+    assert v["contraction"] + v["recovery"] > v["expansion"] + v["peak"], v
+
+
+def test_payroll_blend_is_monotone_toward_weakness():
+    """firm -> soft -> stress must never move contraction mass backwards."""
+    states = [_payems_from_deltas([120] * 20 + [d] * 3) for d in (120, 20, -60)]
+    cont = [eng.vote_employment(_flat_unrate_state(p), ASOF)[0]["contraction"]
+            for p in states]
+    assert cont[0] < cont[1] < cont[2], cont

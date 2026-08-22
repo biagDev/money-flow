@@ -56,6 +56,10 @@ THRESHOLDS = {
     "inflation_momentum": 0.15,     # pp per 3mo considered "rising/falling"
     "sahm_trigger": 0.50,           # UNRATE 3mo-avg above 12mo low (pp)
     "sahm_warning": 0.20,
+    # Payrolls momentum: the fast labour signal the Sahm gap lags.
+    "payems_soft_3mo": 50.0,        # 3mo-avg payrolls change (thousands) below this = softening
+    "payems_stress_3mo": 0.0,       # below this = outright stress
+    "payems_blend": 0.45,           # share of the employment vote carried by payrolls
     "curve_flat": 0.50,             # 10Y-3M below this = flattening zone (pp)
     "curve_steepen_3mo": 0.25,      # post-inversion steepening speed (pp/3mo)
     "walcl_6mo_pct": 0.0,           # >0 expanding, <0 contracting
@@ -67,6 +71,16 @@ THRESHOLDS = {
 YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart/{sym}"
 GOLD_SYMBOL = "GC=F"        # COMEX gold front month (FRED no longer carries spot)
 GOLD_HISTORY = "5y"         # evidence charts need 5y of daily closes
+
+# Payrolls contribute WEAKNESS evidence only. "firm" is deliberately absent:
+# blending firm payrolls as expansion evidence let a jobs rebound override a
+# Sahm-triggered read and wiped the recovery regime off the 2020-21 rebound.
+# Strong hiring is the Sahm gap's job to interpret; payrolls only speak up
+# when they roll over.
+EMPLOYMENT_PAYROLL_VOTES = {
+    "soft":   {"peak": 0.6, "contraction": 0.4},
+    "stress": {"contraction": 0.85, "peak": 0.15},
+}
 
 # ---- CFTC COT -----------------------------------------------------------
 COT_SOCRATA = "https://publicreporting.cftc.gov/resource/6dca-aqww.json"  # legacy futures-only
@@ -166,8 +180,24 @@ RELEASE_HINTS = {
     "employment": "Weak print → strengthens cut case → gold ▲ dollar ▼",
     "both": "Growth surprise shifts the whole regime read",
 }
+# When the Sahm gap is still quiet but payrolls have rolled over, the
+# unemployment-only sentence reads "no stress" and contradicts the voter.
+EMPLOYMENT_PAYROLL_DESC = {
+    "soft": "unemployment holds near {unrate:.1f}% but hiring has slowed to {p3:+.0f}K/3mo",
+    "stress": "unemployment holds near {unrate:.1f}% while payrolls have turned negative at {p3:+.0f}K/3mo",
+}
+
 CALENDAR_LOOKAHEAD_DAYS = 14
 CALENDAR_LOOKBACK_DAYS = 30
+
+# Which probe series each event can actually move. Absent from this table =
+# every probe its class defines. A jobless-claims or JOLTS print does not move
+# payrolls, so they must not inherit the payrolls probe and inflate to HIGH.
+EVENT_PROBES = {
+    "Employment Situation (NFP)": ["unrate", "payems"],
+    "Jobless Claims": ["unrate"],
+    "JOLTS": ["unrate"],
+}
 
 # ---- Event watchlist ----------------------------------------------------
 # Branches are TREND-RELATIVE: "hot/strong" = the print accelerates against
@@ -177,6 +207,7 @@ CALENDAR_LOOKBACK_DAYS = 30
 WATCHLIST_PERTURBATIONS = {
     "inflation_pp": 0.2,        # PCE/CPI YoY, percentage points
     "unrate_pp": 0.1,           # UNRATE, percentage points
+    "payems_k": 100.0,          # one month's payrolls print, thousands of jobs
 }
 
 EVENT_CLASSES = {               # event name -> watchlist class
@@ -201,9 +232,20 @@ EVENT_TREND_SERIES = {
 }
 
 # Which series a class perturbs, and which voter it re-runs.
+# Each class re-runs one voter against one or more probes. A probe shifts the
+# latest observation of a series; "yoy" moves the latest year-over-year reading
+# by the shock, "level" moves the latest level (for payrolls that is exactly one
+# month's print, since the MoM delta reads off the last two levels).
 EVENT_SENSITIVITY = {
-    "inflation":  {"series": "pce", "voter": "inflation", "shock": "inflation_pp"},
-    "employment": {"series": "unrate", "voter": "employment", "shock": "unrate_pp"},
+    "inflation": {
+        "voter": "inflation",
+        "probes": [{"series": "pce", "shock": "inflation_pp", "mode": "yoy"}],
+    },
+    "employment": {
+        "voter": "employment",
+        "probes": [{"series": "unrate", "shock": "unrate_pp", "mode": "level"},
+                   {"series": "payems", "shock": "payems_k", "mode": "level"}],
+    },
 }
 
 # Per class: branch key -> label, what it implies, the Fed direction it

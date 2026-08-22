@@ -99,7 +99,8 @@ def _vote_of(voter: str, d: dict, asof: pd.Timestamp) -> str | None:
 
 # ---- stakes --------------------------------------------------------------
 def stakes_for_event(event_class: str, d: dict, regime_state: dict,
-                     asof: pd.Timestamp | None = None) -> tuple[str, str]:
+                     asof: pd.Timestamp | None = None,
+                     event: str | None = None) -> tuple[str, str]:
     """(stakes, stakes_why) from VOTE SENSITIVITY, not assertion.
 
     Perturb the input the event actually moves, re-run that voter, and see
@@ -116,23 +117,34 @@ def stakes_for_event(event_class: str, d: dict, regime_state: dict,
         return "low", config.WATCHLIST_STAKES_WHY["low"]
 
     asof = asof or pd.Timestamp.now(tz="UTC").tz_localize(None)
-    voter, key = spec["voter"], spec["series"]
+    voter = spec["voter"]
     base_vote = _vote_of(voter, d, asof)
     if base_vote is None:
         return "low", config.WATCHLIST_STAKES_WHY["low"]
 
-    shock = config.WATCHLIST_PERTURBATIONS[spec["shock"]]
-    shifter = _shift_yoy if event_class == "inflation" else _shift_level
-    for delta in (shock, -shock):
-        moved = shifter(d.get(key), delta)
-        if moved is None:
-            continue
-        probe = dict(d)
-        probe[key] = moved
-        alt = _vote_of(voter, probe, asof)
-        if alt is not None and alt != base_vote:
-            return "high", config.WATCHLIST_STAKES_WHY["high"].format(
-                shock=f"{abs(shock):.1f}pp", voter=voter, frm=base_vote, to=alt)
+    # Any probe that can flip this voter makes the event high stakes. Employment
+    # events probe payrolls as well as unemployment, so a labour market already
+    # shedding jobs is visible even while the Sahm gap is still quiet.
+    allowed = config.EVENT_PROBES.get(event or "")
+    for pr in spec.get("probes", []):
+        key = pr["series"]
+        if allowed is not None and key not in allowed:
+            continue        # this event cannot move that series
+        shock = config.WATCHLIST_PERTURBATIONS[pr["shock"]]
+        shifter = _shift_yoy if pr.get("mode") == "yoy" else _shift_level
+        unit = "pp" if pr.get("mode") == "yoy" or key == "unrate" else "K"
+        for delta in (shock, -shock):
+            moved = shifter(d.get(key), delta)
+            if moved is None:
+                continue
+            probe = dict(d)
+            probe[key] = moved
+            alt = _vote_of(voter, probe, asof)
+            if alt is not None and alt != base_vote:
+                return "high", config.WATCHLIST_STAKES_WHY["high"].format(
+                    shock=f"{abs(shock):.0f}{unit}" if unit == "K"
+                          else f"{abs(shock):.1f}{unit}",
+                    voter=voter, frm=base_vote, to=alt)
 
     if needle and base_vote != needle:
         return "medium", config.WATCHLIST_STAKES_WHY["medium"].format(
@@ -207,7 +219,7 @@ def branch_for_event(event: str, feeds: str, d: dict,
         return None
 
     tilt = _pricing_tilt(priced, regime_state.get("bias"), regime_state.get("needle"))
-    stakes, why = stakes_for_event(cls, d, regime_state)
+    stakes, why = stakes_for_event(cls, d, regime_state, event=event)
 
     branches = {}
     for key, b in branch_cfg.items():

@@ -88,7 +88,7 @@ def build_live(out_dir: Path, do_cot: bool = True) -> None:
     unrate_now = last(u)
     sahm = (float(u.iloc[-3:].mean()) - float(u.iloc[-12:].min())) if u is not None and len(u) >= 12 else 0.0
     infl_desc = nar._infl_desc(pce_now, pce_mom)
-    emp_desc = nar._emp_desc(unrate_now, sahm)
+    emp_desc = nar._emp_desc(unrate_now, sahm, eng.payroll_state(d))
     bias = nar.fed_bias(bool(pce_now and pce_now > T["inflation_target"]),
                         bool(pce_mom and pce_mom > T["inflation_momentum"]), sahm)
 

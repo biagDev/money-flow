@@ -1,29 +1,199 @@
 {
  "as_of": "2026-08-14T10:10:00Z",
+ "next_catalyst": {
+  "date": "2026-09-04",
+  "event": "Employment Situation (NFP)"
+ },
  "upcoming": [
   {
    "date": "2026-08-20",
    "event": "CPI",
    "feeds": "inflation",
-   "hint": "Hot print \u2192 strengthens hike case \u2192 dollar \u25b2 gold \u25bc"
+   "hint": "Hot print \u2192 strengthens hike case \u2192 dollar \u25b2 gold \u25bc",
+   "watch": {
+    "stakes": "medium",
+    "stakes_why": "The inflation voter currently reads recovery while the needle sits at recovery \u2014 this print feeds the contested dial without being able to flip it.",
+    "setup": "CPI runs 1.6% YoY against the 2.0% target and is falling at -0.220pp/3mo, with the Fed priced 4% to hike / 26% to hold \u2014 this print decides whether the dovish case holds.",
+    "branches": {
+     "a": {
+      "label": "Hot (accelerates vs its 3-month trend)",
+      "implies": "strengthens the hike case",
+      "pricing_effect": "forces repricing",
+      "assets": {
+       "bonds": "yields \u25b2",
+       "dollar": "\u25b2",
+       "gold": "\u25bc",
+       "stocks": "grind \u25b2"
+      }
+     },
+     "b": {
+      "label": "Cool (decelerates vs its 3-month trend)",
+      "implies": "strengthens the cut case",
+      "pricing_effect": "confirms pricing",
+      "assets": {
+       "bonds": "yields \u25bc",
+       "dollar": "\u25bc",
+       "gold": "\u25b2",
+       "stocks": "\u25b2"
+      }
+     }
+    }
+   }
   },
   {
    "date": "2026-08-21",
    "event": "Jobless Claims",
    "feeds": "employment",
-   "hint": "Weak print \u2192 strengthens cut case \u2192 gold \u25b2 dollar \u25bc"
+   "hint": "Weak print \u2192 strengthens cut case \u2192 gold \u25b2 dollar \u25bc",
+   "watch": {
+    "stakes": "low",
+    "stakes_why": "Neither branch can move a voter off its current read.",
+    "setup": "Unemployment holds at 5.4% with a Sahm gap of +0.45pp, with the Fed priced 4% to hike / 26% to hold \u2014 this print decides whether the dovish case keeps its room.",
+    "branches": {
+     "a": {
+      "label": "Strong (payrolls above trend, unemployment holds)",
+      "implies": "Fed keeps room to be hawkish",
+      "pricing_effect": "forces repricing",
+      "assets": {
+       "bonds": "yields \u25b2",
+       "dollar": "\u25b2",
+       "gold": "\u25bc",
+       "stocks": "grind \u25b2"
+      }
+     },
+     "b": {
+      "label": "Weak (payrolls below trend or unemployment ticks up)",
+      "implies": "cut case strengthens",
+      "pricing_effect": "confirms pricing",
+      "assets": {
+       "bonds": "yields \u25bc",
+       "dollar": "\u25bc",
+       "gold": "\u25b2",
+       "stocks": "choppy"
+      }
+     }
+    }
+   }
   },
   {
    "date": "2026-08-28",
    "event": "PCE (Personal Income & Outlays)",
    "feeds": "inflation",
-   "hint": "Hot print \u2192 strengthens hike case \u2192 dollar \u25b2 gold \u25bc"
+   "hint": "Hot print \u2192 strengthens hike case \u2192 dollar \u25b2 gold \u25bc",
+   "watch": {
+    "stakes": "low",
+    "stakes_why": "Neither branch can move a voter off its current read.",
+    "setup": "PCE runs 1.7% YoY against the 2.0% target and is falling at -0.190pp/3mo, with the Fed priced 4% to hike / 26% to hold \u2014 this print decides whether the dovish case holds.",
+    "branches": {
+     "a": {
+      "label": "Hot (accelerates vs its 3-month trend)",
+      "implies": "strengthens the hike case",
+      "pricing_effect": "forces repricing",
+      "assets": {
+       "bonds": "yields \u25b2",
+       "dollar": "\u25b2",
+       "gold": "\u25bc",
+       "stocks": "grind \u25b2"
+      }
+     },
+     "b": {
+      "label": "Cool (decelerates vs its 3-month trend)",
+      "implies": "strengthens the cut case",
+      "pricing_effect": "confirms pricing",
+      "assets": {
+       "bonds": "yields \u25bc",
+       "dollar": "\u25bc",
+       "gold": "\u25b2",
+       "stocks": "\u25b2"
+      }
+     }
+    }
+   }
   },
   {
    "date": "2026-09-04",
    "event": "Employment Situation (NFP)",
    "feeds": "employment",
-   "hint": "Weak print \u2192 strengthens cut case \u2192 gold \u25b2 dollar \u25bc"
+   "hint": "Weak print \u2192 strengthens cut case \u2192 gold \u25b2 dollar \u25bc",
+   "watch": {
+    "stakes": "high",
+    "stakes_why": "A plausible 100K move flips the employment voter from contraction to recovery \u2014 the heaviest single input to the needle can change here.",
+    "setup": "Unemployment holds at 5.4% with a Sahm gap of +0.45pp, with the Fed priced 4% to hike / 26% to hold \u2014 this print decides whether the dovish case keeps its room.",
+    "branches": {
+     "a": {
+      "label": "Strong (payrolls above trend, unemployment holds)",
+      "implies": "Fed keeps room to be hawkish",
+      "pricing_effect": "forces repricing",
+      "assets": {
+       "bonds": "yields \u25b2",
+       "dollar": "\u25b2",
+       "gold": "\u25bc",
+       "stocks": "grind \u25b2"
+      }
+     },
+     "b": {
+      "label": "Weak (payrolls below trend or unemployment ticks up)",
+      "implies": "cut case strengthens",
+      "pricing_effect": "confirms pricing",
+      "assets": {
+       "bonds": "yields \u25bc",
+       "dollar": "\u25bc",
+       "gold": "\u25b2",
+       "stocks": "choppy"
+      }
+     }
+    }
+   }
+  },
+  {
+   "date": "2026-09-16",
+   "event": "FOMC",
+   "feeds": "both",
+   "hint": "The decision itself \u2014 expectations already moved the money",
+   "highlight": true,
+   "watch": {
+    "stakes": "high",
+    "stakes_why": "The decision itself \u2014 the one scheduled event that can move the policy rate, and the whole curve prices off it.",
+    "setup": "The decision itself, with the Fed priced 4% to hike / 26% to hold, with the regime needle at recovery \u2014 expectations have already moved the money.",
+    "branches": {
+     "hike": {
+      "label": "Hike",
+      "implies": "policy tightens further",
+      "pricing_effect": "forces repricing",
+      "assets": {
+       "bonds": "yields \u25b2",
+       "dollar": "\u25b2",
+       "gold": "\u25bc",
+       "stocks": "caution"
+      },
+      "market_odds": 0.04
+     },
+     "hold": {
+      "label": "Hold",
+      "implies": "direction inherits from the dials",
+      "pricing_effect": "confirms pricing",
+      "assets": {
+       "bonds": "drift",
+       "dollar": "drift",
+       "gold": "drift",
+       "stocks": "\u25b2"
+      },
+      "market_odds": 0.26
+     },
+     "cut": {
+      "label": "Cut",
+      "implies": "policy eases",
+      "pricing_effect": "confirms pricing",
+      "assets": {
+       "bonds": "yields \u25bc",
+       "dollar": "\u25bc",
+       "gold": "\u25b2",
+       "stocks": "\u25b2"
+      },
+      "market_odds": 0.7
+     }
+    }
+   }
   }
  ],
  "recent": [
@@ -31,18 +201,30 @@
    "reference_month": "2026-07-01",
    "event": "CPI",
    "reactions": {
-    "dxy_48h": 0.4,
-    "gold_48h": -0.8,
-    "spx_48h": -0.3
+    "dxy_48h": -0.5,
+    "gold_48h": 1.2,
+    "spx_48h": 0.9
+   },
+   "resolution": {
+    "branch": "b",
+    "branch_label": "Cool (decelerates vs its 3-month trend)",
+    "as_mapped": true,
+    "note": "Cool (decelerates vs its 3-month trend) \u2014 dollar \u25bc, gold \u25b2, stocks \u25b2 as mapped."
    }
   },
   {
    "reference_month": "2026-07-01",
    "event": "Employment Situation (NFP)",
    "reactions": {
-    "dxy_48h": -0.2,
-    "gold_48h": 0.5,
-    "spx_48h": 0.6
+    "dxy_48h": 0.3,
+    "gold_48h": -0.4,
+    "spx_48h": 0.2
+   },
+   "resolution": {
+    "branch": "b",
+    "branch_label": "Weak (payrolls below trend or unemployment ticks up)",
+    "as_mapped": false,
+    "note": "Weak (payrolls below trend or unemployment ticks up) \u2014 0 of 2 asset moves matched."
    }
   }
  ],

@@ -1,17 +1,17 @@
 {
- "as_of": "2026-08-22T04:03:49Z",
+ "as_of": "2026-08-22T09:50:29Z",
  "stale": false,
  "probabilities": {
-  "expansion": 0.52,
-  "peak": 0.265,
-  "contraction": 0.0,
+  "expansion": 0.4525,
+  "peak": 0.2875,
+  "contraction": 0.045,
   "recovery": 0.215
  },
  "needle": "expansion",
  "projection": "recovery",
  "projection_basis": "momentum",
  "in_regime_since": "2026-06-01",
- "narrative": "Inflation is holding at 3.7% (above the 2% target) while unemployment holds near 4.1% with no stress \u2014 the market is pricing a hawkish-leaning Fed, which historically marks the EXPANSION phase. Watch: stocks \u25b2, gold \u25b2, dollar \u25bc.",
+ "narrative": "Inflation is holding at 3.7% (above the 2% target) while unemployment holds near 4.1% but hiring has slowed to +20K/3mo \u2014 the market is pricing a hawkish-leaning Fed, which historically marks the EXPANSION phase. Watch: stocks \u25b2, gold \u25b2, dollar \u25bc.",
  "scores": [
   {
    "input": "inflation",
@@ -27,13 +27,13 @@
   },
   {
    "input": "employment",
-   "value": "UNRATE 4.1%, Sahm gap +0.10pp",
-   "vote": "expansion",
+   "value": "UNRATE 4.1%, Sahm gap +0.10pp, payrolls +20K/3mo (soft)",
+   "vote": "peak",
    "weight": 0.25,
    "distribution": {
-    "expansion": 0.6,
-    "peak": 0.4,
-    "contraction": 0.0,
+    "expansion": 0.33,
+    "peak": 0.49,
+    "contraction": 0.18,
     "recovery": 0.0
    }
   },

@@ -8,7 +8,34 @@ with zero code edits — that's the integration test for the design.
 """
 import math
 
+from . import config
+
 NOW = "2026-08-14T10:10:00Z"
+
+
+def _watch(cls, stakes, why, setup, loud, odds=None):
+    """A mock `watch` object built from the REAL config branch table.
+
+    Fixtures are composed from config.EVENT_BRANCH_MAPS rather than pasted, so
+    labels and asset maps can never drift from what the pipeline ships. `loud`
+    names the branch keys tagged "forces repricing" — flipping that set is what
+    makes mock/alt a genuine re-render test of the watch card.
+    """
+    branches = {}
+    for key, b in config.EVENT_BRANCH_MAPS[cls].items():
+        entry = {"label": b["label"], "implies": b["implies"],
+                 "pricing_effect": "forces repricing" if key in loud else "confirms pricing",
+                 "assets": dict(b["assets"])}
+        if odds and key in odds:
+            entry["market_odds"] = odds[key]
+        branches[key] = entry
+    return {"stakes": stakes, "stakes_why": why, "setup": setup, "branches": branches}
+
+
+def _resolution(cls, branch, as_mapped, detail):
+    b = config.EVENT_BRANCH_MAPS[cls][branch]
+    return {"branch": branch, "branch_label": b["label"], "as_mapped": as_mapped,
+            "note": config.WATCHLIST_RESOLUTION_NOTE.format(label=b["label"], detail=detail)}
 
 
 def _wave(n, lo, hi, phase=0.0, noise=0.03):
@@ -175,21 +202,67 @@ PEAK_STATE = {
     },
     "calendar": {
         "as_of": NOW,
+        "next_catalyst": {"date": "2026-08-20", "event": "CPI"},
         "upcoming": [
             {"date": "2026-08-20", "event": "CPI", "feeds": "inflation",
-             "hint": "Hot print → strengthens hike case → dollar ▲ gold ▼"},
+             "hint": "Hot print → strengthens hike case → dollar ▲ gold ▼",
+             "watch": _watch(
+                 "inflation", "high",
+                 "A plausible 0.2pp move flips the inflation voter from peak to "
+                 "contraction — the heaviest single input to the needle can change here.",
+                 "CPI runs 4.4% YoY against the 2.0% target and is rising at +0.310pp/3mo, "
+                 "with the Fed priced 68% to hike / 32% to hold — this print decides "
+                 "whether the hawkish case holds.",
+                 loud={"b"})},
             {"date": "2026-08-21", "event": "Jobless Claims", "feeds": "employment",
-             "hint": "Weak print → strengthens cut case → gold ▲ dollar ▼"},
+             "hint": "Weak print → strengthens cut case → gold ▲ dollar ▼",
+             "watch": _watch(
+                 "employment", "low",
+                 "Neither branch can move a voter off its current read.",
+                 "Unemployment holds at 3.8% with a Sahm gap of +0.10pp, with the Fed "
+                 "priced 68% to hike / 32% to hold — this print decides whether the "
+                 "hawkish case keeps its room.",
+                 loud={"b"})},
             {"date": "2026-08-28", "event": "PCE (Personal Income & Outlays)", "feeds": "inflation",
-             "hint": "Hot print → strengthens hike case → dollar ▲ gold ▼"},
+             "hint": "Hot print → strengthens hike case → dollar ▲ gold ▼",
+             "watch": _watch(
+                 "inflation", "medium",
+                 "The inflation voter currently reads peak while the needle sits at peak "
+                 "— this print feeds the contested dial without being able to flip it.",
+                 "PCE runs 4.1% YoY against the 2.0% target and is rising at +0.280pp/3mo, "
+                 "with the Fed priced 68% to hike / 32% to hold — this print decides "
+                 "whether the hawkish case holds.",
+                 loud={"b"})},
             {"date": "2026-09-04", "event": "Employment Situation (NFP)", "feeds": "employment",
-             "hint": "Weak print → strengthens cut case → gold ▲ dollar ▼"},
+             "hint": "Weak print → strengthens cut case → gold ▲ dollar ▼",
+             "watch": _watch(
+                 "employment", "high",
+                 "A plausible 100K move flips the employment voter from peak to "
+                 "contraction — the heaviest single input to the needle can change here.",
+                 "Unemployment holds at 3.8% with a Sahm gap of +0.10pp, with the Fed "
+                 "priced 68% to hike / 32% to hold — this print decides whether the "
+                 "hawkish case keeps its room.",
+                 loud={"b"})},
+            {"date": "2026-09-16", "event": "FOMC", "feeds": "both",
+             "hint": "The decision itself — expectations already moved the money",
+             "highlight": True,
+             "watch": _watch(
+                 "fomc", "high",
+                 "The decision itself — the one scheduled event that can move the policy "
+                 "rate, and the whole curve prices off it.",
+                 "The decision itself, with the Fed priced 68% to hike / 32% to hold, "
+                 "with the regime needle at peak — expectations have already moved the money.",
+                 loud={"cut"}, odds={"hike": 0.68, "hold": 0.32, "cut": 0.0})},
         ],
         "recent": [
             {"reference_month": "2026-07-01", "event": "CPI",
-             "reactions": {"dxy_48h": 0.4, "gold_48h": -0.8, "spx_48h": -0.3}},
+             "reactions": {"dxy_48h": 0.4, "gold_48h": -0.8, "spx_48h": -0.3},
+             "resolution": _resolution("inflation", "a", True,
+                                       "dollar ▲, gold ▼ as mapped")},
             {"reference_month": "2026-07-01", "event": "Employment Situation (NFP)",
-             "reactions": {"dxy_48h": -0.2, "gold_48h": 0.5, "spx_48h": 0.6}},
+             "reactions": {"dxy_48h": -0.2, "gold_48h": 0.5, "spx_48h": 0.6},
+             "resolution": _resolution("employment", "b", True,
+                                       "dollar ▼, gold ▲ as mapped")},
         ],
     },
 }
@@ -301,5 +374,71 @@ RECOVERY_STATE = {
             {"says": "Smart money (gold COT) up", "doing": "net adding w/w", "status": "confirmed"},
         ], "confirmed": 5, "total": 5},
     },
-    "calendar": PEAK_STATE["calendar"],
+    # Deliberately NOT a reference to PEAK_STATE["calendar"]: with cuts priced
+    # the loud branch flips to the hot/strong side, and one event resolves
+    # AGAINST its map. Swapping mock/ -> mock/alt/ must re-render both.
+    "calendar": {
+        "as_of": NOW,
+        "next_catalyst": {"date": "2026-09-04", "event": "Employment Situation (NFP)"},
+        "upcoming": [
+            {"date": "2026-08-20", "event": "CPI", "feeds": "inflation",
+             "hint": "Hot print → strengthens hike case → dollar ▲ gold ▼",
+             "watch": _watch(
+                 "inflation", "medium",
+                 "The inflation voter currently reads recovery while the needle sits at "
+                 "recovery — this print feeds the contested dial without being able to flip it.",
+                 "CPI runs 1.6% YoY against the 2.0% target and is falling at -0.220pp/3mo, "
+                 "with the Fed priced 4% to hike / 26% to hold — this print decides "
+                 "whether the dovish case holds.",
+                 loud={"a"})},
+            {"date": "2026-08-21", "event": "Jobless Claims", "feeds": "employment",
+             "hint": "Weak print → strengthens cut case → gold ▲ dollar ▼",
+             "watch": _watch(
+                 "employment", "low",
+                 "Neither branch can move a voter off its current read.",
+                 "Unemployment holds at 5.4% with a Sahm gap of +0.45pp, with the Fed "
+                 "priced 4% to hike / 26% to hold — this print decides whether the "
+                 "dovish case keeps its room.",
+                 loud={"a"})},
+            {"date": "2026-08-28", "event": "PCE (Personal Income & Outlays)", "feeds": "inflation",
+             "hint": "Hot print → strengthens hike case → dollar ▲ gold ▼",
+             "watch": _watch(
+                 "inflation", "low",
+                 "Neither branch can move a voter off its current read.",
+                 "PCE runs 1.7% YoY against the 2.0% target and is falling at -0.190pp/3mo, "
+                 "with the Fed priced 4% to hike / 26% to hold — this print decides "
+                 "whether the dovish case holds.",
+                 loud={"a"})},
+            {"date": "2026-09-04", "event": "Employment Situation (NFP)", "feeds": "employment",
+             "hint": "Weak print → strengthens cut case → gold ▲ dollar ▼",
+             "watch": _watch(
+                 "employment", "high",
+                 "A plausible 100K move flips the employment voter from contraction to "
+                 "recovery — the heaviest single input to the needle can change here.",
+                 "Unemployment holds at 5.4% with a Sahm gap of +0.45pp, with the Fed "
+                 "priced 4% to hike / 26% to hold — this print decides whether the "
+                 "dovish case keeps its room.",
+                 loud={"a"})},
+            {"date": "2026-09-16", "event": "FOMC", "feeds": "both",
+             "hint": "The decision itself — expectations already moved the money",
+             "highlight": True,
+             "watch": _watch(
+                 "fomc", "high",
+                 "The decision itself — the one scheduled event that can move the policy "
+                 "rate, and the whole curve prices off it.",
+                 "The decision itself, with the Fed priced 4% to hike / 26% to hold, "
+                 "with the regime needle at recovery — expectations have already moved the money.",
+                 loud={"hike"}, odds={"hike": 0.04, "hold": 0.26, "cut": 0.70})},
+        ],
+        "recent": [
+            {"reference_month": "2026-07-01", "event": "CPI",
+             "reactions": {"dxy_48h": -0.5, "gold_48h": 1.2, "spx_48h": 0.9},
+             "resolution": _resolution("inflation", "b", True,
+                                       "dollar ▼, gold ▲, stocks ▲ as mapped")},
+            {"reference_month": "2026-07-01", "event": "Employment Situation (NFP)",
+             "reactions": {"dxy_48h": 0.3, "gold_48h": -0.4, "spx_48h": 0.2},
+             "resolution": _resolution("employment", "b", False,
+                                       "0 of 2 asset moves matched")},
+        ],
+    },
 }

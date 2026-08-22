@@ -25,13 +25,19 @@ def _infl_desc(pce_yoy_val: float | None, mom: float | None) -> str:
     return f"Inflation is {dir_} at {pce_yoy_val:.1f}% ({rel} the 2% target)"
 
 
-def _emp_desc(unrate_val: float | None, sahm: float | None) -> str:
+def _emp_desc(unrate_val: float | None, sahm: float | None,
+              payroll: tuple[str, float] | None = None) -> str:
     if unrate_val is None:
         return "employment data unavailable"
     if (sahm or 0) >= config.THRESHOLDS["sahm_trigger"]:
         return f"unemployment is breaking higher at {unrate_val:.1f}%"
     if (sahm or 0) >= config.THRESHOLDS["sahm_warning"]:
         return f"unemployment is creeping up from its lows ({unrate_val:.1f}%)"
+    # The Sahm gap lags payrolls. Saying "no stress" while the employment voter
+    # has already moved on softening payrolls would contradict the scorecard.
+    if payroll and payroll[0] in config.EMPLOYMENT_PAYROLL_DESC:
+        return config.EMPLOYMENT_PAYROLL_DESC[payroll[0]].format(
+            unrate=unrate_val, p3=payroll[1])
     return f"unemployment holds near {unrate_val:.1f}% with no stress"
 
 

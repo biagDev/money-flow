@@ -2,7 +2,7 @@
 import pandas as pd
 import pytest
 
-from pipeline import config, watchlist as wl
+from pipeline import config, regime_engine as eng, watchlist as wl
 
 ASOF = pd.Timestamp("2026-08-01")
 
@@ -214,3 +214,67 @@ def test_next_catalyst_falls_back_to_medium():
 
 def test_next_catalyst_none_when_no_watch():
     assert wl.next_catalyst([{"date": "2026-09-01", "event": "X"}]) is None
+
+
+# ---- payrolls feed the NFP watch card -------------------------------------
+def _payems_from_deltas(deltas, start=150000.0, end=ASOF):
+    lvl, cur = [start], start
+    for dv in deltas:
+        cur += dv
+        lvl.append(cur)
+    return _monthly(lvl, end=end)
+
+
+def _labour_state(deltas):
+    return {"unrate": _monthly([4.1] * 24),
+            "pce": _pce_index(2.2),
+            "payems": _payems_from_deltas(deltas)}
+
+
+def test_nfp_is_high_stakes_when_payrolls_sit_near_the_stress_line():
+    """The case the watchlist exists to flag: unemployment quiet, payrolls
+    positive but weak enough that one plausible print crosses into stress and
+    flips the voter. This mirrors the live setup going into the Sept NFP."""
+    d = _labour_state([120] * 20 + [60, 20, -20])       # ~+20K/3mo, like today
+    state = eng.payroll_state(d, ASOF)
+    assert state[0] == "soft" and 0 < state[1] < config.THRESHOLDS["payems_soft_3mo"]
+    stakes, why = wl.stakes_for_event("employment", d, _hawkish_state(), ASOF)
+    assert stakes == "high", why
+    assert "employment" in why
+
+
+def test_deeply_negative_payrolls_are_medium_not_high():
+    """Deliberate: once payrolls have already dragged the voter to contraction,
+    a single further print cannot flip it, so the event stops being a
+    catalyst. Stakes measure what the next print can CHANGE, not how bad
+    things already are."""
+    d = _labour_state([120] * 20 + [-40, -55, -60])
+    assert eng.payroll_state(d, ASOF)[0] == "stress"
+    assert wl._vote_of("employment", d, ASOF) == "contraction"
+    stakes, _ = wl.stakes_for_event("employment", d, _hawkish_state(), ASOF)
+    assert stakes == "medium"
+
+
+def test_nfp_stakes_see_payrolls_not_just_unemployment():
+    """With payrolls firm and UNRATE flat nothing can flip, so the same event
+    is not high — proving the payrolls probe is what does the work."""
+    firm = _labour_state([180] * 23)
+    stakes, _ = wl.stakes_for_event("employment", firm, _hawkish_state(), ASOF)
+    assert stakes != "high"
+    near = _labour_state([120] * 20 + [60, 20, -20])
+    assert wl.stakes_for_event("employment", near, _hawkish_state(), ASOF)[0] == "high"
+
+
+def test_employment_probe_survives_missing_payrolls():
+    """No payems at all: still scores, never raises."""
+    d = {"unrate": _monthly([4.1] * 24), "pce": _pce_index(2.2)}
+    stakes, why = wl.stakes_for_event("employment", d, _hawkish_state(), ASOF)
+    assert stakes in ("high", "medium", "low")
+    assert why
+
+
+def test_high_stakes_reason_names_the_payroll_shock_in_thousands():
+    d = _labour_state([120] * 20 + [60, 20, -20])
+    _, why = wl.stakes_for_event("employment", d, _hawkish_state(), ASOF)
+    shock = config.WATCHLIST_PERTURBATIONS["payems_k"]
+    assert f"{shock:.0f}K" in why, why

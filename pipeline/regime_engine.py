@@ -10,7 +10,7 @@ from __future__ import annotations
 import pandas as pd
 
 from . import config
-from .fetch_fred import yoy, diff_days, last
+from .fetch_fred import yoy, diff_days, last, mom_delta
 
 T = config.THRESHOLDS
 R = config.REGIMES
@@ -59,7 +59,35 @@ def vote_inflation(d, asof):
     return _norm(v), ev
 
 
+def payroll_state(d, asof=None) -> tuple[str, float] | None:
+    """3-month average payrolls change, classified. None when unavailable."""
+    asof = asof or pd.Timestamp.now(tz="UTC").tz_localize(None)
+    p = _cut(d.get("payems"), asof)
+    if p is None or len(p) < 5:
+        return None
+    nfp = mom_delta(p).dropna()
+    if len(nfp) < 3:
+        return None
+    p3 = float(nfp.iloc[-3:].mean())
+    if p3 < T["payems_stress_3mo"]:
+        return "stress", p3
+    if p3 < T["payems_soft_3mo"]:
+        return "soft", p3
+    return "firm", p3
+
+
 def vote_employment(d, asof):
+    """Sahm gap blended with payrolls momentum.
+
+    The Sahm gap is the canonical recession trigger but lags — it reads a
+    3-month unemployment average against a 12-month low, so a labour market
+    that is already shedding jobs can still show a quiet gap. Payrolls
+    momentum is the faster, noisier signal, so it is blended alongside rather
+    than replacing — and only as WEAKNESS evidence. Firm payrolls add nothing:
+    letting them vote expansion would override a Sahm-triggered read during a
+    jobs rebound. With no payrolls series, or with hiring firm, this reduces
+    exactly to the Sahm-only vote.
+    """
     u = _cut(d.get("unrate"), asof)
     if u is None or len(u) < 15:
         return _norm({r: 0.25 for r in R}), "no data"
@@ -73,6 +101,15 @@ def vote_employment(d, asof):
     else:
         v = {"expansion": 0.6, "peak": 0.4}
     ev = f"UNRATE {float(u.iloc[-1]):.1f}%, Sahm gap {sahm:+.2f}pp"
+
+    pay = payroll_state(d, asof)
+    if pay is not None:
+        state, p3 = pay
+        pv = config.EMPLOYMENT_PAYROLL_VOTES.get(state)
+        if pv:                      # firm hiring is reported but never blended
+            w = T["payems_blend"]
+            v = {r: (1.0 - w) * v.get(r, 0.0) + w * pv.get(r, 0.0) for r in R}
+        ev += f", payrolls {p3:+.0f}K/3mo ({state})"
     return _norm(v), ev
 
 

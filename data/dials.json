@@ -1,5 +1,5 @@
 {
- "as_of": "2026-08-22T04:03:49Z",
+ "as_of": "2026-08-22T09:50:29Z",
  "inflation": {
   "pce_yoy": 3.67,
   "cpi_yoy": 3.54,
@@ -67,7 +67,7 @@
    },
    {
     "dial": "employment",
-    "reading": "unemployment holds near 4.1% with no stress",
+    "reading": "unemployment holds near 4.1% but hiring has slowed to +20K/3mo",
     "implication": "gives the Fed room to be hawkish"
    }
   ]
