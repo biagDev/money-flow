@@ -1,5 +1,5 @@
 {
- "as_of": "2026-08-22T04:07:06Z",
+ "as_of": "2026-08-22T04:29:15Z",
  "curve": {
   "today": [
    {
@@ -616,7 +616,6 @@
    2.13
   ],
   "gold": [
-   1798.9,
    1740.6,
    1704.5,
    1699.5,
@@ -875,13 +874,14 @@
    4100.1001,
    4245.7998,
    4383.0,
-   4417.7998
+   4417.7998,
+   4624.1001
   ],
   "corr_12mo": -0.18,
   "confirm": {
    "expected": "gold up",
-   "actual": "-0.3%/3mo",
-   "status": "diverging"
+   "actual": "+1.9%/3mo",
+   "status": "confirmed"
   }
  },
  "cot": [
@@ -2441,8 +2441,8 @@
    },
    {
     "says": "Gold up",
-    "doing": "Gold -0.3% / 3mo",
-    "status": "neutral"
+    "doing": "Gold +1.9% / 3mo",
+    "status": "confirmed"
    },
    {
     "says": "Stocks up",
@@ -2455,7 +2455,7 @@
     "status": "confirmed"
    }
   ],
-  "confirmed": 2,
+  "confirmed": 3,
   "total": 5
  },
  "schema_version": 1
