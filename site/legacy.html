@@ -1,0 +1,287 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MONEY FLOW — wiring test</title>
+<style>
+  :root { color-scheme: dark; }
+  body { background:#0b0d10; color:#e6e9ef; margin:0;
+         font:15px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace; padding:2rem 1.25rem; }
+  main { max-width:46rem; margin:0 auto; }
+  h1 { font-size:.8rem; letter-spacing:.22em; text-transform:uppercase;
+       color:#69727f; font-weight:500; margin:0 0 1.75rem; }
+  h2 { font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
+       color:#69727f; font-weight:500; margin:2.5rem 0 1rem; }
+  .needle { font-size:2.6rem; letter-spacing:.05em; margin:0; text-transform:uppercase; }
+  .sub { color:#69727f; font-size:.82rem; margin:.4rem 0 2rem; }
+  table.probs { border-collapse:collapse; width:100%; margin:0 0 2rem; }
+  table.probs td { padding:.3rem 0; vertical-align:baseline; }
+  td.k { width:7.5rem; color:#9aa4b2; }
+  td.b { white-space:pre; color:#4f9dff; }
+  td.v { width:4rem; text-align:right; color:#9aa4b2; }
+  tr.top td.b { color:#7dd3a0; }
+  tr.top td.k { color:#e6e9ef; }
+  p.narr { border-left:2px solid #232833; padding-left:1rem; margin:0 0 1.25rem; color:#c3cad6; }
+  .catalyst { font-size:.82rem; color:#9aa4b2; margin:0 0 .5rem; }
+  .catalyst b { color:#ffb454; letter-spacing:.12em; font-weight:500; }
+  .ev { border:1px solid #1a1e26; border-radius:4px; padding:.85rem 1rem; margin:0 0 .8rem; }
+  .ev-head { display:flex; gap:.6rem; align-items:baseline; flex-wrap:wrap; }
+  .date { color:#69727f; font-size:.8rem; }
+  .name { color:#e6e9ef; }
+  .stakes { font-size:.68rem; letter-spacing:.14em; padding:.1rem .45rem;
+            border-radius:3px; text-transform:uppercase; }
+  .stakes.high { background:#4a1d1d; color:#ff8f8f; }
+  .stakes.medium { background:#3d3315; color:#ffc866; }
+  .stakes.low { background:#1c2028; color:#69727f; }
+  .setup { color:#9aa4b2; font-size:.82rem; margin:.6rem 0 .75rem; }
+  .branch { border-left:2px solid #232833; padding-left:.75rem; margin:.5rem 0;
+            font-size:.82rem; color:#9aa4b2; }
+  .branch.loud { border-left-color:#ffb454; color:#c3cad6; }
+  .tag { font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:#69727f; }
+  .branch.loud .tag { color:#ffb454; }
+  .res { font-size:.8rem; color:#9aa4b2; }
+  .ok { color:#7dd3a0; } .no { color:#ff8f8f; }
+  footer { color:#4b5361; font-size:.75rem; border-top:1px solid #1a1e26;
+           padding-top:1rem; margin-top:2.5rem; }
+  .err { color:#ff6b6b; }
+  .mood { font-size:.7rem; letter-spacing:.2em; padding:.15rem .5rem; border-radius:3px;
+          text-transform:uppercase; }
+  .mood.SUNNY { background:#1d3a24; color:#7dd3a0; }
+  .mood.CAUTIOUS { background:#3d3315; color:#ffc866; }
+  .mood.STORMY { background:#4a1d1d; color:#ff8f8f; }
+  .mood.CLEARING { background:#173040; color:#6fc3e8; }
+  .moodline { color:#c3cad6; margin:.6rem 0 1.5rem; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+           gap:.6rem; margin:0 0 1.5rem; }
+  .card { border:1px solid #1a1e26; border-radius:4px; padding:.7rem .85rem; }
+  .card.disagree { border-color:#5a3a12; }
+  .card .nm { color:#9aa4b2; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; }
+  .arrows { font-size:1.05rem; margin:.25rem 0; }
+  .arrows .exp { color:#69727f; } .arrows .act { color:#e6e9ef; }
+  .flag { font-size:.66rem; letter-spacing:.1em; }
+  .flag.ok { color:#7dd3a0; } .flag.no { color:#ffb454; }
+  .card .why { color:#9aa4b2; font-size:.8rem; margin-top:.35rem; }
+  ul.bul { margin:0 0 1.25rem; padding-left:1.1rem; color:#c3cad6; }
+  ul.bul li { margin:.25rem 0; }
+  .chg { border-left:2px solid #ffb454; padding-left:.75rem; color:#ffc866;
+         font-size:.85rem; margin:0 0 1.5rem; }
+  .lesson { border:1px solid #1a1e26; border-radius:4px; padding:.9rem 1rem; }
+  .lesson h3 { margin:0 0 .3rem; font-size:.95rem; color:#e6e9ef; font-weight:500; }
+  .lesson .hk { color:#ffc866; font-size:.85rem; margin:0 0 .6rem; }
+  .lesson .mt { color:#9aa4b2; font-size:.82rem; font-style:italic; margin:0 0 .6rem; }
+  .lesson .bd { color:#c3cad6; font-size:.82rem; margin:.2rem 0; }
+  .lesson .lv { border-left:2px solid #4f9dff; padding-left:.75rem; color:#e6e9ef;
+                font-size:.82rem; margin:.75rem 0; }
+  .lesson .cv { color:#69727f; font-size:.78rem; margin-top:.6rem; }
+</style>
+<main>
+  <h1>Money Flow — placeholder</h1>
+  <div id="layer1"></div>
+  <div id="app">loading…</div>
+  <div id="watch"></div>
+  <div id="learn"></div>
+</main>
+<script>
+const BARW = 28;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const pct = n => (n * 100).toFixed(1) + "%";
+
+function renderRegime(d) {
+  // rank whatever regimes the JSON contains — no names hardcoded
+  const rows = Object.entries(d.probabilities || {})
+    .sort((a, b) => b[1] - a[1])
+    .map(([name, p]) => {
+      const filled = Math.round(p * BARW);
+      const bar = "█".repeat(filled) + "·".repeat(BARW - filled);
+      return `<tr class="${name === d.needle ? "top" : ""}">
+                <td class="k">${esc(name)}</td>
+                <td class="b">${bar}</td>
+                <td class="v">${pct(p)}</td>
+              </tr>`;
+    }).join("");
+
+  document.getElementById("app").innerHTML = `
+    <p class="needle">${esc(d.needle ?? "—")}</p>
+    <p class="sub">projection: ${esc(d.projection ?? "—")} · in regime since ${esc(d.in_regime_since ?? "—")}</p>
+    <table class="probs">${rows}</table>
+    <p class="narr">${esc(d.narrative ?? "")}</p>
+    <footer>as_of ${esc(d.as_of ?? "—")} · schema v${esc(d.schema_version ?? "?")}</footer>`;
+}
+
+function branchHtml(b) {
+  const loud = b.pricing_effect === "forces repricing";
+  const odds = b.market_odds != null ? ` · ${pct(b.market_odds)} priced` : "";
+  const assets = Object.entries(b.assets || {})
+    .map(([k, v]) => `${esc(k)} ${esc(v)}`).join(" · ");
+  return `<div class="branch ${loud ? "loud" : ""}">
+            ${esc(b.label)} — ${esc(b.implies)}
+            <div class="tag">${esc(b.pricing_effect)}${odds}</div>
+            <div>${assets}</div>
+          </div>`;
+}
+
+function renderWatch(cal) {
+  const out = [];
+  const nc = cal.next_catalyst;
+  if (nc) {
+    out.push(`<p class="catalyst"><b>Next catalyst</b> · ${esc(nc.event)} on ${esc(nc.date)}</p>`);
+  }
+
+  const withWatch = (cal.upcoming || []).filter(e => e.watch);
+  if (withWatch.length) {
+    out.push("<h2>Watchlist</h2>");
+    for (const e of withWatch) {
+      const w = e.watch;
+      out.push(`<div class="ev">
+        <div class="ev-head">
+          <span class="date">${esc(e.date)}</span>
+          <span class="name">${esc(e.event)}</span>
+          <span class="stakes ${esc(w.stakes)}">${esc(w.stakes)}</span>
+        </div>
+        <div class="setup">${esc(w.setup)}</div>
+        ${Object.values(w.branches || {}).map(branchHtml).join("")}
+      </div>`);
+    }
+  }
+
+  const resolved = (cal.recent || []).filter(e => e.resolution);
+  if (resolved.length) {
+    out.push("<h2>Resolved</h2>");
+    for (const e of resolved) {
+      const r = e.resolution;
+      const tag = r.as_mapped
+        ? '<span class="ok">AS MAPPED ✓</span>'
+        : '<span class="no">AGAINST MAP ✗</span>';
+      out.push(`<div class="ev">
+        <div class="ev-head">
+          <span class="date">${esc(e.reference_month)}</span>
+          <span class="name">${esc(e.event)}</span>
+          ${tag}
+        </div>
+        <div class="res">${esc(r.note)}</div>
+      </div>`);
+    }
+  }
+  document.getElementById("watch").innerHTML = out.join("");
+}
+
+// ---- Layer 1 ----------------------------------------------------------
+const ARROW = { up: "\u2191", down: "\u2193", sideways: "\u2192" };
+
+function renderOverview(o) {
+  const cards = (o.assets || []).map(a => `
+    <div class="card ${a.agree ? "" : "disagree"}">
+      <div class="nm">${esc(a.asset)}</div>
+      <div class="arrows">
+        <span class="exp">expected ${ARROW[a.expected] ?? "?"}</span>
+        &nbsp;&nbsp;<span class="act">actual ${ARROW[a.actual] ?? "?"}</span>
+      </div>
+      <div class="flag ${a.agree ? "ok" : "no"}">
+        ${a.agree ? "AS EXPECTED \u2713" : "NOT AS EXPECTED \u2717"}
+      </div>
+      <div class="why">${esc(a.why)}</div>
+    </div>`).join("");
+
+  const nbd = o.next_big_date;
+  document.getElementById("layer1").innerHTML = `
+    <span class="mood ${esc(o.mood?.label)}">${esc(o.mood?.label)}</span>
+    <p class="moodline">${esc(o.mood?.line)}</p>
+    <div class="cards">${cards}</div>
+    ${o.changed ? `<p class="chg">${esc(o.changed.line)}</p>` : ""}
+    <ul class="bul">${(o.bullets || []).map(b => `<li>${esc(b)}</li>`).join("")}</ul>
+    ${nbd ? `<p class="sub">Next big date: ${esc(nbd.event)} on ${esc(nbd.date)}
+             &middot; lesson ${esc(nbd.lesson)}</p>` : ""}`;
+}
+
+// ---- lesson slot resolver (mirrors pipeline/lessons.py) ----------------
+const MAPS = {
+  updown_word: v => v == null ? null : v > 0 ? "up" : v < 0 ? "down" : "sideways",
+  percent: v => v == null ? null : v * 100,
+  longshort_word: v => v == null ? null
+    : v > 0 ? "betting on higher prices" : "betting on lower prices",
+};
+
+function resolvePath(root, path) {
+  let node = root;
+  for (const step of path.split(".")) {
+    if (node == null) return null;
+    const m = /^([^\[]+)?(?:\[(.+)\])?$/.exec(step);
+    if (!m) return null;
+    const [, name, sel] = m;
+    if (name) {
+      if (name === "length") { node = Array.isArray(node) ? node.length : null; continue; }
+      if (name.startsWith("$")) {
+        const key = resolvePath(root, name.slice(1));
+        node = (key == null) ? null : node?.[key];
+      } else node = node?.[name];
+    }
+    if (sel == null || node == null) continue;
+    if (!Array.isArray(node)) return null;
+    if (/^-?\d+$/.test(sel)) {
+      const i = Number(sel);
+      node = i < 0 ? node[node.length + i] : node[i];
+    } else if (sel.includes("=")) {
+      const [k, want] = sel.split("=");
+      node = node.find(x => String(x?.[k]) === want) ?? null;
+    } else return null;
+  }
+  return node ?? null;
+}
+
+function resolveLesson(lesson, files) {
+  const live = lesson.live || {};
+  const vals = {};
+  for (const [name, spec] of Object.entries(live.slots || {})) {
+    let v = resolvePath(files[spec.file] ?? null, spec.path);
+    if (spec.map && MAPS[spec.map]) v = MAPS[spec.map](v);
+    if (v != null && spec.round != null && typeof v === "number") {
+      v = spec.round === 0 ? Math.round(v) : Number(v.toFixed(spec.round));
+    }
+    vals[name] = v == null ? "\u2014" : v;
+  }
+  return (live.template || "").replace(/\{(\w+)\}/g, (_, k) => esc(vals[k] ?? "\u2014"));
+}
+
+function renderLesson(lesson, files) {
+  document.getElementById("learn").innerHTML = `
+    <h2>Learn \u00b7 lesson ${esc(lesson.id)}</h2>
+    <div class="lesson">
+      <h3>${esc(lesson.title)}</h3>
+      <p class="hk">${esc(lesson.hook)}</p>
+      <p class="mt">${esc(lesson.metaphor)}</p>
+      ${(lesson.body || []).map(b => `<p class="bd">${esc(b)}</p>`).join("")}
+      <p class="lv">${resolveLesson(lesson, files)}</p>
+      <p class="cv">${esc(lesson.caveat)}</p>
+    </div>`;
+}
+
+const grab = p => fetch(p, { cache: "no-store" })
+  .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); });
+
+grab("../data/regime.json")
+  .then(renderRegime)
+  .catch(e => {
+    document.getElementById("app").innerHTML =
+      `<p class="err">could not load ../data/regime.json — ${esc(e.message)}</p>`;
+  });
+
+// the watchlist is additive: if calendar.json is missing or has no watch
+// objects, the page above still renders exactly as before
+grab("../data/calendar.json").then(renderWatch).catch(() => {});
+
+// Layer 1 + a live-hydrated lesson, proving the slot grammar end to end
+grab("../data/overview.json").then(renderOverview).catch(() => {});
+Promise.all([
+  grab("../content/lessons/lesson-09.json"),
+  grab("../data/evidence.json"),
+  grab("../data/flows.json"),
+  grab("../data/regime.json"),
+  grab("../data/scenarios.json"),
+  grab("../data/overview.json"),
+]).then(([lesson, evidence, flows, regime, scenarios, overview]) =>
+  renderLesson(lesson, {
+    "evidence.json": evidence, "flows.json": flows, "regime.json": regime,
+    "scenarios.json": scenarios, "overview.json": overview,
+  })
+).catch(() => {});
+</script>

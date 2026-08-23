@@ -71,6 +71,31 @@ site/                     # Claude Design frontend goes here
 tests/                    # schema contract + engine golden states
 ```
 
+## The site
+
+`site/index.html` is the Claude Design v2 build. It reads **live** data from
+`../data/` by default. Two QA modes are permanent:
+
+| URL | Reads |
+|---|---|
+| `site/index.html` | `data/` — live |
+| `site/index.html?data=mock` | `mock/` — the PEAK state |
+| `site/index.html?data=alt` | `mock/alt/` — the RECOVERY state |
+
+The mock-swap test is the frontend's definition of done: `?data=alt` must
+re-render everything — mood CAUTIOUS→CLEARING, arrows flipped, simulator
+hold→cut, an `AGAINST MAP ✗` visible, lesson live-boxes showing different
+numbers — with zero code edits.
+
+One constant controls all of it, near the top of the page script:
+
+```js
+const DATA_SETS = { live: 'data/', mock: 'mock/', alt: 'mock/alt/' };
+const DEFAULT_DATA_SET = 'live';
+```
+
+`site/legacy.html` is the previous placeholder, kept for rollback.
+
 ## Being judged
 
 `ledger/snapshots.jsonl` records one line per market day: the full claim state
