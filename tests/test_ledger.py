@@ -267,7 +267,7 @@ def test_report_renders_from_a_synthetic_ledger(store):
     md = wr.render_markdown(rep)
     for heading in ("## 1. Headline", "## 2. Resolutions", "## 3. Divergence",
                     "## 4. Version ledger", "## 5. Reliability",
-                    "## 6. Open calibration", "## 7. Suggested review"):
+                    "## 6. Open feedback", "## 7. Suggested review"):
         assert heading in md, heading
     assert "insufficient" in md, "small samples must be visibly withheld"
 
@@ -303,9 +303,49 @@ def test_review_ignores_a_big_gap_with_a_small_sample():
     assert wr.review_items(noisy) == []
 
 
-def test_calibration_issue_fetch_degrades_to_unavailable(monkeypatch):
+def test_feedback_fetch_degrades_to_unavailable(monkeypatch):
     def boom(*a, **kw):
         raise OSError("gh not installed")
     monkeypatch.setattr(wr.subprocess, "run", boom)
-    issues, err = wr.open_calibration_issues()
+    issues, err = wr.open_issues("confusion")
     assert issues == [] and err
+    found, errors = wr.open_feedback()
+    assert set(found) == set(config.FEEDBACK_LABELS)
+    assert set(errors) == set(config.FEEDBACK_LABELS)
+
+
+def test_report_gathers_both_feedback_labels(monkeypatch):
+    """Confusion notes and calibration notes are different kinds of signal and
+    must not be collapsed into one bucket."""
+    def fake(cmd, **kw):
+        label = cmd[cmd.index("--label") + 1]
+        payload = {"confusion": [{"number": 7, "title": "confusion: CAUTIOUS",
+                                  "createdAt": "2026-08-23T00:00:00Z", "labels": []}],
+                   "calibration": [{"number": 8, "title": "calibration: needle",
+                                    "createdAt": "2026-08-22T00:00:00Z", "labels": []}]}
+        class R:
+            returncode = 0
+            stdout = json.dumps(payload.get(label, []))
+            stderr = ""
+        return R()
+    monkeypatch.setattr(wr.subprocess, "run", fake)
+    rep = wr.build({}, root=ROOT)
+    md = wr.render_markdown(rep)
+    assert "#7 confusion: CAUTIOUS" in md
+    assert "#8 calibration: needle" in md
+    assert "Confusion — a line that did not land** (1 open)" in md
+    assert "Calibration — a disagreement with the read** (1 open)" in md
+
+
+def test_one_failing_label_does_not_hide_the_other(monkeypatch):
+    def fake(cmd, **kw):
+        label = cmd[cmd.index("--label") + 1]
+        class R:
+            returncode = 1 if label == "calibration" else 0
+            stdout = "[]" if label != "calibration" else ""
+            stderr = "boom"
+        return R()
+    monkeypatch.setattr(wr.subprocess, "run", fake)
+    found, errors = wr.open_feedback()
+    assert "confusion" in found and "calibration" in errors
+    assert "confusion" not in errors

@@ -1,0 +1,36 @@
+name: Confusion note
+description: Something on the site you read and didn't follow. Ten seconds, no polish.
+title: "confusion: "
+labels: ["confusion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The site's whole job is to be understood. If a line made you stop and
+        re-read it, that is a defect in the writing, not in you — and it is
+        worth more to us than a compliment. Rough notes are fine.
+  - type: input
+    id: read
+    attributes:
+      label: What I read
+      description: The line, number, or label — roughly is fine.
+      placeholder: 'e.g. "Bond payouts usually rise while the economy runs warm"'
+    validations:
+      required: true
+  - type: input
+    id: expected
+    attributes:
+      label: What confused me, or what I expected instead
+      placeholder: 'e.g. I thought "payouts" meant dividends, not yields'
+    validations:
+      required: true
+  - type: dropdown
+    id: why_helped
+    attributes:
+      label: Did tapping "why?" fix it?
+      options:
+        - "yes"
+        - "no"
+        - "didn't try"
+    validations:
+      required: true

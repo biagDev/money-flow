@@ -96,6 +96,25 @@ const DEFAULT_DATA_SET = 'live';
 
 `site/legacy.html` is the previous placeholder, kept for rollback.
 
+## Feedback loop
+
+Two issue templates, both one tap from mobile:
+
+| Template | Label | For |
+|---|---|---|
+| Confusion note | `confusion` | a line you read and didn't follow — a defect in the writing |
+| Calibration note | `calibration` | the engine's read disagreeing with yours |
+
+Layer 1 carries a quiet **"Something unclear?"** link that opens the confusion
+form with the title prefilled to today's date and the current mood, e.g.
+`confusion: CAUTIOUS — 2026-08-23`. That date joins straight to the ledger
+snapshot for the day, so a note can always be traced back to exactly what the
+site was claiming when it confused you. No backend — it is a plain link.
+
+The Sunday report's section 6 gathers both labels, listed separately, because
+they call for different fixes: a confusion note is usually a template edit in
+`config.py`, not an engine change.
+
 ## Being judged
 
 `ledger/snapshots.jsonl` records one line per market day: the full claim state

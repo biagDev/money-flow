@@ -52,18 +52,30 @@ def _cell_line(name: str, cell: dict) -> str:
 
 
 # ---- section 6: open calibration issues ----------------------------------
-def open_calibration_issues() -> tuple[list[dict], str | None]:
-    """Fetch via gh; degrade to 'unavailable' rather than failing the report."""
+def open_issues(label: str) -> tuple[list[dict], str | None]:
+    """Open issues for one label. Degrades to 'unavailable', never fails the report."""
     try:
         out = subprocess.run(
-            ["gh", "issue", "list", "--label", "calibration", "--state", "open",
-             "--json", "number,title,createdAt", "--limit", "50"],
+            ["gh", "issue", "list", "--label", label, "--state", "open",
+             "--json", "number,title,createdAt,labels", "--limit", "50"],
             capture_output=True, text=True, timeout=45, cwd=str(ROOT))
         if out.returncode != 0:
             return [], (out.stderr.strip().splitlines() or ["gh call failed"])[-1]
         return json.loads(out.stdout or "[]"), None
     except Exception as exc:
         return [], repr(exc)
+
+
+def open_feedback() -> tuple[dict, dict]:
+    """{label: [issues]}, {label: error}. One call per label so a single
+    failing label cannot hide the others."""
+    found, errors = {}, {}
+    for label in config.FEEDBACK_LABELS:
+        items, err = open_issues(label)
+        found[label] = items
+        if err:
+            errors[label] = err
+    return found, errors
 
 
 # ---- section 7: suggested review items -----------------------------------
@@ -94,7 +106,7 @@ def build(track: dict, root: Path | None = None) -> dict:
     events = led.read_lines("events", root)
     divergences = led.read_lines("divergences", root)
     health = led.read_lines("health", root)
-    issues, issues_error = open_calibration_issues()
+    feedback, feedback_errors = open_feedback()
 
     versions = {}
     for snap in snapshots:
@@ -124,8 +136,8 @@ def build(track: dict, root: Path | None = None) -> dict:
                       "days": len(days), "first": min(days), "last": max(days)}
                      for (v, c), days in sorted(versions.items())],
         "reliability": {"chains": chains, "health_recent": health[-10:]},
-        "open_calibration_issues": issues,
-        "open_calibration_issues_error": issues_error,
+        "open_feedback": feedback,
+        "open_feedback_errors": feedback_errors,
         "review_items": review_items(track),
     }
 
@@ -200,16 +212,32 @@ def render_markdown(rep: dict) -> str:
             L.append(f"- `{h.get('ts')}` **{h.get('kind')}** {h.get('source')}"
                      f"{' — ' + h['detail'] if h.get('detail') else ''}")
 
-    L += ["", "## 6. Open calibration notes", ""]
-    if rep["open_calibration_issues_error"]:
-        L.append(f"Unavailable — could not reach GitHub "
-                 f"(`{rep['open_calibration_issues_error']}`). The report is "
-                 f"otherwise complete.")
-    elif rep["open_calibration_issues"]:
-        for i in rep["open_calibration_issues"]:
-            L.append(f"- #{i['number']} {i['title']} ({i['createdAt'][:10]})")
+    L += ["", "## 6. Open feedback notes", ""]
+    feedback = rep.get("open_feedback") or {}
+    errors = rep.get("open_feedback_errors") or {}
+    titles = {"confusion": "Confusion — a line that did not land",
+              "calibration": "Calibration — a disagreement with the read"}
+    total = sum(len(v) for v in feedback.values())
+    if errors and not total:
+        L.append("Unavailable — could not reach GitHub ("
+                 + "; ".join(f"`{k}`: {v}" for k, v in errors.items())
+                 + "). The report is otherwise complete.")
     else:
-        L.append("None open.")
+        for label in config.FEEDBACK_LABELS:
+            items = feedback.get(label) or []
+            L += [f"**{titles.get(label, label)}** ({len(items)} open)", ""]
+            if label in errors:
+                L += [f"- unavailable: `{errors[label]}`", ""]
+                continue
+            if not items:
+                L += ["- none open", ""]
+                continue
+            for i in items:
+                L.append(f"- #{i['number']} {i['title']} ({i['createdAt'][:10]})")
+            L.append("")
+        if feedback.get("confusion"):
+            L.append("Confusion notes are writing defects. They are usually a "
+                     "template edit in `config.py`, not an engine change.")
 
     L += ["", "## 7. Suggested review", ""]
     if rep["review_items"]:

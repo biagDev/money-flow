@@ -507,6 +507,11 @@ CALIBRATION_BUCKETS = [(0.0, 0.35), (0.35, 0.45), (0.45, 0.55),
 # Flag a claim type for review only when it trails persistence by this much.
 REVIEW_TRIGGER_PP = 15.0
 
+# Feedback labels the Sunday report gathers. "calibration" is a disagreement
+# with the engine's read; "confusion" is a line the reader could not follow —
+# a defect in the writing, and the cheaper of the two to fix.
+FEEDBACK_LABELS = ["confusion", "calibration"]
+
 WEEKLY_REPORT_DIR = "reports/weekly"
 
 SCHEMA_VERSION = 1

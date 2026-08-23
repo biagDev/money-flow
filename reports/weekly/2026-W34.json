@@ -1,6 +1,6 @@
 {
  "week": "2026-W34",
- "generated": "2026-08-22T13:59:18Z",
+ "generated": "2026-08-23T07:18:05Z",
  "schema_version": 1,
  "engine_version": "2.0.0",
  "config_hash": "c3a2a1c6d7ad65482d19eae7551411c543fc26fb0393683b0bf9e0bbce274e9d",
@@ -58,7 +58,7 @@
   }
  ],
  "counts": {
-  "snapshots": 1,
+  "snapshots": 2,
   "scores": 0,
   "events": 8,
   "divergences": 0,
@@ -101,16 +101,16 @@
   {
    "engine_version": "2.0.0",
    "config_hash": "c3a2a1c6d7ad",
-   "days": 1,
+   "days": 2,
    "first": "2026-08-22",
-   "last": "2026-08-22"
+   "last": "2026-08-23"
   }
  ],
  "reliability": {
   "chains": {
    "snapshots": {
     "ok": true,
-    "detail": "snapshots.jsonl: 1 lines, chain intact"
+    "detail": "snapshots.jsonl: 2 lines, chain intact"
    },
    "events": {
     "ok": true,
@@ -131,7 +131,10 @@
   },
   "health_recent": []
  },
- "open_calibration_issues": [],
- "open_calibration_issues_error": null,
+ "open_feedback": {
+  "confusion": [],
+  "calibration": []
+ },
+ "open_feedback_errors": {},
  "review_items": []
 }
