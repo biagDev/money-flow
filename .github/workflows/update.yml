@@ -6,7 +6,12 @@ on:
     - cron: "0,30 12-22 * * 1-5"
     # One overnight run for late updates + non-US data
     - cron: "15 3 * * 2-6"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      force_snapshot:
+        description: "Write a ledger snapshot regardless of the time slot (QA)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -28,6 +33,8 @@ jobs:
       - name: Build data (COT skipped on weekdays intraday)
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          # normally unset: the ledger writes only in the final weekday slot
+          LEDGER_FORCE_SNAPSHOT: ${{ inputs.force_snapshot && '1' || '' }}
         run: python -m pipeline.build --no-cot
       - name: Validate contract + voice + consistency
         run: python -m pytest tests/ -q
