@@ -1,5 +1,5 @@
 {
- "as_of": "2026-08-22T09:50:29Z",
+ "as_of": "2026-08-24T21:34:19Z",
  "inflation": {
   "pce_yoy": 3.67,
   "cpi_yoy": 3.54,
@@ -8,7 +8,7 @@
   "direction": "flat",
   "sub": {
    "ppi_yoy": 8.27,
-   "breakeven_5y": 2.34,
+   "breakeven_5y": 2.32,
    "oil": {
     "last": 86.48,
     "spark": [
