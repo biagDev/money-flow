@@ -1,5 +1,5 @@
 {
- "as_of": "2026-08-24T15:43:36Z",
+ "as_of": "2026-08-24T16:43:36Z",
  "regime": "expansion",
  "nodes": [
   {
@@ -264,8 +264,8 @@
   },
   {
    "asset": "gold",
-   "price": 4730.7998046875,
-   "trend_3mo": 4.64,
+   "price": 4717.7998046875,
+   "trend_3mo": 4.35,
    "trend_unit": "%",
    "spark": [
     5120.2002,
@@ -387,7 +387,7 @@
     4489.3999,
     4516.2998,
     4624.1001,
-    4730.7998
+    4717.7998
    ],
    "driver": "Driver: REAL yields (yield \u2212 inflation). Bonds are its competitor, not war headlines.",
    "stale": false
