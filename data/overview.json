@@ -1,5 +1,5 @@
 {
- "as_of": "2026-08-22T12:59:06Z",
+ "as_of": "2026-08-24T20:36:06Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -25,16 +25,16 @@
   {
    "asset": "dollar",
    "expected": "down",
-   "actual": "sideways",
-   "agree": false,
+   "actual": "down",
+   "agree": true,
    "why": "The dollar usually falls when money looks abroad for better returns.",
    "lesson": 8
   },
   {
    "asset": "bonds",
    "expected": "up",
-   "actual": "sideways",
-   "agree": false,
+   "actual": "up",
+   "agree": true,
    "why": "Bond payouts usually rise while the economy runs warm.",
    "lesson": 6
   }

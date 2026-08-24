@@ -1,26 +1,26 @@
 {
- "as_of": "2026-08-24T19:33:58Z",
+ "as_of": "2026-08-24T20:36:06Z",
  "curve": {
   "today": [
    {
     "m": "3M",
-    "y": 3.87
+    "y": 3.88
    },
    {
     "m": "2Y",
-    "y": 4.19
+    "y": 4.24
    },
    {
     "m": "5Y",
-    "y": 4.39
+    "y": 4.43
    },
    {
     "m": "10Y",
-    "y": 4.69
+    "y": 4.74
    },
    {
     "m": "30Y",
-    "y": 5.23
+    "y": 5.27
    }
   ],
   "6mo_ago": [
@@ -30,7 +30,7 @@
    },
    {
     "m": "2Y",
-    "y": 3.47
+    "y": 3.48
    },
    {
     "m": "5Y",
@@ -42,29 +42,29 @@
    },
    {
     "m": "30Y",
-    "y": 4.7
+    "y": 4.72
    }
   ],
   "1yr_ago": [
    {
     "m": "3M",
-    "y": 4.3
+    "y": 4.32
    },
    {
     "m": "2Y",
-    "y": 3.74
+    "y": 3.79
    },
    {
     "m": "5Y",
-    "y": 3.81
+    "y": 3.86
    },
    {
     "m": "10Y",
-    "y": 4.29
+    "y": 4.33
    },
    {
     "m": "30Y",
-    "y": 4.89
+    "y": 4.92
    }
   ],
   "spread_10y3m": {
@@ -354,7 +354,6 @@
  },
  "real_yields_gold": {
   "real_5y": [
-   0.45,
    0.56,
    0.48,
    0.51,
@@ -613,7 +612,8 @@
    2.14,
    2.15,
    2.16,
-   2.13
+   2.13,
+   2.09
   ],
   "gold": [
    1734.9,
@@ -880,7 +880,7 @@
   "corr_12mo": -0.18,
   "confirm": {
    "expected": "gold up",
-   "actual": "+3.9%/3mo",
+   "actual": "+4.1%/3mo",
    "status": "confirmed"
   }
  },
@@ -2431,17 +2431,17 @@
   "rows": [
    {
     "says": "Yields up",
-    "doing": "10Y +12bp / 3mo",
-    "status": "neutral"
+    "doing": "10Y +17bp / 3mo",
+    "status": "confirmed"
    },
    {
     "says": "Dollar down",
-    "doing": "DXY +0.2% / 3mo",
-    "status": "neutral"
+    "doing": "DXY -1.1% / 3mo",
+    "status": "confirmed"
    },
    {
     "says": "Gold up",
-    "doing": "Gold +3.9% / 3mo",
+    "doing": "Gold +4.1% / 3mo",
     "status": "confirmed"
    },
    {
@@ -2455,7 +2455,7 @@
     "status": "confirmed"
    }
   ],
-  "confirmed": 3,
+  "confirmed": 5,
   "total": 5
  },
  "schema_version": 1
