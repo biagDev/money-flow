@@ -1,8 +1,8 @@
 {
- "as_of": "2026-08-25T19:36:15Z",
+ "as_of": "2026-08-25T20:34:44Z",
  "market_pricing": {
-  "hike": 0.4,
-  "hold": 0.6,
+  "hike": 0.38,
+  "hold": 0.62,
   "cut": 0.0
  },
  "pricing_stale": false,
@@ -15,7 +15,7 @@
     "label": "Bond yields",
     "dir": "up",
     "why": "New debt must pay more; the short end jumps hardest.",
-    "current_3mo": "+17bp"
+    "current_3mo": "+14bp"
    },
    {
     "asset": "dollar",
@@ -29,7 +29,7 @@
     "label": "Gold",
     "dir": "down",
     "why": "Real yields rise \u2014 bonds out-compete gold as the inflation hedge.",
-    "current_3mo": "+4.4%"
+    "current_3mo": "+4.5%"
    },
    {
     "asset": "stocks",
@@ -52,7 +52,7 @@
     "label": "Bond yields",
     "dir": "down",
     "why": "Cheaper money; existing bonds rally as yields fall.",
-    "current_3mo": "+17bp"
+    "current_3mo": "+14bp"
    },
    {
     "asset": "dollar",
@@ -66,7 +66,7 @@
     "label": "Gold",
     "dir": "up",
     "why": "Real yields fall \u2014 gold wins the safe-haven contest.",
-    "current_3mo": "+4.4%"
+    "current_3mo": "+4.5%"
    },
    {
     "asset": "stocks",
@@ -89,7 +89,7 @@
     "label": "Bond yields",
     "dir": "drift",
     "why": "Direction inherits from the expectation trend, not the meeting.",
-    "current_3mo": "+17bp"
+    "current_3mo": "+14bp"
    },
    {
     "asset": "dollar",
@@ -103,7 +103,7 @@
     "label": "Gold",
     "dir": "drift",
     "why": "Tracks real-yield expectations while the Fed waits.",
-    "current_3mo": "+4.4%"
+    "current_3mo": "+4.5%"
    },
    {
     "asset": "stocks",
