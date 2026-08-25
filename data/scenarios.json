@@ -1,8 +1,8 @@
 {
- "as_of": "2026-08-25T20:34:44Z",
+ "as_of": "2026-08-25T21:33:29Z",
  "market_pricing": {
-  "hike": 0.38,
-  "hold": 0.62,
+  "hike": 0.4,
+  "hold": 0.6,
   "cut": 0.0
  },
  "pricing_stale": false,
@@ -29,7 +29,7 @@
     "label": "Gold",
     "dir": "down",
     "why": "Real yields rise \u2014 bonds out-compete gold as the inflation hedge.",
-    "current_3mo": "+4.5%"
+    "current_3mo": "+4.3%"
    },
    {
     "asset": "stocks",
@@ -43,7 +43,7 @@
     "label": "Yield curve",
     "dir": "flatten",
     "why": "Overnight-rate pressure on the short end \u2014 the historic recession precursor.",
-    "current_3mo": "-0.05pp"
+    "current_3mo": "-0.10pp"
    }
   ],
   "cut": [
@@ -66,7 +66,7 @@
     "label": "Gold",
     "dir": "up",
     "why": "Real yields fall \u2014 gold wins the safe-haven contest.",
-    "current_3mo": "+4.5%"
+    "current_3mo": "+4.3%"
    },
    {
     "asset": "stocks",
@@ -80,7 +80,7 @@
     "label": "Yield curve",
     "dir": "steepen",
     "why": "Short end drops first; steepening after inversion is the classic recession confirmation.",
-    "current_3mo": "-0.05pp"
+    "current_3mo": "-0.10pp"
    }
   ],
   "hold": [
@@ -103,7 +103,7 @@
     "label": "Gold",
     "dir": "drift",
     "why": "Tracks real-yield expectations while the Fed waits.",
-    "current_3mo": "+4.5%"
+    "current_3mo": "+4.3%"
    },
    {
     "asset": "stocks",
@@ -117,7 +117,7 @@
     "label": "Yield curve",
     "dir": "drift",
     "why": "Shape set by which move markets price next.",
-    "current_3mo": "-0.05pp"
+    "current_3mo": "-0.10pp"
    }
   ]
  },
