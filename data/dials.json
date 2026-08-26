@@ -1,11 +1,11 @@
 {
- "as_of": "2026-08-25T21:33:29Z",
+ "as_of": "2026-08-26T13:03:12Z",
  "inflation": {
-  "pce_yoy": 3.67,
+  "pce_yoy": 3.7,
   "cpi_yoy": 3.54,
   "target": 2.0,
-  "trend_3mo": 0.13,
-  "direction": "flat",
+  "trend_3mo": 0.16,
+  "direction": "rising",
   "sub": {
    "ppi_yoy": 8.27,
    "breakeven_5y": 2.31,
@@ -58,11 +58,11 @@
   }
  },
  "verdict": {
-  "bias": "hawkish-leaning",
+  "bias": "hawkish",
   "lines": [
    {
     "dial": "inflation",
-    "reading": "Inflation is holding at 3.7% (above the 2% target)",
+    "reading": "Inflation is rising at 3.7% (above the 2% target)",
     "implication": "argues HIKE/HOLD"
    },
    {

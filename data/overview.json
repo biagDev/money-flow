@@ -1,5 +1,5 @@
 {
- "as_of": "2026-08-25T20:34:44Z",
+ "as_of": "2026-08-26T13:03:12Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -8,26 +8,26 @@
  "assets": [
   {
    "asset": "stocks",
-   "expected": "up",
+   "expected": "sideways",
    "actual": "up",
-   "agree": true,
-   "why": "Money usually flows into stocks while the economy grows.",
+   "agree": false,
+   "why": "Stocks tend to stall while the economy loses speed.",
    "lesson": 10
   },
   {
    "asset": "gold",
-   "expected": "up",
+   "expected": "down",
    "actual": "up",
-   "agree": true,
-   "why": "Gold usually climbs when savings pay less after inflation.",
+   "agree": false,
+   "why": "Gold usually falls while bonds still pay well after inflation.",
    "lesson": 9
   },
   {
    "asset": "dollar",
-   "expected": "down",
+   "expected": "up",
    "actual": "down",
-   "agree": true,
-   "why": "The dollar usually falls when money looks abroad for better returns.",
+   "agree": false,
+   "why": "The dollar usually rises as worried money parks in US savings.",
    "lesson": 8
   },
   {
@@ -35,12 +35,12 @@
    "expected": "up",
    "actual": "sideways",
    "agree": false,
-   "why": "Bond payouts usually rise while the economy runs warm.",
+   "why": "Bond payouts usually rise while prices are still climbing fast.",
    "lesson": 6
   }
  ],
  "bullets": [
-  "Prices: steady at about 3.7% a year. The Fed wants 2%.",
+  "Prices: rising about 3.7% a year. The Fed wants 2%.",
   "Jobs: hiring has slowed to about +20K a month.",
   "Next big date: Jobs report on Sep 4."
  ],

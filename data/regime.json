@@ -1,26 +1,26 @@
 {
- "as_of": "2026-08-26T04:03:16Z",
+ "as_of": "2026-08-26T13:03:12Z",
  "stale": false,
  "probabilities": {
-  "expansion": 0.4525,
-  "peak": 0.2875,
+  "expansion": 0.3625,
+  "peak": 0.3775,
   "contraction": 0.045,
   "recovery": 0.215
  },
- "needle": "expansion",
- "projection": "recovery",
+ "needle": "peak",
+ "projection": "expansion",
  "projection_basis": "momentum",
- "in_regime_since": "2026-06-01",
- "narrative": "Inflation is holding at 3.7% (above the 2% target) while unemployment holds near 4.1% but hiring has slowed to +20K/3mo \u2014 the market is pricing a hawkish-leaning Fed, which historically marks the EXPANSION phase. Watch: stocks \u25b2, gold \u25b2, dollar \u25bc.",
+ "in_regime_since": "2026-07-01",
+ "narrative": "Inflation is rising at 3.7% (above the 2% target) while unemployment holds near 4.1% but hiring has slowed to +20K/3mo \u2014 the market is pricing a hawkish Fed, which historically marks the PEAK phase. Watch: yields \u25b2, dollar \u25b2, gold \u25bc.",
  "scores": [
   {
    "input": "inflation",
-   "value": "PCE 3.7% YoY, +0.13pp/3mo",
+   "value": "PCE 3.7% YoY, +0.16pp/3mo",
    "vote": "peak",
    "weight": 0.3,
    "distribution": {
-    "expansion": 0.45,
-    "peak": 0.55,
+    "expansion": 0.15,
+    "peak": 0.85,
     "contraction": 0.0,
     "recovery": 0.0
    }
