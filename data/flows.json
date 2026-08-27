@@ -1,5 +1,5 @@
 {
- "as_of": "2026-08-26T20:40:42Z",
+ "as_of": "2026-08-27T00:35:22Z",
  "regime": "peak",
  "nodes": [
   {
@@ -264,8 +264,8 @@
   },
   {
    "asset": "gold",
-   "price": 4645.2001953125,
-   "trend_3mo": 3.22,
+   "price": 4675.10009765625,
+   "trend_3mo": 5.12,
    "trend_unit": "%",
    "spark": [
     5146.1001,
@@ -387,18 +387,17 @@
     4624.1001,
     4640.7998,
     4638.1001,
-    4645.2002
+    4675.1001
    ],
    "driver": "Driver: REAL yields (yield \u2212 inflation). Bonds are its competitor, not war headlines.",
    "stale": false
   },
   {
    "asset": "stocks",
-   "price": 7677.28,
-   "trend_3mo": 2.73,
+   "price": 7675.7,
+   "trend_3mo": 2.08,
    "trend_unit": "%",
    "spark": [
-    6830.71,
     6740.02,
     6795.99,
     6781.48,
@@ -517,7 +516,8 @@
     7641.16,
     7674.37,
     7652.86,
-    7677.28
+    7677.28,
+    7675.7
    ],
    "driver": "Driver: risk appetite + liquidity. Printed money tends to end up here.",
    "stale": false
