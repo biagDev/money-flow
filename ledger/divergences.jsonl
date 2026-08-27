@@ -1,1 +1,4 @@
 {"day":"2026-08-25","from":true,"kind":"overview_asset","prev_hash":"0000000000000000000000000000000000000000000000000000000000000000","subject":"bonds","to":false,"ts":"2026-08-25T22:32:31Z"}
+{"day":"2026-08-27","from":true,"kind":"overview_asset","prev_hash":"23dbe28cf06c35d3df86175c1b9b4709f590e9b5c472fb1ca0dee54e2af3e076","subject":"stocks","to":false,"ts":"2026-08-27T22:04:13Z"}
+{"day":"2026-08-27","from":true,"kind":"overview_asset","prev_hash":"12fa7cf905dccd4d85a62d34a9446e2f97d0e59c3bb754007bb517c2904352ff","subject":"gold","to":false,"ts":"2026-08-27T22:04:13Z"}
+{"day":"2026-08-27","from":true,"kind":"overview_asset","prev_hash":"7e510e649a468a4398c61d1a6316804e8f0575a6232ed68fc75ec070a8064894","subject":"dollar","to":false,"ts":"2026-08-27T22:04:13Z"}
