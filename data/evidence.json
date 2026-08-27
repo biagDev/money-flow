@@ -1,5 +1,5 @@
 {
- "as_of": "2026-08-27T00:35:22Z",
+ "as_of": "2026-08-27T14:12:22Z",
  "curve": {
   "today": [
    {
@@ -880,7 +880,7 @@
   "corr_12mo": -0.18,
   "confirm": {
    "expected": "gold down",
-   "actual": "+5.1%/3mo",
+   "actual": "+4.0%/3mo",
    "status": "diverging"
   }
  },
@@ -2441,7 +2441,7 @@
    },
    {
     "says": "Gold down",
-    "doing": "Gold +5.1% / 3mo",
+    "doing": "Gold +4.0% / 3mo",
     "status": "diverging"
    },
    {
