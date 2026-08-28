@@ -1,8 +1,8 @@
 {
- "as_of": "2026-08-27T22:04:08Z",
+ "as_of": "2026-08-28T06:14:56Z",
  "market_pricing": {
-  "hike": 0.4,
-  "hold": 0.6,
+  "hike": 0.38,
+  "hold": 0.62,
   "cut": 0.0
  },
  "pricing_stale": false,
@@ -29,14 +29,14 @@
     "label": "Gold",
     "dir": "down",
     "why": "Real yields rise \u2014 bonds out-compete gold as the inflation hedge.",
-    "current_3mo": "+4.7%"
+    "current_3mo": "+2.9%"
    },
    {
     "asset": "stocks",
     "label": "Stocks",
     "dir": "caution",
     "why": "Can grind higher until something breaks; watch the curve.",
-    "current_3mo": "+2.1%"
+    "current_3mo": "+2.8%"
    },
    {
     "asset": "curve",
@@ -66,14 +66,14 @@
     "label": "Gold",
     "dir": "up",
     "why": "Real yields fall \u2014 gold wins the safe-haven contest.",
-    "current_3mo": "+4.7%"
+    "current_3mo": "+2.9%"
    },
    {
     "asset": "stocks",
     "label": "Stocks",
     "dir": "up",
     "why": "Cheap credit \u2192 borrowing \u2192 earnings \u2192 risk appetite (once the reason for cutting passes).",
-    "current_3mo": "+2.1%"
+    "current_3mo": "+2.8%"
    },
    {
     "asset": "curve",
@@ -103,14 +103,14 @@
     "label": "Gold",
     "dir": "drift",
     "why": "Tracks real-yield expectations while the Fed waits.",
-    "current_3mo": "+4.7%"
+    "current_3mo": "+2.9%"
    },
    {
     "asset": "stocks",
     "label": "Stocks",
     "dir": "up",
     "why": "Structural upward skew persists absent a shock.",
-    "current_3mo": "+2.1%"
+    "current_3mo": "+2.8%"
    },
    {
     "asset": "curve",
