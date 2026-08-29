@@ -1,5 +1,5 @@
 {
- "as_of": "2026-08-28T22:02:42Z",
+ "as_of": "2026-08-29T02:54:56Z",
  "market_pricing": {
   "hike": 0.62,
   "hold": 0.38,
@@ -36,7 +36,7 @@
     "label": "Stocks",
     "dir": "caution",
     "why": "Can grind higher until something breaks; watch the curve.",
-    "current_3mo": "+2.8%"
+    "current_3mo": "+2.0%"
    },
    {
     "asset": "curve",
@@ -73,7 +73,7 @@
     "label": "Stocks",
     "dir": "up",
     "why": "Cheap credit \u2192 borrowing \u2192 earnings \u2192 risk appetite (once the reason for cutting passes).",
-    "current_3mo": "+2.8%"
+    "current_3mo": "+2.0%"
    },
    {
     "asset": "curve",
@@ -110,7 +110,7 @@
     "label": "Stocks",
     "dir": "up",
     "why": "Structural upward skew persists absent a shock.",
-    "current_3mo": "+2.8%"
+    "current_3mo": "+2.0%"
    },
    {
     "asset": "curve",
