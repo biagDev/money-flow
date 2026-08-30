@@ -1,12 +1,12 @@
 {
- "as_of": "2026-08-23T21:11:16Z",
+ "as_of": "2026-08-30T22:58:54Z",
  "schema_version": 1,
  "engine_version": "2.0.0",
  "config_hash": "c3a2a1c6d7ad65482d19eae7551411c543fc26fb0393683b0bf9e0bbce274e9d",
  "min_sample_n": 20,
  "note": "Every accuracy figure is engine vs persistence vs naive, with n. Cells below the minimum sample are withheld, not shrunk.",
- "snapshots": 2,
- "resolved_claims": 0,
+ "snapshots": 6,
+ "resolved_claims": 4,
  "overall": {
   "h21": {
    "n": 0,
@@ -29,9 +29,13 @@
  },
  "by_asset": {},
  "projections": {
-  "n": 0,
+  "n": 4,
   "sufficient": false,
-  "note": "no projection claims resolved yet"
+  "coin_flip": 50.0,
+  "note": "insufficient sample: 4 of 20 needed",
+  "engine_withheld": 0.0,
+  "persistence_withheld": null,
+  "naive_withheld": null
  },
  "calibration": [
   {

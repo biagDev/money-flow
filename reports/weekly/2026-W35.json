@@ -1,0 +1,192 @@
+{
+ "week": "2026-W35",
+ "generated": "2026-08-30T22:58:56Z",
+ "schema_version": 1,
+ "engine_version": "2.0.0",
+ "config_hash": "c3a2a1c6d7ad65482d19eae7551411c543fc26fb0393683b0bf9e0bbce274e9d",
+ "headline": {
+  "h21": {
+   "n": 0,
+   "sufficient": false,
+   "coin_flip": 50.0,
+   "note": "insufficient sample: 0 of 20 needed",
+   "engine_withheld": null,
+   "persistence_withheld": null,
+   "naive_withheld": null
+  },
+  "h63": {
+   "n": 0,
+   "sufficient": false,
+   "coin_flip": 50.0,
+   "note": "insufficient sample: 0 of 20 needed",
+   "engine_withheld": null,
+   "persistence_withheld": null,
+   "naive_withheld": null
+  }
+ },
+ "by_asset": {},
+ "calibration": [
+  {
+   "bucket": "0.00-0.35",
+   "n": 0,
+   "sufficient": false,
+   "note": "insufficient sample: 0 of 20"
+  },
+  {
+   "bucket": "0.35-0.45",
+   "n": 0,
+   "sufficient": false,
+   "note": "insufficient sample: 0 of 20"
+  },
+  {
+   "bucket": "0.45-0.55",
+   "n": 0,
+   "sufficient": false,
+   "note": "insufficient sample: 0 of 20"
+  },
+  {
+   "bucket": "0.55-0.70",
+   "n": 0,
+   "sufficient": false,
+   "note": "insufficient sample: 0 of 20"
+  },
+  {
+   "bucket": "0.70-1.01",
+   "n": 0,
+   "sufficient": false,
+   "note": "insufficient sample: 0 of 20"
+  }
+ ],
+ "counts": {
+  "snapshots": 6,
+  "scores": 4,
+  "events": 12,
+  "divergences": 4,
+  "health": 0
+ },
+ "resolutions": [
+  {
+   "as_mapped": true,
+   "branch": "b",
+   "date": "2026-07-01",
+   "day": "2026-08-22",
+   "event": "CPI",
+   "phase": "resolution",
+   "prev_hash": "81e67017214e7c3a81ac6a6ae04e1a93ac25ec2c47b778ce3a25d329b9ed0810",
+   "reactions": {
+    "dxy_48h": -0.26,
+    "gold_48h": 2.13,
+    "spx_48h": 0.72
+   },
+   "ts": "2026-08-22T13:52:31Z"
+  },
+  {
+   "as_mapped": true,
+   "branch": "b",
+   "date": "2026-07-01",
+   "day": "2026-08-22",
+   "event": "Employment Situation (NFP)",
+   "phase": "resolution",
+   "prev_hash": "82a9bbd87c2df83680a95fd051ce63576a256718256ca1db3514f5ddec0d2dd0",
+   "reactions": {
+    "dxy_48h": -0.26,
+    "gold_48h": 2.13,
+    "spx_48h": 0.72
+   },
+   "ts": "2026-08-22T13:52:31Z"
+  },
+  {
+   "as_mapped": true,
+   "branch": "b",
+   "date": "2026-07-01",
+   "day": "2026-08-27",
+   "event": "PCE (Personal Income & Outlays)",
+   "phase": "resolution",
+   "prev_hash": "1360a00c2ff44e268a847a72720404020ef563f305725ac3461ab18f3f654def",
+   "reactions": {
+    "dxy_48h": -0.26,
+    "gold_48h": 2.13,
+    "spx_48h": 0.72
+   },
+   "ts": "2026-08-27T22:04:13Z"
+  }
+ ],
+ "divergences": [
+  {
+   "day": "2026-08-25",
+   "from": true,
+   "kind": "overview_asset",
+   "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+   "subject": "bonds",
+   "to": false,
+   "ts": "2026-08-25T22:32:31Z"
+  },
+  {
+   "day": "2026-08-27",
+   "from": true,
+   "kind": "overview_asset",
+   "prev_hash": "23dbe28cf06c35d3df86175c1b9b4709f590e9b5c472fb1ca0dee54e2af3e076",
+   "subject": "stocks",
+   "to": false,
+   "ts": "2026-08-27T22:04:13Z"
+  },
+  {
+   "day": "2026-08-27",
+   "from": true,
+   "kind": "overview_asset",
+   "prev_hash": "12fa7cf905dccd4d85a62d34a9446e2f97d0e59c3bb754007bb517c2904352ff",
+   "subject": "gold",
+   "to": false,
+   "ts": "2026-08-27T22:04:13Z"
+  },
+  {
+   "day": "2026-08-27",
+   "from": true,
+   "kind": "overview_asset",
+   "prev_hash": "7e510e649a468a4398c61d1a6316804e8f0575a6232ed68fc75ec070a8064894",
+   "subject": "dollar",
+   "to": false,
+   "ts": "2026-08-27T22:04:13Z"
+  }
+ ],
+ "versions": [
+  {
+   "engine_version": "2.0.0",
+   "config_hash": "c3a2a1c6d7ad",
+   "days": 6,
+   "first": "2026-08-22",
+   "last": "2026-08-28"
+  }
+ ],
+ "reliability": {
+  "chains": {
+   "snapshots": {
+    "ok": true,
+    "detail": "snapshots.jsonl: 6 lines, chain intact"
+   },
+   "events": {
+    "ok": true,
+    "detail": "events.jsonl: 12 lines, chain intact"
+   },
+   "divergences": {
+    "ok": true,
+    "detail": "divergences.jsonl: 4 lines, chain intact"
+   },
+   "health": {
+    "ok": true,
+    "detail": "health.jsonl: 0 lines, chain intact"
+   },
+   "scores": {
+    "ok": true,
+    "detail": "scores.jsonl: 4 lines, chain intact"
+   }
+  },
+  "health_recent": []
+ },
+ "open_feedback": {
+  "confusion": [],
+  "calibration": []
+ },
+ "open_feedback_errors": {},
+ "review_items": []
+}
