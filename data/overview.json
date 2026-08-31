@@ -1,5 +1,5 @@
 {
- "as_of": "2026-08-31T18:59:34Z",
+ "as_of": "2026-08-31T23:11:10Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -17,15 +17,15 @@
   {
    "asset": "gold",
    "expected": "down",
-   "actual": "down",
-   "agree": true,
+   "actual": "sideways",
+   "agree": false,
    "why": "Gold usually falls while bonds still pay well after inflation.",
    "lesson": 9
   },
   {
    "asset": "dollar",
    "expected": "up",
-   "actual": "down",
+   "actual": "sideways",
    "agree": false,
    "why": "The dollar usually rises as worried money parks in US savings.",
    "lesson": 8

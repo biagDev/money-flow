@@ -1,14 +1,13 @@
 {
- "as_of": "2026-08-31T18:59:34Z",
+ "as_of": "2026-08-31T23:11:10Z",
  "regime": "peak",
  "nodes": [
   {
    "asset": "bonds",
-   "price": 4.67,
-   "trend_3mo": 19.0,
+   "price": 4.73,
+   "trend_3mo": 28.0,
    "trend_unit": "bp",
    "spark": [
-    4.15,
     4.21,
     4.27,
     4.28,
@@ -127,22 +126,18 @@
     4.7,
     4.64,
     4.66,
-    4.67
+    4.67,
+    4.73
    ],
    "driver": "The market everything else keys off. Driver: Fed expectations.",
    "stale": false
   },
   {
    "asset": "dollar",
-   "price": 118.0628,
-   "trend_3mo": -1.09,
+   "price": 118.7479,
+   "trend_3mo": -0.24,
    "trend_unit": "%",
    "spark": [
-    119.0705,
-    119.5683,
-    119.491,
-    119.5151,
-    118.7255,
     119.2885,
     119.8227,
     120.5518,
@@ -257,15 +252,20 @@
     118.9831,
     118.3328,
     118.2548,
-    118.0628
+    118.0628,
+    118.3195,
+    118.2283,
+    118.4461,
+    118.3583,
+    118.7479
    ],
    "driver": "Driver: bond yield differentials vs other currencies. ~90% of forex is this.",
    "stale": false
   },
   {
    "asset": "gold",
-   "price": 4481.10009765625,
-   "trend_3mo": -1.74,
+   "price": 4495.2001953125,
+   "trend_3mo": -1.43,
    "trend_unit": "%",
    "spark": [
     5167.3999,
@@ -387,7 +387,7 @@
     4598.2002,
     4609.7002,
     4478.1001,
-    4481.1001
+    4495.2002
    ],
    "driver": "Driver: REAL yields (yield \u2212 inflation). Bonds are its competitor, not war headlines.",
    "stale": false
