@@ -1,8 +1,8 @@
 {
- "as_of": "2026-09-01T19:29:46Z",
+ "as_of": "2026-09-01T21:58:31Z",
  "market_pricing": {
-  "hike": 0.7,
-  "hold": 0.3,
+  "hike": 0.72,
+  "hold": 0.28,
   "cut": 0.0
  },
  "pricing_stale": false,
@@ -15,7 +15,7 @@
     "label": "Bond yields",
     "dir": "up",
     "why": "New debt must pay more; the short end jumps hardest.",
-    "current_3mo": "+28bp"
+    "current_3mo": "+30bp"
    },
    {
     "asset": "dollar",
@@ -29,7 +29,7 @@
     "label": "Gold",
     "dir": "down",
     "why": "Real yields rise \u2014 bonds out-compete gold as the inflation hedge.",
-    "current_3mo": "-2.1%"
+    "current_3mo": "-2.2%"
    },
    {
     "asset": "stocks",
@@ -43,7 +43,7 @@
     "label": "Yield curve",
     "dir": "flatten",
     "why": "Overnight-rate pressure on the short end \u2014 the historic recession precursor.",
-    "current_3mo": "+0.08pp"
+    "current_3mo": "+0.18pp"
    }
   ],
   "cut": [
@@ -52,7 +52,7 @@
     "label": "Bond yields",
     "dir": "down",
     "why": "Cheaper money; existing bonds rally as yields fall.",
-    "current_3mo": "+28bp"
+    "current_3mo": "+30bp"
    },
    {
     "asset": "dollar",
@@ -66,7 +66,7 @@
     "label": "Gold",
     "dir": "up",
     "why": "Real yields fall \u2014 gold wins the safe-haven contest.",
-    "current_3mo": "-2.1%"
+    "current_3mo": "-2.2%"
    },
    {
     "asset": "stocks",
@@ -80,7 +80,7 @@
     "label": "Yield curve",
     "dir": "steepen",
     "why": "Short end drops first; steepening after inversion is the classic recession confirmation.",
-    "current_3mo": "+0.08pp"
+    "current_3mo": "+0.18pp"
    }
   ],
   "hold": [
@@ -89,7 +89,7 @@
     "label": "Bond yields",
     "dir": "drift",
     "why": "Direction inherits from the expectation trend, not the meeting.",
-    "current_3mo": "+28bp"
+    "current_3mo": "+30bp"
    },
    {
     "asset": "dollar",
@@ -103,7 +103,7 @@
     "label": "Gold",
     "dir": "drift",
     "why": "Tracks real-yield expectations while the Fed waits.",
-    "current_3mo": "-2.1%"
+    "current_3mo": "-2.2%"
    },
    {
     "asset": "stocks",
@@ -117,7 +117,7 @@
     "label": "Yield curve",
     "dir": "drift",
     "why": "Shape set by which move markets price next.",
-    "current_3mo": "+0.08pp"
+    "current_3mo": "+0.18pp"
    }
   ]
  },
