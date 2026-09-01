@@ -1,5 +1,5 @@
 {
- "as_of": "2026-08-31T23:11:10Z",
+ "as_of": "2026-09-01T16:21:12Z",
  "inflation": {
   "pce_yoy": 3.7,
   "cpi_yoy": 3.54,
@@ -54,7 +54,7 @@
     "actual": -23
    },
    "claims_4wk": 206.0,
-   "jolts": 7.4
+   "jolts": 7.3
   }
  },
  "verdict": {
