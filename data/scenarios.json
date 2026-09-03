@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-03T19:23:37Z",
+ "as_of": "2026-09-03T21:51:30Z",
  "market_pricing": {
   "hike": 0.54,
   "hold": 0.46,
@@ -15,7 +15,7 @@
     "label": "Bond yields",
     "dir": "up",
     "why": "New debt must pay more; the short end jumps hardest.",
-    "current_3mo": "+32bp"
+    "current_3mo": "+33bp"
    },
    {
     "asset": "dollar",
@@ -43,7 +43,7 @@
     "label": "Yield curve",
     "dir": "flatten",
     "why": "Overnight-rate pressure on the short end \u2014 the historic recession precursor.",
-    "current_3mo": "+0.18pp"
+    "current_3mo": "+0.17pp"
    }
   ],
   "cut": [
@@ -52,7 +52,7 @@
     "label": "Bond yields",
     "dir": "down",
     "why": "Cheaper money; existing bonds rally as yields fall.",
-    "current_3mo": "+32bp"
+    "current_3mo": "+33bp"
    },
    {
     "asset": "dollar",
@@ -80,7 +80,7 @@
     "label": "Yield curve",
     "dir": "steepen",
     "why": "Short end drops first; steepening after inversion is the classic recession confirmation.",
-    "current_3mo": "+0.18pp"
+    "current_3mo": "+0.17pp"
    }
   ],
   "hold": [
@@ -89,7 +89,7 @@
     "label": "Bond yields",
     "dir": "drift",
     "why": "Direction inherits from the expectation trend, not the meeting.",
-    "current_3mo": "+32bp"
+    "current_3mo": "+33bp"
    },
    {
     "asset": "dollar",
@@ -117,7 +117,7 @@
     "label": "Yield curve",
     "dir": "drift",
     "why": "Shape set by which move markets price next.",
-    "current_3mo": "+0.18pp"
+    "current_3mo": "+0.17pp"
    }
   ]
  },
