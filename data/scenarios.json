@@ -1,8 +1,8 @@
 {
- "as_of": "2026-09-03T00:03:21Z",
+ "as_of": "2026-09-03T08:03:26Z",
  "market_pricing": {
-  "hike": 0.64,
-  "hold": 0.36,
+  "hike": 0.62,
+  "hold": 0.38,
   "cut": 0.0
  },
  "pricing_stale": false,
@@ -29,7 +29,7 @@
     "label": "Gold",
     "dir": "down",
     "why": "Real yields rise \u2014 bonds out-compete gold as the inflation hedge.",
-    "current_3mo": "-1.3%"
+    "current_3mo": "+0.8%"
    },
    {
     "asset": "stocks",
@@ -66,7 +66,7 @@
     "label": "Gold",
     "dir": "up",
     "why": "Real yields fall \u2014 gold wins the safe-haven contest.",
-    "current_3mo": "-1.3%"
+    "current_3mo": "+0.8%"
    },
    {
     "asset": "stocks",
@@ -103,7 +103,7 @@
     "label": "Gold",
     "dir": "drift",
     "why": "Tracks real-yield expectations while the Fed waits.",
-    "current_3mo": "-1.3%"
+    "current_3mo": "+0.8%"
    },
    {
     "asset": "stocks",
