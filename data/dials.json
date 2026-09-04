@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-03T21:51:30Z",
+ "as_of": "2026-09-04T16:06:10Z",
  "inflation": {
   "pce_yoy": 3.7,
   "cpi_yoy": 3.54,
@@ -51,7 +51,7 @@
   "direction": "stable",
   "sub": {
    "nfp": {
-    "actual": -23
+    "actual": 162
    },
    "claims_4wk": 207.0,
    "jolts": 7.3
@@ -67,7 +67,7 @@
    },
    {
     "dial": "employment",
-    "reading": "unemployment holds near 4.1% but hiring has slowed to +20K/3mo",
+    "reading": "unemployment holds near 4.1% with no stress",
     "implication": "gives the Fed room to be hawkish"
    }
   ]
