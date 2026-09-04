@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-04T16:06:10Z",
+ "as_of": "2026-09-04T19:04:03Z",
  "upcoming": [
   {
    "date": "2026-09-04",
@@ -9,7 +9,7 @@
    "watch": {
     "stakes": "high",
     "stakes_why": "A plausible 100K move flips the employment voter from expansion to peak \u2014 the heaviest single input to the needle can change here.",
-    "setup": "Unemployment holds at 4.1% with a Sahm gap of +0.03pp, with the Fed priced 62% to hike / 38% to hold \u2014 this print decides whether the hawkish case keeps its room.",
+    "setup": "Unemployment holds at 4.1% with a Sahm gap of +0.03pp, with the Fed priced 60% to hike / 40% to hold \u2014 this print decides whether the hawkish case keeps its room.",
     "branches": {
      "a": {
       "label": "Strong (payrolls above trend, unemployment holds)",
@@ -44,7 +44,7 @@
    "watch": {
     "stakes": "medium",
     "stakes_why": "The employment voter currently reads expansion while the needle sits at peak \u2014 this print feeds the contested dial without being able to flip it.",
-    "setup": "Unemployment holds at 4.1% with a Sahm gap of +0.03pp, with the Fed priced 62% to hike / 38% to hold \u2014 this print decides whether the hawkish case keeps its room.",
+    "setup": "Unemployment holds at 4.1% with a Sahm gap of +0.03pp, with the Fed priced 60% to hike / 40% to hold \u2014 this print decides whether the hawkish case keeps its room.",
     "branches": {
      "a": {
       "label": "Strong (payrolls above trend, unemployment holds)",
@@ -79,7 +79,7 @@
    "watch": {
     "stakes": "low",
     "stakes_why": "Neither branch can move a voter off its current read.",
-    "setup": "PPI runs 8.3% YoY against the 2.0% target and is rising at +1.47pp/3mo, with the Fed priced 62% to hike / 38% to hold \u2014 this print decides whether the hawkish case holds.",
+    "setup": "PPI runs 8.3% YoY against the 2.0% target and is rising at +1.47pp/3mo, with the Fed priced 60% to hike / 40% to hold \u2014 this print decides whether the hawkish case holds.",
     "branches": {
      "a": {
       "label": "Hot (accelerates vs its 3-month trend)",
@@ -114,7 +114,7 @@
    "watch": {
     "stakes": "low",
     "stakes_why": "Neither branch can move a voter off its current read.",
-    "setup": "CPI runs 3.5% YoY against the 2.0% target and is rising at +0.22pp/3mo, with the Fed priced 62% to hike / 38% to hold \u2014 this print decides whether the hawkish case holds.",
+    "setup": "CPI runs 3.5% YoY against the 2.0% target and is rising at +0.22pp/3mo, with the Fed priced 60% to hike / 40% to hold \u2014 this print decides whether the hawkish case holds.",
     "branches": {
      "a": {
       "label": "Hot (accelerates vs its 3-month trend)",
@@ -150,7 +150,7 @@
    "watch": {
     "stakes": "high",
     "stakes_why": "The decision itself \u2014 the one scheduled event that can move the policy rate, and the whole curve prices off it.",
-    "setup": "The decision itself, with the Fed priced 62% to hike / 38% to hold, with the regime needle at peak \u2014 expectations have already moved the money.",
+    "setup": "The decision itself, with the Fed priced 60% to hike / 40% to hold, with the regime needle at peak \u2014 expectations have already moved the money.",
     "branches": {
      "hike": {
       "label": "Hike",
@@ -162,7 +162,7 @@
        "gold": "\u25bc",
        "stocks": "caution"
       },
-      "market_odds": 0.62
+      "market_odds": 0.6
      },
      "hold": {
       "label": "Hold",
@@ -174,7 +174,7 @@
        "gold": "drift",
        "stocks": "\u25b2"
       },
-      "market_odds": 0.38
+      "market_odds": 0.4
      },
      "cut": {
       "label": "Cut",
@@ -199,7 +199,7 @@
    "watch": {
     "stakes": "medium",
     "stakes_why": "The employment voter currently reads expansion while the needle sits at peak \u2014 this print feeds the contested dial without being able to flip it.",
-    "setup": "Unemployment holds at 4.1% with a Sahm gap of +0.03pp, with the Fed priced 62% to hike / 38% to hold \u2014 this print decides whether the hawkish case keeps its room.",
+    "setup": "Unemployment holds at 4.1% with a Sahm gap of +0.03pp, with the Fed priced 60% to hike / 40% to hold \u2014 this print decides whether the hawkish case keeps its room.",
     "branches": {
      "a": {
       "label": "Strong (payrolls above trend, unemployment holds)",
