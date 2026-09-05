@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-04T16:06:10Z",
+ "as_of": "2026-09-05T07:40:21Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -9,8 +9,8 @@
   {
    "asset": "stocks",
    "expected": "sideways",
-   "actual": "up",
-   "agree": false,
+   "actual": "sideways",
+   "agree": true,
    "why": "Stocks tend to stall while the economy loses speed.",
    "lesson": 10
   },
@@ -42,11 +42,11 @@
  "bullets": [
   "Prices: rising about 3.7% a year. The Fed wants 2%.",
   "Jobs: hiring is steady at about +71K a month.",
-  "Next big date: Jobs report on Sep 4."
+  "Next big date: Fed decision on Sep 16."
  ],
  "next_big_date": {
-  "date": "2026-09-04",
-  "event": "Jobs report",
+  "date": "2026-09-16",
+  "event": "Fed decision",
   "lesson": 13
  },
  "schema_version": 1
