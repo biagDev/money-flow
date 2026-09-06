@@ -1,11 +1,11 @@
 {
- "as_of": "2026-08-30T22:58:54Z",
+ "as_of": "2026-09-06T22:31:24Z",
  "schema_version": 1,
  "engine_version": "2.0.0",
  "config_hash": "c3a2a1c6d7ad65482d19eae7551411c543fc26fb0393683b0bf9e0bbce274e9d",
  "min_sample_n": 20,
  "note": "Every accuracy figure is engine vs persistence vs naive, with n. Cells below the minimum sample are withheld, not shrunk.",
- "snapshots": 6,
+ "snapshots": 7,
  "resolved_claims": 4,
  "overall": {
   "h21": {
