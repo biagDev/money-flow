@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-08T22:29:22Z",
+ "as_of": "2026-09-09T00:31:18Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -9,15 +9,15 @@
   {
    "asset": "stocks",
    "expected": "sideways",
-   "actual": "sideways",
-   "agree": true,
+   "actual": "up",
+   "agree": false,
    "why": "Stocks tend to stall while the economy loses speed.",
    "lesson": 10
   },
   {
    "asset": "gold",
    "expected": "down",
-   "actual": "sideways",
+   "actual": "up",
    "agree": false,
    "why": "Gold usually falls while bonds still pay well after inflation.",
    "lesson": 9
