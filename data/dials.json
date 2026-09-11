@@ -1,8 +1,8 @@
 {
- "as_of": "2026-09-10T21:47:44Z",
+ "as_of": "2026-09-11T16:12:34Z",
  "inflation": {
   "pce_yoy": 3.7,
-  "cpi_yoy": 3.54,
+  "cpi_yoy": 3.71,
   "target": 2.0,
   "trend_3mo": 0.16,
   "direction": "rising",
