@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-11T08:03:27Z",
+ "as_of": "2026-09-11T21:52:12Z",
  "stale": false,
  "probabilities": {
   "expansion": 0.41,
@@ -51,7 +51,7 @@
   },
   {
    "input": "yield_curve",
-   "value": "10Y\u22123M +0.95pp, +0.19pp/3mo (normal)",
+   "value": "10Y\u22123M +0.89pp, +0.22pp/3mo (normal)",
    "vote": "expansion",
    "weight": 0.15,
    "distribution": {
