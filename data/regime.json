@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-10T21:47:44Z",
+ "as_of": "2026-09-11T08:03:27Z",
  "stale": false,
  "probabilities": {
   "expansion": 0.41,
@@ -8,7 +8,7 @@
   "recovery": 0.095
  },
  "needle": "peak",
- "projection": "expansion",
+ "projection": "peak",
  "projection_basis": "momentum",
  "in_regime_since": "2022-08-01",
  "narrative": "Inflation is rising at 3.7% (above the 2% target) while unemployment holds near 4.1% with no stress \u2014 the market is pricing a hawkish Fed, which historically marks the PEAK phase. Watch: yields \u25b2, dollar \u25b2, gold \u25bc.",
@@ -39,7 +39,7 @@
   },
   {
    "input": "fed_stance",
-   "value": "hiking / priced to hike (last move 273d ago)",
+   "value": "hiking / priced to hike (last move 274d ago)",
    "vote": "peak",
    "weight": 0.2,
    "distribution": {
