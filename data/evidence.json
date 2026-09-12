@@ -1,7 +1,11 @@
 {
- "as_of": "2026-09-12T00:02:07Z",
+ "as_of": "2026-09-12T07:55:22Z",
  "curve": {
   "today": [
+   {
+    "m": "3M",
+    "y": 4.0
+   },
    {
     "m": "2Y",
     "y": 4.56
@@ -21,6 +25,10 @@
   ],
   "6mo_ago": [
    {
+    "m": "3M",
+    "y": 3.72
+   },
+   {
     "m": "2Y",
     "y": 3.76
    },
@@ -38,6 +46,10 @@
    }
   ],
   "1yr_ago": [
+   {
+    "m": "3M",
+    "y": 4.09
+   },
    {
     "m": "2Y",
     "y": 3.54
@@ -863,12 +875,12 @@
    4638.1001,
    4431.1001,
    4429.7998,
-   4390.0
+   4366.2002
   ],
   "corr_12mo": -0.26,
   "confirm": {
    "expected": "gold down",
-   "actual": "+7.3%/3mo",
+   "actual": "+6.7%/3mo",
    "status": "diverging"
   }
  },
@@ -2429,12 +2441,12 @@
    },
    {
     "says": "Gold down",
-    "doing": "Gold +7.3% / 3mo",
+    "doing": "Gold +6.7% / 3mo",
     "status": "diverging"
    },
    {
     "says": "Stocks flat",
-    "doing": "SPX +4.5% / 3mo",
+    "doing": "SPX +3.6% / 3mo",
     "status": "confirmed"
    },
    {
