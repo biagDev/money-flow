@@ -1,0 +1,280 @@
+{
+ "week": "2026-W37",
+ "generated": "2026-09-13T22:42:26Z",
+ "schema_version": 1,
+ "engine_version": "2.0.0",
+ "config_hash": "c3a2a1c6d7ad65482d19eae7551411c543fc26fb0393683b0bf9e0bbce274e9d",
+ "headline": {
+  "h21": {
+   "n": 0,
+   "sufficient": false,
+   "coin_flip": 50.0,
+   "note": "insufficient sample: 0 of 20 needed",
+   "engine_withheld": null,
+   "persistence_withheld": null,
+   "naive_withheld": null
+  },
+  "h63": {
+   "n": 0,
+   "sufficient": false,
+   "coin_flip": 50.0,
+   "note": "insufficient sample: 0 of 20 needed",
+   "engine_withheld": null,
+   "persistence_withheld": null,
+   "naive_withheld": null
+  }
+ },
+ "by_asset": {},
+ "calibration": [
+  {
+   "bucket": "0.00-0.35",
+   "n": 0,
+   "sufficient": false,
+   "note": "insufficient sample: 0 of 20"
+  },
+  {
+   "bucket": "0.35-0.45",
+   "n": 0,
+   "sufficient": false,
+   "note": "insufficient sample: 0 of 20"
+  },
+  {
+   "bucket": "0.45-0.55",
+   "n": 0,
+   "sufficient": false,
+   "note": "insufficient sample: 0 of 20"
+  },
+  {
+   "bucket": "0.55-0.70",
+   "n": 0,
+   "sufficient": false,
+   "note": "insufficient sample: 0 of 20"
+  },
+  {
+   "bucket": "0.70-1.01",
+   "n": 0,
+   "sufficient": false,
+   "note": "insufficient sample: 0 of 20"
+  }
+ ],
+ "counts": {
+  "snapshots": 9,
+  "scores": 4,
+  "events": 17,
+  "divergences": 8,
+  "health": 3
+ },
+ "resolutions": [
+  {
+   "as_mapped": true,
+   "branch": "b",
+   "date": "2026-07-01",
+   "day": "2026-08-22",
+   "event": "CPI",
+   "phase": "resolution",
+   "prev_hash": "81e67017214e7c3a81ac6a6ae04e1a93ac25ec2c47b778ce3a25d329b9ed0810",
+   "reactions": {
+    "dxy_48h": -0.26,
+    "gold_48h": 2.13,
+    "spx_48h": 0.72
+   },
+   "ts": "2026-08-22T13:52:31Z"
+  },
+  {
+   "as_mapped": true,
+   "branch": "b",
+   "date": "2026-07-01",
+   "day": "2026-08-22",
+   "event": "Employment Situation (NFP)",
+   "phase": "resolution",
+   "prev_hash": "82a9bbd87c2df83680a95fd051ce63576a256718256ca1db3514f5ddec0d2dd0",
+   "reactions": {
+    "dxy_48h": -0.26,
+    "gold_48h": 2.13,
+    "spx_48h": 0.72
+   },
+   "ts": "2026-08-22T13:52:31Z"
+  },
+  {
+   "as_mapped": true,
+   "branch": "b",
+   "date": "2026-07-01",
+   "day": "2026-08-27",
+   "event": "PCE (Personal Income & Outlays)",
+   "phase": "resolution",
+   "prev_hash": "1360a00c2ff44e268a847a72720404020ef563f305725ac3461ab18f3f654def",
+   "reactions": {
+    "dxy_48h": -0.26,
+    "gold_48h": 2.13,
+    "spx_48h": 0.72
+   },
+   "ts": "2026-08-27T22:04:13Z"
+  },
+  {
+   "as_mapped": true,
+   "branch": "a",
+   "date": "2026-08-01",
+   "day": "2026-09-04",
+   "event": "Employment Situation (NFP)",
+   "phase": "resolution",
+   "prev_hash": "e5bb4e0fe2ad40b02d4f1bc8c0168e57db52f2cabec1c18ac2d2bda850dcfe09",
+   "reactions": {
+    "dxy_48h": -0.01,
+    "gold_48h": -0.38,
+    "spx_48h": 1.48
+   },
+   "ts": "2026-09-04T22:32:02Z"
+  },
+  {
+   "as_mapped": true,
+   "branch": "a",
+   "date": "2026-08-01",
+   "day": "2026-09-11",
+   "event": "CPI",
+   "phase": "resolution",
+   "prev_hash": "1ddda23adb0de80295cae01b4061cbe67adaf6ed411c7cf0d609c0fed607a6f6",
+   "reactions": {
+    "dxy_48h": -0.01,
+    "gold_48h": -0.38,
+    "spx_48h": 1.48
+   },
+   "ts": "2026-09-11T22:47:38Z"
+  }
+ ],
+ "divergences": [
+  {
+   "day": "2026-08-25",
+   "from": true,
+   "kind": "overview_asset",
+   "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+   "subject": "bonds",
+   "to": false,
+   "ts": "2026-08-25T22:32:31Z"
+  },
+  {
+   "day": "2026-08-27",
+   "from": true,
+   "kind": "overview_asset",
+   "prev_hash": "23dbe28cf06c35d3df86175c1b9b4709f590e9b5c472fb1ca0dee54e2af3e076",
+   "subject": "stocks",
+   "to": false,
+   "ts": "2026-08-27T22:04:13Z"
+  },
+  {
+   "day": "2026-08-27",
+   "from": true,
+   "kind": "overview_asset",
+   "prev_hash": "12fa7cf905dccd4d85a62d34a9446e2f97d0e59c3bb754007bb517c2904352ff",
+   "subject": "gold",
+   "to": false,
+   "ts": "2026-08-27T22:04:13Z"
+  },
+  {
+   "day": "2026-08-27",
+   "from": true,
+   "kind": "overview_asset",
+   "prev_hash": "7e510e649a468a4398c61d1a6316804e8f0575a6232ed68fc75ec070a8064894",
+   "subject": "dollar",
+   "to": false,
+   "ts": "2026-08-27T22:04:13Z"
+  },
+  {
+   "day": "2026-09-08",
+   "from": "neutral",
+   "kind": "scorecard",
+   "prev_hash": "4cf36f159c6ce2c4f538ae99cb0e557e9033de81938fc51a67a2ccbe2c882684",
+   "subject": "Dollar up",
+   "to": "diverging",
+   "ts": "2026-09-08T22:29:24Z"
+  },
+  {
+   "day": "2026-09-11",
+   "from": "neutral",
+   "kind": "scorecard",
+   "prev_hash": "1f8517373705e99c7e476d09a17e12013c16c777c9a6a9b2aa5d2f102a6ab239",
+   "subject": "Gold down",
+   "to": "diverging",
+   "ts": "2026-09-11T22:47:38Z"
+  },
+  {
+   "day": "2026-09-11",
+   "from": "confirmed",
+   "kind": "scorecard",
+   "prev_hash": "ece205d1c5a80cb6a9b6c587befcca4c2bdbe63bf1ba8ff3274dabecf58040f1",
+   "subject": "Smart money (gold COT) down",
+   "to": "diverging",
+   "ts": "2026-09-11T22:47:38Z"
+  },
+  {
+   "day": "2026-09-11",
+   "from": true,
+   "kind": "overview_asset",
+   "prev_hash": "4f8386b422a22be45a487126a0042e2873054241b8e6de2a1193feeab4c19fe6",
+   "subject": "stocks",
+   "to": false,
+   "ts": "2026-09-11T22:47:38Z"
+  }
+ ],
+ "versions": [
+  {
+   "engine_version": "2.0.0",
+   "config_hash": "c3a2a1c6d7ad",
+   "days": 9,
+   "first": "2026-08-22",
+   "last": "2026-09-11"
+  }
+ ],
+ "reliability": {
+  "chains": {
+   "snapshots": {
+    "ok": true,
+    "detail": "snapshots.jsonl: 9 lines, chain intact"
+   },
+   "events": {
+    "ok": true,
+    "detail": "events.jsonl: 17 lines, chain intact"
+   },
+   "divergences": {
+    "ok": true,
+    "detail": "divergences.jsonl: 8 lines, chain intact"
+   },
+   "health": {
+    "ok": true,
+    "detail": "health.jsonl: 3 lines, chain intact"
+   },
+   "scores": {
+    "ok": true,
+    "detail": "scores.jsonl: 4 lines, chain intact"
+   }
+  },
+  "health_recent": [
+   {
+    "detail": "series absent from build",
+    "kind": "fetch_missing",
+    "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source": "ppi",
+    "ts": "2026-09-03T00:03:37Z"
+   },
+   {
+    "detail": "series absent from build",
+    "kind": "fetch_missing",
+    "prev_hash": "f74b63e9a43c091ac886df9d3150f4cadfea12159ab26bf71a2d5cb181bbd636",
+    "source": "y5",
+    "ts": "2026-09-04T16:06:26Z"
+   },
+   {
+    "detail": "series absent from build",
+    "kind": "fetch_missing",
+    "prev_hash": "5708b318a36c29c5b91cfd1dbec9ab2f16899c29b4683a4df674775df2628472",
+    "source": "y3m",
+    "ts": "2026-09-12T00:02:28Z"
+   }
+  ]
+ },
+ "open_feedback": {
+  "confusion": [],
+  "calibration": []
+ },
+ "open_feedback_errors": {},
+ "review_items": []
+}
