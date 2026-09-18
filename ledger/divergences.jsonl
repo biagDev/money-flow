@@ -6,3 +6,5 @@
 {"day":"2026-09-11","from":"neutral","kind":"scorecard","prev_hash":"1f8517373705e99c7e476d09a17e12013c16c777c9a6a9b2aa5d2f102a6ab239","subject":"Gold down","to":"diverging","ts":"2026-09-11T22:47:38Z"}
 {"day":"2026-09-11","from":"confirmed","kind":"scorecard","prev_hash":"ece205d1c5a80cb6a9b6c587befcca4c2bdbe63bf1ba8ff3274dabecf58040f1","subject":"Smart money (gold COT) down","to":"diverging","ts":"2026-09-11T22:47:38Z"}
 {"day":"2026-09-11","from":true,"kind":"overview_asset","prev_hash":"4f8386b422a22be45a487126a0042e2873054241b8e6de2a1193feeab4c19fe6","subject":"stocks","to":false,"ts":"2026-09-11T22:47:38Z"}
+{"day":"2026-09-18","from":"neutral","kind":"scorecard","prev_hash":"8477908656d2338534c543c9f00efc1042c89ee792f9f5d87a592fabc2afdecc","subject":"Gold down","to":"diverging","ts":"2026-09-18T22:49:53Z"}
+{"day":"2026-09-18","from":true,"kind":"overview_asset","prev_hash":"1498a573c07b68ac87b90774f0d1abf21a2fba473f5abe0ddd64547ae884801f","subject":"stocks","to":false,"ts":"2026-09-18T22:49:53Z"}
