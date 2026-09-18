@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-17T08:39:27Z",
+ "as_of": "2026-09-18T08:14:55Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -9,15 +9,15 @@
   {
    "asset": "stocks",
    "expected": "sideways",
-   "actual": "sideways",
-   "agree": true,
+   "actual": "up",
+   "agree": false,
    "why": "Stocks tend to stall while the economy loses speed.",
    "lesson": 10
   },
   {
    "asset": "gold",
    "expected": "down",
-   "actual": "sideways",
+   "actual": "up",
    "agree": false,
    "why": "Gold usually falls while bonds still pay well after inflation.",
    "lesson": 9
@@ -42,11 +42,11 @@
  "bullets": [
   "Prices: rising about 3.7% a year. The Fed wants 2%.",
   "Jobs: hiring is steady at about +71K a month.",
-  "Next big date: Weekly jobless claims on Sep 17."
+  "Next big date: Jobs report on Oct 2."
  ],
  "next_big_date": {
-  "date": "2026-09-17",
-  "event": "Weekly jobless claims",
+  "date": "2026-10-02",
+  "event": "Jobs report",
   "lesson": 13
  },
  "schema_version": 1
