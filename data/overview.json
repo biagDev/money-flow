@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-21T18:05:53Z",
+ "as_of": "2026-09-21T22:08:30Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -25,7 +25,7 @@
   {
    "asset": "dollar",
    "expected": "up",
-   "actual": "down",
+   "actual": "sideways",
    "agree": false,
    "why": "The dollar usually rises as worried money parks in US savings.",
    "lesson": 8
