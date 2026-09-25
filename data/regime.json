@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-25T08:49:19Z",
+ "as_of": "2026-09-25T23:27:07Z",
  "stale": false,
  "probabilities": {
   "expansion": 0.305,
@@ -51,7 +51,7 @@
   },
   {
    "input": "yield_curve",
-   "value": "10Y\u22123M +0.94pp, +0.38pp/3mo (steepening post-inversion)",
+   "value": "10Y\u22123M +0.93pp, +0.37pp/3mo (steepening post-inversion)",
    "vote": "contraction",
    "weight": 0.15,
    "distribution": {

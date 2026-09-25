@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-25T20:21:16Z",
+ "as_of": "2026-09-25T23:27:07Z",
  "curve": {
   "today": [
    {
@@ -69,7 +69,6 @@
   ],
   "spread_10y3m": {
    "series": [
-    0.26,
     0.21,
     0.13,
     0.07,
@@ -328,7 +327,8 @@
     0.87,
     0.88,
     0.89,
-    0.79
+    0.79,
+    0.93
    ],
    "recessions": [
     [
@@ -880,7 +880,7 @@
   "corr_12mo": -0.33,
   "confirm": {
    "expected": "gold down",
-   "actual": "+6.9%/3mo",
+   "actual": "+6.7%/3mo",
    "status": "diverging"
   }
  },
@@ -2441,7 +2441,7 @@
    },
    {
     "says": "Gold down",
-    "doing": "Gold +6.9% / 3mo",
+    "doing": "Gold +6.7% / 3mo",
     "status": "diverging"
    },
    {
