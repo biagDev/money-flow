@@ -1,21 +1,21 @@
 {
- "as_of": "2026-09-20T22:46:39Z",
+ "as_of": "2026-09-27T23:28:35Z",
  "schema_version": 1,
  "engine_version": "2.0.0",
  "config_hash": "c3a2a1c6d7ad65482d19eae7551411c543fc26fb0393683b0bf9e0bbce274e9d",
  "min_sample_n": 20,
  "note": "Every accuracy figure is engine vs persistence vs naive, with n. Cells below the minimum sample are withheld, not shrunk.",
- "snapshots": 11,
- "resolved_claims": 4,
+ "snapshots": 12,
+ "resolved_claims": 17,
  "overall": {
   "h21": {
-   "n": 0,
+   "n": 13,
    "sufficient": false,
    "coin_flip": 50.0,
-   "note": "insufficient sample: 0 of 20 needed",
-   "engine_withheld": null,
-   "persistence_withheld": null,
-   "naive_withheld": null
+   "note": "insufficient sample: 13 of 20 needed",
+   "engine_withheld": 38.5,
+   "persistence_withheld": 7.7,
+   "naive_withheld": 0.0
   },
   "h63": {
    "n": 0,
@@ -27,7 +27,41 @@
    "naive_withheld": null
   }
  },
- "by_asset": {},
+ "by_asset": {
+  "bonds": {
+   "h21": {
+    "n": 4,
+    "sufficient": false,
+    "coin_flip": 50.0,
+    "note": "insufficient sample: 4 of 20 needed",
+    "engine_withheld": 100.0,
+    "persistence_withheld": 25.0,
+    "naive_withheld": null
+   }
+  },
+  "gold": {
+   "h21": {
+    "n": 5,
+    "sufficient": false,
+    "coin_flip": 50.0,
+    "note": "insufficient sample: 5 of 20 needed",
+    "engine_withheld": 20.0,
+    "persistence_withheld": 0.0,
+    "naive_withheld": null
+   }
+  },
+  "stocks": {
+   "h21": {
+    "n": 4,
+    "sufficient": false,
+    "coin_flip": 50.0,
+    "note": "insufficient sample: 4 of 20 needed",
+    "engine_withheld": 0.0,
+    "persistence_withheld": 0.0,
+    "naive_withheld": 0.0
+   }
+  }
+ },
  "projections": {
   "n": 4,
   "sufficient": false,
