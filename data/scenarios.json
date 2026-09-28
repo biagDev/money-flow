@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-28T19:28:51Z",
+ "as_of": "2026-09-28T23:53:59Z",
  "market_pricing": {
   "hike": 1.0,
   "hold": 0.0,
@@ -22,14 +22,14 @@
     "label": "US Dollar",
     "dir": "up",
     "why": "Banks park cash where risk-free yield is highest.",
-    "current_3mo": "-0.7%"
+    "current_3mo": "-0.6%"
    },
    {
     "asset": "gold",
     "label": "Gold",
     "dir": "down",
     "why": "Real yields rise \u2014 bonds out-compete gold as the inflation hedge.",
-    "current_3mo": "+1.7%"
+    "current_3mo": "+1.5%"
    },
    {
     "asset": "stocks",
@@ -43,7 +43,7 @@
     "label": "Yield curve",
     "dir": "flatten",
     "why": "Overnight-rate pressure on the short end \u2014 the historic recession precursor.",
-    "current_3mo": "+0.37pp"
+    "current_3mo": "+0.41pp"
    }
   ],
   "cut": [
@@ -59,14 +59,14 @@
     "label": "US Dollar",
     "dir": "down",
     "why": "Yield advantage evaporates; capital hunts returns elsewhere.",
-    "current_3mo": "-0.7%"
+    "current_3mo": "-0.6%"
    },
    {
     "asset": "gold",
     "label": "Gold",
     "dir": "up",
     "why": "Real yields fall \u2014 gold wins the safe-haven contest.",
-    "current_3mo": "+1.7%"
+    "current_3mo": "+1.5%"
    },
    {
     "asset": "stocks",
@@ -80,7 +80,7 @@
     "label": "Yield curve",
     "dir": "steepen",
     "why": "Short end drops first; steepening after inversion is the classic recession confirmation.",
-    "current_3mo": "+0.37pp"
+    "current_3mo": "+0.41pp"
    }
   ],
   "hold": [
@@ -96,14 +96,14 @@
     "label": "US Dollar",
     "dir": "drift",
     "why": "Follows the next expected move \u2014 watch the two dials.",
-    "current_3mo": "-0.7%"
+    "current_3mo": "-0.6%"
    },
    {
     "asset": "gold",
     "label": "Gold",
     "dir": "drift",
     "why": "Tracks real-yield expectations while the Fed waits.",
-    "current_3mo": "+1.7%"
+    "current_3mo": "+1.5%"
    },
    {
     "asset": "stocks",
@@ -117,7 +117,7 @@
     "label": "Yield curve",
     "dir": "drift",
     "why": "Shape set by which move markets price next.",
-    "current_3mo": "+0.37pp"
+    "current_3mo": "+0.41pp"
    }
   ]
  },
