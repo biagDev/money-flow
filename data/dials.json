@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-30T17:51:03Z",
+ "as_of": "2026-09-30T22:03:53Z",
  "inflation": {
   "pce_yoy": 3.42,
   "cpi_yoy": 3.71,
@@ -8,7 +8,7 @@
   "direction": "falling",
   "sub": {
    "ppi_yoy": 9.85,
-   "breakeven_5y": 2.34,
+   "breakeven_5y": 2.36,
    "oil": {
     "last": 96.16,
     "spark": [
