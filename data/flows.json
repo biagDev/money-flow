@@ -1,14 +1,13 @@
 {
- "as_of": "2026-10-01T18:16:48Z",
+ "as_of": "2026-10-01T22:51:13Z",
  "regime": "peak",
  "nodes": [
   {
    "asset": "bonds",
-   "price": 5.26,
-   "trend_3mo": 88.0,
+   "price": 5.29,
+   "trend_3mo": 85.0,
    "trend_unit": "bp",
    "spark": [
-    4.29,
     4.31,
     4.3,
     4.26,
@@ -127,7 +126,8 @@
     5.18,
     5.17,
     5.24,
-    5.26
+    5.26,
+    5.29
    ],
    "driver": "The market everything else keys off. Driver: Fed expectations.",
    "stale": false
@@ -264,8 +264,8 @@
   },
   {
    "asset": "gold",
-   "price": 4195.60009765625,
-   "trend_3mo": 2.77,
+   "price": 4205.0,
+   "trend_3mo": 3.0,
    "trend_unit": "%",
    "spark": [
     4767.3999,
@@ -387,7 +387,7 @@
     4168.3999,
     4179.7002,
     4186.7002,
-    4195.6001
+    4205.0
    ],
    "driver": "Driver: REAL yields (yield \u2212 inflation). Bonds are its competitor, not war headlines.",
    "stale": false

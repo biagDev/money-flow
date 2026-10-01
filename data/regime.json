@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-01T01:26:28Z",
+ "as_of": "2026-10-01T22:51:13Z",
  "stale": false,
  "probabilities": {
   "expansion": 0.26,
@@ -51,7 +51,7 @@
   },
   {
    "input": "yield_curve",
-   "value": "10Y\u22123M +1.09pp, +0.52pp/3mo (steepening post-inversion)",
+   "value": "10Y\u22123M +1.07pp, +0.44pp/3mo (steepening post-inversion)",
    "vote": "contraction",
    "weight": 0.15,
    "distribution": {
@@ -63,7 +63,7 @@
   },
   {
    "input": "liquidity",
-   "value": "WALCL +1.1%/6mo (expanding (QE-side))",
+   "value": "WALCL +1.0%/6mo (expanding (QE-side))",
    "vote": "expansion",
    "weight": 0.1,
    "distribution": {
