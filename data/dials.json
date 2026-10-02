@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-01T18:16:48Z",
+ "as_of": "2026-10-02T17:42:16Z",
  "inflation": {
   "pce_yoy": 3.42,
   "cpi_yoy": 3.71,
@@ -47,11 +47,11 @@
   }
  },
  "employment": {
-  "unrate": 4.1,
+  "unrate": 4.2,
   "direction": "stable",
   "sub": {
    "nfp": {
-    "actual": 162
+    "actual": 29
    },
    "claims_4wk": 200.0,
    "jolts": 7.1
@@ -67,7 +67,7 @@
    },
    {
     "dial": "employment",
-    "reading": "unemployment holds near 4.1% with no stress",
+    "reading": "unemployment holds near 4.2% with no stress",
     "implication": "gives the Fed room to be hawkish"
    }
   ]

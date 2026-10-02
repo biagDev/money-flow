@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-30T17:51:03Z",
+ "as_of": "2026-10-02T17:42:16Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -17,7 +17,7 @@
   {
    "asset": "gold",
    "expected": "down",
-   "actual": "up",
+   "actual": "sideways",
    "agree": false,
    "why": "Gold usually falls while bonds still pay well after inflation.",
    "lesson": 9
@@ -41,7 +41,7 @@
  ],
  "bullets": [
   "Prices: falling about 3.4% a year. The Fed wants 2%.",
-  "Jobs: hiring is steady at about +71K a month.",
+  "Jobs: hiring is steady at about +51K a month.",
   "Next big date: Jobs report on Oct 2."
  ],
  "next_big_date": {
