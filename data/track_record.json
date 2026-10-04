@@ -1,21 +1,20 @@
 {
- "as_of": "2026-09-27T23:28:35Z",
+ "as_of": "2026-10-04T23:41:22Z",
  "schema_version": 1,
  "engine_version": "2.0.0",
  "config_hash": "c3a2a1c6d7ad65482d19eae7551411c543fc26fb0393683b0bf9e0bbce274e9d",
  "min_sample_n": 20,
  "note": "Every accuracy figure is engine vs persistence vs naive, with n. Cells below the minimum sample are withheld, not shrunk.",
- "snapshots": 12,
- "resolved_claims": 17,
+ "snapshots": 16,
+ "resolved_claims": 26,
  "overall": {
   "h21": {
-   "n": 13,
-   "sufficient": false,
-   "coin_flip": 50.0,
-   "note": "insufficient sample: 13 of 20 needed",
-   "engine_withheld": 38.5,
-   "persistence_withheld": 7.7,
-   "naive_withheld": 0.0
+   "n": 22,
+   "sufficient": true,
+   "engine": 45.5,
+   "persistence": 13.6,
+   "naive": 0.0,
+   "coin_flip": 50.0
   },
   "h63": {
    "n": 0,
@@ -30,33 +29,44 @@
  "by_asset": {
   "bonds": {
    "h21": {
-    "n": 4,
+    "n": 6,
     "sufficient": false,
     "coin_flip": 50.0,
-    "note": "insufficient sample: 4 of 20 needed",
+    "note": "insufficient sample: 6 of 20 needed",
     "engine_withheld": 100.0,
-    "persistence_withheld": 25.0,
+    "persistence_withheld": 50.0,
     "naive_withheld": null
    }
   },
-  "gold": {
-   "h21": {
-    "n": 5,
-    "sufficient": false,
-    "coin_flip": 50.0,
-    "note": "insufficient sample: 5 of 20 needed",
-    "engine_withheld": 20.0,
-    "persistence_withheld": 0.0,
-    "naive_withheld": null
-   }
-  },
-  "stocks": {
+  "dollar": {
    "h21": {
     "n": 4,
     "sufficient": false,
     "coin_flip": 50.0,
     "note": "insufficient sample: 4 of 20 needed",
     "engine_withheld": 0.0,
+    "persistence_withheld": 0.0,
+    "naive_withheld": null
+   }
+  },
+  "gold": {
+   "h21": {
+    "n": 6,
+    "sufficient": false,
+    "coin_flip": 50.0,
+    "note": "insufficient sample: 6 of 20 needed",
+    "engine_withheld": 33.3,
+    "persistence_withheld": 0.0,
+    "naive_withheld": null
+   }
+  },
+  "stocks": {
+   "h21": {
+    "n": 6,
+    "sufficient": false,
+    "coin_flip": 50.0,
+    "note": "insufficient sample: 6 of 20 needed",
+    "engine_withheld": 33.3,
     "persistence_withheld": 0.0,
     "naive_withheld": 0.0
    }
