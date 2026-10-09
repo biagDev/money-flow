@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-08T10:34:53Z",
+ "as_of": "2026-10-09T10:33:26Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -42,10 +42,10 @@
  "bullets": [
   "Prices: falling about 3.4% a year. The Fed wants 2%.",
   "Jobs: hiring is steady at about +51K a month.",
-  "Next big date: Weekly jobless claims on Oct 8."
+  "Next big date: Weekly jobless claims on Oct 15."
  ],
  "next_big_date": {
-  "date": "2026-10-08",
+  "date": "2026-10-15",
   "event": "Weekly jobless claims",
   "lesson": 13
  },
