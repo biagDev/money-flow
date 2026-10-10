@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-09T22:49:39Z",
+ "as_of": "2026-10-10T00:19:04Z",
  "regime": "peak",
  "nodes": [
   {
@@ -394,11 +394,10 @@
   },
   {
    "asset": "stocks",
-   "price": 7765.36,
-   "trend_3mo": 3.78,
+   "price": 7811.54,
+   "trend_3mo": 3.55,
    "trend_unit": "%",
    "spark": [
-    7109.14,
     7064.01,
     7137.9,
     7108.4,
@@ -517,7 +516,8 @@
     7773.95,
     7818.93,
     7801.77,
-    7765.36
+    7765.36,
+    7811.54
    ],
    "driver": "Driver: risk appetite + liquidity. Printed money tends to end up here.",
    "stale": false
