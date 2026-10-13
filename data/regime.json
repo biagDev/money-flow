@@ -1,17 +1,17 @@
 {
- "as_of": "2026-10-13T02:41:20Z",
+ "as_of": "2026-10-13T23:23:22Z",
  "stale": false,
  "probabilities": {
-  "expansion": 0.26,
+  "expansion": 0.365,
   "peak": 0.36,
-  "contraction": 0.24,
-  "recovery": 0.14
+  "contraction": 0.12,
+  "recovery": 0.155
  },
- "needle": "peak",
+ "needle": "expansion",
  "projection": "contraction",
  "projection_basis": "momentum",
- "in_regime_since": "2026-10-01",
- "narrative": "Inflation is falling at 3.4% (above the 2% target) while unemployment holds near 4.2% with no stress \u2014 the market is pricing a hawkish-leaning Fed, which historically marks the PEAK phase. Watch: yields \u25b2, dollar \u25b2, gold \u25bc.",
+ "in_regime_since": "2026-06-01",
+ "narrative": "Inflation is falling at 3.4% (above the 2% target) while unemployment holds near 4.2% with no stress \u2014 the market is pricing a hawkish-leaning Fed, which historically marks the EXPANSION phase. Watch: stocks \u25b2, gold \u25b2, dollar \u25bc.",
  "scores": [
   {
    "input": "inflation",
@@ -51,14 +51,14 @@
   },
   {
    "input": "yield_curve",
-   "value": "10Y\u22123M +0.99pp, +0.28pp/3mo (steepening post-inversion)",
-   "vote": "contraction",
+   "value": "10Y\u22123M +0.95pp, +0.22pp/3mo (normal)",
+   "vote": "expansion",
    "weight": 0.15,
    "distribution": {
-    "expansion": 0.0,
+    "expansion": 0.7,
     "peak": 0.0,
-    "contraction": 0.8,
-    "recovery": 0.2
+    "contraction": 0.0,
+    "recovery": 0.3
    }
   },
   {

@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-09T10:33:26Z",
+ "as_of": "2026-10-13T23:23:22Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -8,26 +8,26 @@
  "assets": [
   {
    "asset": "stocks",
-   "expected": "sideways",
+   "expected": "up",
    "actual": "up",
-   "agree": false,
-   "why": "Stocks tend to stall while the economy loses speed.",
+   "agree": true,
+   "why": "Money usually flows into stocks while the economy grows.",
    "lesson": 10
   },
   {
    "asset": "gold",
-   "expected": "down",
+   "expected": "up",
    "actual": "up",
-   "agree": false,
-   "why": "Gold usually falls while bonds still pay well after inflation.",
+   "agree": true,
+   "why": "Gold usually climbs when savings pay less after inflation.",
    "lesson": 9
   },
   {
    "asset": "dollar",
-   "expected": "up",
+   "expected": "down",
    "actual": "sideways",
    "agree": false,
-   "why": "The dollar usually rises as worried money parks in US savings.",
+   "why": "The dollar usually falls when money looks abroad for better returns.",
    "lesson": 8
   },
   {
@@ -35,23 +35,19 @@
    "expected": "up",
    "actual": "up",
    "agree": true,
-   "why": "Bond payouts usually rise while prices are still climbing fast.",
+   "why": "Bond payouts usually rise while the economy runs warm.",
    "lesson": 6
   }
  ],
  "bullets": [
   "Prices: falling about 3.4% a year. The Fed wants 2%.",
   "Jobs: hiring is steady at about +51K a month.",
-  "Next big date: Weekly jobless claims on Oct 15."
+  "Next big date: Inflation report on Oct 14."
  ],
  "next_big_date": {
-  "date": "2026-10-15",
-  "event": "Weekly jobless claims",
-  "lesson": 13
- },
- "changed": {
-  "recent": true,
-  "line": "The bond market picture cooled this month. The mood is now cautious."
+  "date": "2026-10-14",
+  "event": "Inflation report",
+  "lesson": 5
  },
  "schema_version": 1
 }
