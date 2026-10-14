@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-13T23:23:22Z",
+ "as_of": "2026-10-14T08:42:54Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -42,12 +42,12 @@
  "bullets": [
   "Prices: falling about 3.4% a year. The Fed wants 2%.",
   "Jobs: hiring is steady at about +51K a month.",
-  "Next big date: Inflation report on Oct 14."
+  "Next big date: Fed decision on Oct 28."
  ],
  "next_big_date": {
-  "date": "2026-10-14",
-  "event": "Inflation report",
-  "lesson": 5
+  "date": "2026-10-28",
+  "event": "Fed decision",
+  "lesson": 13
  },
  "schema_version": 1
 }

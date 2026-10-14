@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-13T23:23:22Z",
+ "as_of": "2026-10-14T08:42:54Z",
  "upcoming": [
   {
    "date": "2026-10-14",
@@ -140,6 +140,56 @@
      }
     }
    }
+  },
+  {
+   "date": "2026-10-28",
+   "event": "FOMC",
+   "feeds": "both",
+   "hint": "The decision itself \u2014 expectations already moved the money",
+   "highlight": true,
+   "watch": {
+    "stakes": "high",
+    "stakes_why": "The decision itself \u2014 the one scheduled event that can move the policy rate, and the whole curve prices off it.",
+    "setup": "The decision itself, with the Fed priced 74% to hike / 26% to hold, with the regime needle at expansion \u2014 expectations have already moved the money.",
+    "branches": {
+     "hike": {
+      "label": "Hike",
+      "implies": "policy tightens further",
+      "pricing_effect": "confirms pricing",
+      "assets": {
+       "bonds": "yields \u25b2",
+       "dollar": "\u25b2",
+       "gold": "\u25bc",
+       "stocks": "caution"
+      },
+      "market_odds": 0.74
+     },
+     "hold": {
+      "label": "Hold",
+      "implies": "direction inherits from the dials",
+      "pricing_effect": "forces repricing",
+      "assets": {
+       "bonds": "drift",
+       "dollar": "drift",
+       "gold": "drift",
+       "stocks": "\u25b2"
+      },
+      "market_odds": 0.26
+     },
+     "cut": {
+      "label": "Cut",
+      "implies": "policy eases",
+      "pricing_effect": "forces repricing",
+      "assets": {
+       "bonds": "yields \u25bc",
+       "dollar": "\u25bc",
+       "gold": "\u25b2",
+       "stocks": "\u25b2"
+      },
+      "market_odds": 0.0
+     }
+    }
+   }
   }
  ],
  "recent": [
@@ -190,8 +240,8 @@
   }
  ],
  "next_catalyst": {
-  "date": "2026-10-14",
-  "event": "CPI"
+  "date": "2026-10-28",
+  "event": "FOMC"
  },
  "schema_version": 1
 }
