@@ -1,8 +1,8 @@
 {
- "as_of": "2026-10-14T20:31:44Z",
+ "as_of": "2026-10-14T23:47:47Z",
  "market_pricing": {
-  "hike": 0.86,
-  "hold": 0.14,
+  "hike": 0.82,
+  "hold": 0.18,
   "cut": 0.0
  },
  "pricing_stale": false,
@@ -43,7 +43,7 @@
     "label": "Yield curve",
     "dir": "flatten",
     "why": "Overnight-rate pressure on the short end \u2014 the historic recession precursor.",
-    "current_3mo": "+0.22pp"
+    "current_3mo": "+0.17pp"
    }
   ],
   "cut": [
@@ -80,7 +80,7 @@
     "label": "Yield curve",
     "dir": "steepen",
     "why": "Short end drops first; steepening after inversion is the classic recession confirmation.",
-    "current_3mo": "+0.22pp"
+    "current_3mo": "+0.17pp"
    }
   ],
   "hold": [
@@ -117,7 +117,7 @@
     "label": "Yield curve",
     "dir": "drift",
     "why": "Shape set by which move markets price next.",
-    "current_3mo": "+0.22pp"
+    "current_3mo": "+0.17pp"
    }
   ]
  },
