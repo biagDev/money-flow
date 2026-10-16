@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-16T19:39:25Z",
+ "as_of": "2026-10-16T22:42:11Z",
  "market_pricing": {
   "hike": 0.7,
   "hold": 0.3,
@@ -15,7 +15,7 @@
     "label": "Bond yields",
     "dir": "up",
     "why": "New debt must pay more; the short end jumps hardest.",
-    "current_3mo": "+61bp"
+    "current_3mo": "+55bp"
    },
    {
     "asset": "dollar",
@@ -52,7 +52,7 @@
     "label": "Bond yields",
     "dir": "down",
     "why": "Cheaper money; existing bonds rally as yields fall.",
-    "current_3mo": "+61bp"
+    "current_3mo": "+55bp"
    },
    {
     "asset": "dollar",
@@ -89,7 +89,7 @@
     "label": "Bond yields",
     "dir": "drift",
     "why": "Direction inherits from the expectation trend, not the meeting.",
-    "current_3mo": "+61bp"
+    "current_3mo": "+55bp"
    },
    {
     "asset": "dollar",
