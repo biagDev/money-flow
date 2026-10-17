@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-15T08:18:20Z",
+ "as_of": "2026-10-17T07:47:54Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -9,8 +9,8 @@
   {
    "asset": "stocks",
    "expected": "up",
-   "actual": "up",
-   "agree": true,
+   "actual": "sideways",
+   "agree": false,
    "why": "Money usually flows into stocks while the economy grows.",
    "lesson": 10
   },
