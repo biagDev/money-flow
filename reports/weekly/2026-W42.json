@@ -1,16 +1,16 @@
 {
  "week": "2026-W42",
- "generated": "2026-10-12T00:03:47Z",
+ "generated": "2026-10-18T22:39:42Z",
  "schema_version": 1,
  "engine_version": "2.0.0",
  "config_hash": "c3a2a1c6d7ad65482d19eae7551411c543fc26fb0393683b0bf9e0bbce274e9d",
  "headline": {
   "h21": {
-   "n": 31,
+   "n": 38,
    "sufficient": true,
-   "engine": 61.3,
-   "persistence": 19.4,
-   "naive": 0.0,
+   "engine": 65.8,
+   "persistence": 18.4,
+   "naive": 10.0,
    "coin_flip": 50.0
   },
   "h63": {
@@ -26,46 +26,46 @@
  "by_asset": {
   "bonds": {
    "h21": {
-    "n": 8,
-    "sufficient": false,
-    "coin_flip": 50.0,
-    "note": "insufficient sample: 8 of 20 needed",
-    "engine_withheld": 100.0,
-    "persistence_withheld": 62.5,
-    "naive_withheld": null
-   }
-  },
-  "dollar": {
-   "h21": {
-    "n": 6,
-    "sufficient": false,
-    "coin_flip": 50.0,
-    "note": "insufficient sample: 6 of 20 needed",
-    "engine_withheld": 33.3,
-    "persistence_withheld": 0.0,
-    "naive_withheld": null
-   }
-  },
-  "gold": {
-   "h21": {
     "n": 9,
     "sufficient": false,
     "coin_flip": 50.0,
     "note": "insufficient sample: 9 of 20 needed",
-    "engine_withheld": 55.6,
-    "persistence_withheld": 0.0,
+    "engine_withheld": 100.0,
+    "persistence_withheld": 66.7,
     "naive_withheld": null
    }
   },
-  "stocks": {
+  "dollar": {
    "h21": {
     "n": 8,
     "sufficient": false,
     "coin_flip": 50.0,
     "note": "insufficient sample: 8 of 20 needed",
     "engine_withheld": 50.0,
-    "persistence_withheld": 12.5,
-    "naive_withheld": 0.0
+    "persistence_withheld": 0.0,
+    "naive_withheld": null
+   }
+  },
+  "gold": {
+   "h21": {
+    "n": 11,
+    "sufficient": false,
+    "coin_flip": 50.0,
+    "note": "insufficient sample: 11 of 20 needed",
+    "engine_withheld": 63.6,
+    "persistence_withheld": 0.0,
+    "naive_withheld": null
+   }
+  },
+  "stocks": {
+   "h21": {
+    "n": 10,
+    "sufficient": false,
+    "coin_flip": 50.0,
+    "note": "insufficient sample: 10 of 20 needed",
+    "engine_withheld": 50.0,
+    "persistence_withheld": 10.0,
+    "naive_withheld": 10.0
    }
   }
  },
@@ -102,9 +102,9 @@
   }
  ],
  "counts": {
-  "snapshots": 18,
-  "scores": 35,
-  "events": 29,
+  "snapshots": 19,
+  "scores": 52,
+  "events": 34,
   "divergences": 12,
   "health": 3
  },
@@ -213,6 +213,21 @@
     "spx_48h": 1.52
    },
    "ts": "2026-10-02T22:02:21Z"
+  },
+  {
+   "as_mapped": false,
+   "branch": "a",
+   "date": "2026-09-01",
+   "day": "2026-10-16",
+   "event": "CPI",
+   "phase": "resolution",
+   "prev_hash": "ffe2b2d466492494cc63bd1ac431236dfd2ea56e659ee4380652401f21e70fbc",
+   "reactions": {
+    "dxy_48h": -0.45,
+    "gold_48h": 3.26,
+    "spx_48h": 1.52
+   },
+   "ts": "2026-10-16T22:42:14Z"
   }
  ],
  "divergences": [
@@ -311,20 +326,20 @@
   {
    "engine_version": "2.0.0",
    "config_hash": "c3a2a1c6d7ad",
-   "days": 18,
+   "days": 19,
    "first": "2026-08-22",
-   "last": "2026-10-09"
+   "last": "2026-10-16"
   }
  ],
  "reliability": {
   "chains": {
    "snapshots": {
     "ok": true,
-    "detail": "snapshots.jsonl: 18 lines, chain intact"
+    "detail": "snapshots.jsonl: 19 lines, chain intact"
    },
    "events": {
     "ok": true,
-    "detail": "events.jsonl: 29 lines, chain intact"
+    "detail": "events.jsonl: 34 lines, chain intact"
    },
    "divergences": {
     "ok": true,
@@ -336,7 +351,7 @@
    },
    "scores": {
     "ok": true,
-    "detail": "scores.jsonl: 35 lines, chain intact"
+    "detail": "scores.jsonl: 52 lines, chain intact"
    }
   },
   "health_recent": [

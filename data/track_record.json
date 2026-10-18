@@ -1,19 +1,19 @@
 {
- "as_of": "2026-10-12T00:03:45Z",
+ "as_of": "2026-10-18T22:39:41Z",
  "schema_version": 1,
  "engine_version": "2.0.0",
  "config_hash": "c3a2a1c6d7ad65482d19eae7551411c543fc26fb0393683b0bf9e0bbce274e9d",
  "min_sample_n": 20,
  "note": "Every accuracy figure is engine vs persistence vs naive, with n. Cells below the minimum sample are withheld, not shrunk.",
- "snapshots": 18,
- "resolved_claims": 35,
+ "snapshots": 19,
+ "resolved_claims": 52,
  "overall": {
   "h21": {
-   "n": 31,
+   "n": 38,
    "sufficient": true,
-   "engine": 61.3,
-   "persistence": 19.4,
-   "naive": 0.0,
+   "engine": 65.8,
+   "persistence": 18.4,
+   "naive": 10.0,
    "coin_flip": 50.0
   },
   "h63": {
@@ -29,55 +29,55 @@
  "by_asset": {
   "bonds": {
    "h21": {
-    "n": 8,
-    "sufficient": false,
-    "coin_flip": 50.0,
-    "note": "insufficient sample: 8 of 20 needed",
-    "engine_withheld": 100.0,
-    "persistence_withheld": 62.5,
-    "naive_withheld": null
-   }
-  },
-  "dollar": {
-   "h21": {
-    "n": 6,
-    "sufficient": false,
-    "coin_flip": 50.0,
-    "note": "insufficient sample: 6 of 20 needed",
-    "engine_withheld": 33.3,
-    "persistence_withheld": 0.0,
-    "naive_withheld": null
-   }
-  },
-  "gold": {
-   "h21": {
     "n": 9,
     "sufficient": false,
     "coin_flip": 50.0,
     "note": "insufficient sample: 9 of 20 needed",
-    "engine_withheld": 55.6,
-    "persistence_withheld": 0.0,
+    "engine_withheld": 100.0,
+    "persistence_withheld": 66.7,
     "naive_withheld": null
    }
   },
-  "stocks": {
+  "dollar": {
    "h21": {
     "n": 8,
     "sufficient": false,
     "coin_flip": 50.0,
     "note": "insufficient sample: 8 of 20 needed",
     "engine_withheld": 50.0,
-    "persistence_withheld": 12.5,
-    "naive_withheld": 0.0
+    "persistence_withheld": 0.0,
+    "naive_withheld": null
+   }
+  },
+  "gold": {
+   "h21": {
+    "n": 11,
+    "sufficient": false,
+    "coin_flip": 50.0,
+    "note": "insufficient sample: 11 of 20 needed",
+    "engine_withheld": 63.6,
+    "persistence_withheld": 0.0,
+    "naive_withheld": null
+   }
+  },
+  "stocks": {
+   "h21": {
+    "n": 10,
+    "sufficient": false,
+    "coin_flip": 50.0,
+    "note": "insufficient sample: 10 of 20 needed",
+    "engine_withheld": 50.0,
+    "persistence_withheld": 10.0,
+    "naive_withheld": 10.0
    }
   }
  },
  "projections": {
-  "n": 4,
+  "n": 14,
   "sufficient": false,
   "coin_flip": 50.0,
-  "note": "insufficient sample: 4 of 20 needed",
-  "engine_withheld": 0.0,
+  "note": "insufficient sample: 14 of 20 needed",
+  "engine_withheld": 28.6,
   "persistence_withheld": null,
   "naive_withheld": null
  },
