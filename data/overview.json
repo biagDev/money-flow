@@ -1,16 +1,16 @@
 {
- "as_of": "2026-10-20T08:32:17Z",
+ "as_of": "2026-10-21T16:56:12Z",
  "stale": false,
  "mood": {
-  "label": "CAUTIOUS",
-  "line": "Prices are rising too fast, so the Fed may raise rates."
+  "label": "SUNNY",
+  "line": "The economy is growing and prices are calm. The Fed can relax."
  },
  "assets": [
   {
    "asset": "stocks",
    "expected": "up",
-   "actual": "up",
-   "agree": true,
+   "actual": "sideways",
+   "agree": false,
    "why": "Money usually flows into stocks while the economy grows.",
    "lesson": 10
   },
@@ -33,15 +33,15 @@
   {
    "asset": "bonds",
    "expected": "up",
-   "actual": "up",
-   "agree": true,
+   "actual": "sideways",
+   "agree": false,
    "why": "Bond payouts usually rise while the economy runs warm.",
    "lesson": 6
   }
  ],
  "bullets": [
-  "Prices: falling about 3.4% a year. The Fed wants 2%.",
-  "Jobs: hiring is steady at about +51K a month.",
+  "Prices: the latest reading is not available yet.",
+  "Jobs: the latest reading is not available yet.",
   "Next big date: Fed decision on Oct 28."
  ],
  "next_big_date": {

@@ -1,73 +1,42 @@
 {
- "as_of": "2026-10-20T23:18:37Z",
+ "as_of": "2026-10-21T16:56:12Z",
  "inflation": {
-  "pce_yoy": 3.42,
-  "cpi_yoy": 4.02,
+  "pce_yoy": null,
+  "cpi_yoy": null,
   "target": 2.0,
-  "trend_3mo": -0.4,
-  "direction": "falling",
+  "trend_3mo": null,
+  "direction": "flat",
   "sub": {
-   "ppi_yoy": 12.84,
-   "breakeven_5y": 2.39,
+   "ppi_yoy": null,
+   "breakeven_5y": null,
    "oil": {
-    "last": 101.91,
-    "spark": [
-     110.47,
-     105.66,
-     101.56,
-     108.99,
-     100.2,
-     92.65,
-     99.76,
-     91.9,
-     84.65,
-     78.94,
-     70.3,
-     69.73,
-     73.15,
-     80.73,
-     86.04,
-     84.25,
-     86.16,
-     78.88,
-     84.97,
-     86.48,
-     86.34,
-     84.57,
-     92.55,
-     103.57,
-     103.62,
-     96.41,
-     99.37,
-     97.89,
-     98.26,
-     101.91
-    ]
+    "last": null,
+    "spark": []
    }
   }
  },
  "employment": {
-  "unrate": 4.2,
+  "unrate": null,
   "direction": "stable",
   "sub": {
    "nfp": {
-    "actual": 29
+    "actual": null
    },
-   "claims_4wk": 198.0,
-   "jolts": 7.1
+   "claims_4wk": null,
+   "jolts": null
   }
  },
  "verdict": {
-  "bias": "hawkish-leaning",
+  "bias": "neutral",
   "lines": [
    {
     "dial": "inflation",
-    "reading": "Inflation is falling at 3.4% (above the 2% target)",
-    "implication": "argues HIKE/HOLD"
+    "reading": "Inflation data unavailable",
+    "implication": "argues CUT/HOLD"
    },
    {
     "dial": "employment",
-    "reading": "unemployment holds near 4.2% with no stress",
+    "reading": "employment data unavailable",
     "implication": "gives the Fed room to be hawkish"
    }
   ]
