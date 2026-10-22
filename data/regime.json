@@ -1,76 +1,76 @@
 {
- "as_of": "2026-10-21T16:56:12Z",
+ "as_of": "2026-10-22T08:36:37Z",
  "stale": false,
  "probabilities": {
-  "expansion": 0.25,
-  "peak": 0.25,
-  "contraction": 0.25,
-  "recovery": 0.25
+  "expansion": 0.365,
+  "peak": 0.36,
+  "contraction": 0.12,
+  "recovery": 0.155
  },
  "needle": "expansion",
- "projection": "expansion",
+ "projection": "contraction",
  "projection_basis": "momentum",
- "in_regime_since": "2021-10-01",
- "narrative": "Inflation data unavailable while employment data unavailable \u2014 the market is pricing a neutral Fed, which historically marks the EXPANSION phase. Watch: stocks \u25b2, gold \u25b2, dollar \u25bc.",
+ "in_regime_since": "2026-06-01",
+ "narrative": "Inflation is falling at 3.4% (above the 2% target) while unemployment holds near 4.2% with no stress \u2014 the market is pricing a hawkish-leaning Fed, which historically marks the EXPANSION phase. Watch: stocks \u25b2, gold \u25b2, dollar \u25bc.",
  "scores": [
   {
    "input": "inflation",
-   "value": "no data",
-   "vote": "expansion",
+   "value": "PCE 3.4% YoY, -0.40pp/3mo",
+   "vote": "peak",
    "weight": 0.3,
    "distribution": {
-    "expansion": 0.25,
-    "peak": 0.25,
-    "contraction": 0.25,
-    "recovery": 0.25
+    "expansion": 0.0,
+    "peak": 0.4,
+    "contraction": 0.4,
+    "recovery": 0.2
    }
   },
   {
    "input": "employment",
-   "value": "no data",
+   "value": "UNRATE 4.2%, Sahm gap +0.03pp, payrolls +51K/3mo (firm)",
    "vote": "expansion",
    "weight": 0.25,
    "distribution": {
-    "expansion": 0.25,
-    "peak": 0.25,
-    "contraction": 0.25,
-    "recovery": 0.25
+    "expansion": 0.6,
+    "peak": 0.4,
+    "contraction": 0.0,
+    "recovery": 0.0
    }
   },
   {
    "input": "fed_stance",
-   "value": "no data",
-   "vote": "expansion",
+   "value": "hiking / priced to hike (last move 35d ago)",
+   "vote": "peak",
    "weight": 0.2,
    "distribution": {
-    "expansion": 0.25,
-    "peak": 0.25,
-    "contraction": 0.25,
-    "recovery": 0.25
+    "expansion": 0.3,
+    "peak": 0.7,
+    "contraction": 0.0,
+    "recovery": 0.0
    }
   },
   {
    "input": "yield_curve",
-   "value": "no data",
+   "value": "10Y\u22123M +0.88pp, +0.12pp/3mo (normal)",
    "vote": "expansion",
    "weight": 0.15,
    "distribution": {
-    "expansion": 0.25,
-    "peak": 0.25,
-    "contraction": 0.25,
-    "recovery": 0.25
+    "expansion": 0.7,
+    "peak": 0.0,
+    "contraction": 0.0,
+    "recovery": 0.3
    }
   },
   {
    "input": "liquidity",
-   "value": "no data",
+   "value": "WALCL +0.7%/6mo (expanding (QE-side))",
    "vote": "expansion",
    "weight": 0.1,
    "distribution": {
-    "expansion": 0.25,
-    "peak": 0.25,
-    "contraction": 0.25,
-    "recovery": 0.25
+    "expansion": 0.5,
+    "peak": 0.0,
+    "contraction": 0.0,
+    "recovery": 0.5
    }
   }
  ],

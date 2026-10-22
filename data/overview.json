@@ -1,24 +1,24 @@
 {
- "as_of": "2026-10-21T16:56:12Z",
+ "as_of": "2026-10-22T08:36:37Z",
  "stale": false,
  "mood": {
-  "label": "SUNNY",
-  "line": "The economy is growing and prices are calm. The Fed can relax."
+  "label": "CAUTIOUS",
+  "line": "Prices are rising too fast, so the Fed may raise rates."
  },
  "assets": [
   {
    "asset": "stocks",
    "expected": "up",
-   "actual": "sideways",
-   "agree": false,
+   "actual": "up",
+   "agree": true,
    "why": "Money usually flows into stocks while the economy grows.",
    "lesson": 10
   },
   {
    "asset": "gold",
    "expected": "up",
-   "actual": "up",
-   "agree": true,
+   "actual": "sideways",
+   "agree": false,
    "why": "Gold usually climbs when savings pay less after inflation.",
    "lesson": 9
   },
@@ -33,15 +33,15 @@
   {
    "asset": "bonds",
    "expected": "up",
-   "actual": "sideways",
-   "agree": false,
+   "actual": "up",
+   "agree": true,
    "why": "Bond payouts usually rise while the economy runs warm.",
    "lesson": 6
   }
  ],
  "bullets": [
-  "Prices: the latest reading is not available yet.",
-  "Jobs: the latest reading is not available yet.",
+  "Prices: falling about 3.4% a year. The Fed wants 2%.",
+  "Jobs: hiring is steady at about +51K a month.",
   "Next big date: Fed decision on Oct 28."
  ],
  "next_big_date": {
