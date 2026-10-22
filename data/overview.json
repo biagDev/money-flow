@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-22T08:36:37Z",
+ "as_of": "2026-10-22T16:55:37Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -17,7 +17,7 @@
   {
    "asset": "gold",
    "expected": "up",
-   "actual": "sideways",
+   "actual": "down",
    "agree": false,
    "why": "Gold usually climbs when savings pay less after inflation.",
    "lesson": 9
