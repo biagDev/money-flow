@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-22T23:31:42Z",
+ "as_of": "2026-10-23T08:32:36Z",
  "stale": false,
  "probabilities": {
   "expansion": 0.365,
@@ -10,7 +10,7 @@
  "needle": "expansion",
  "projection": "contraction",
  "projection_basis": "momentum",
- "in_regime_since": "2026-06-01",
+ "in_regime_since": "2026-10-01",
  "narrative": "Inflation is falling at 3.4% (above the 2% target) while unemployment holds near 4.2% with no stress \u2014 the market is pricing a hawkish-leaning Fed, which historically marks the EXPANSION phase. Watch: stocks \u25b2, gold \u25b2, dollar \u25bc.",
  "scores": [
   {
@@ -39,7 +39,7 @@
   },
   {
    "input": "fed_stance",
-   "value": "hiking / priced to hike (last move 35d ago)",
+   "value": "hiking / priced to hike (last move 36d ago)",
    "vote": "peak",
    "weight": 0.2,
    "distribution": {
