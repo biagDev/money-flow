@@ -1,8 +1,8 @@
 {
- "as_of": "2026-10-23T23:22:43Z",
+ "as_of": "2026-10-24T08:07:42Z",
  "market_pricing": {
-  "hike": 0.6,
-  "hold": 0.4,
+  "hike": 0.62,
+  "hold": 0.38,
   "cut": 0.0
  },
  "pricing_stale": false,
