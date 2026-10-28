@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-27T21:59:24Z",
+ "as_of": "2026-10-28T01:11:48Z",
  "stale": false,
  "probabilities": {
   "expansion": 0.365,
@@ -39,7 +39,7 @@
   },
   {
    "input": "fed_stance",
-   "value": "hiking / priced to hike (last move 40d ago)",
+   "value": "hiking / priced to hike (last move 41d ago)",
    "vote": "peak",
    "weight": 0.2,
    "distribution": {
@@ -63,7 +63,7 @@
   },
   {
    "input": "liquidity",
-   "value": "WALCL +0.7%/6mo (expanding (QE-side))",
+   "value": "WALCL +0.8%/6mo (expanding (QE-side))",
    "vote": "expansion",
    "weight": 0.1,
    "distribution": {
