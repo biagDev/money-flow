@@ -11,3 +11,4 @@
 {"day":"2026-09-29","from":true,"kind":"overview_asset","prev_hash":"ccfe781c2e33e1723ee4a97cb0bf7f3cb3d15ca8d96a295507ace572a5dffd25","subject":"stocks","to":false,"ts":"2026-09-29T22:06:54Z"}
 {"day":"2026-10-09","from":"neutral","kind":"scorecard","prev_hash":"cdbc0c2d89422308ba42d33d765781a5cd82b916644a0fdad5e3bf9e01d0fba2","subject":"Gold down","to":"diverging","ts":"2026-10-09T22:49:41Z"}
 {"day":"2026-10-19","from":true,"kind":"overview_asset","prev_hash":"93d17440006a14e68589cd69e8f01d478ff4bb2255a43ccb2e1cb38f2f551085","subject":"stocks","to":false,"ts":"2026-10-19T22:51:54Z"}
+{"day":"2026-10-28","from":true,"kind":"overview_asset","prev_hash":"a420fd63fe226d8e8feda399503d081221b71316c22553d651391f6b3df2f30a","subject":"gold","to":false,"ts":"2026-10-28T22:46:53Z"}
