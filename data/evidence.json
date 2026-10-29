@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-29T09:57:55Z",
+ "as_of": "2026-10-29T18:17:07Z",
  "curve": {
   "today": [
    {
@@ -875,12 +875,12 @@
    4177.2998,
    4160.1001,
    4007.8999,
-   4038.6001
+   4021.2
   ],
   "corr_12mo": -0.53,
   "confirm": {
-   "expected": "gold up",
-   "actual": "+0.1%/3mo",
+   "expected": "gold down",
+   "actual": "-0.4%/3mo",
    "status": "confirmed"
   }
  },
@@ -2435,27 +2435,27 @@
     "status": "confirmed"
    },
    {
-    "says": "Dollar down",
+    "says": "Dollar up",
     "doing": "DXY +0.3% / 3mo",
     "status": "neutral"
    },
    {
-    "says": "Gold up",
-    "doing": "Gold +0.1% / 3mo",
+    "says": "Gold down",
+    "doing": "Gold -0.4% / 3mo",
     "status": "neutral"
    },
    {
-    "says": "Stocks up",
+    "says": "Stocks flat",
     "doing": "SPX +4.2% / 3mo",
     "status": "confirmed"
    },
    {
-    "says": "Smart money (gold COT) up",
+    "says": "Smart money (gold COT) down",
     "doing": "net reducing w/w",
-    "status": "diverging"
+    "status": "confirmed"
    }
   ],
-  "confirmed": 2,
+  "confirmed": 3,
   "total": 5
  },
  "schema_version": 1

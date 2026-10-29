@@ -1,11 +1,11 @@
 {
- "as_of": "2026-10-28T22:46:50Z",
+ "as_of": "2026-10-29T18:17:07Z",
  "inflation": {
-  "pce_yoy": 3.42,
+  "pce_yoy": 3.65,
   "cpi_yoy": 4.02,
   "target": 2.0,
-  "trend_3mo": -0.4,
-  "direction": "falling",
+  "trend_3mo": 0.2,
+  "direction": "rising",
   "sub": {
    "ppi_yoy": 12.84,
    "breakeven_5y": 2.49,
@@ -53,16 +53,16 @@
    "nfp": {
     "actual": 29
    },
-   "claims_4wk": 198.0,
+   "claims_4wk": 197.0,
    "jolts": 7.1
   }
  },
  "verdict": {
-  "bias": "hawkish-leaning",
+  "bias": "hawkish",
   "lines": [
    {
     "dial": "inflation",
-    "reading": "Inflation is falling at 3.4% (above the 2% target)",
+    "reading": "Inflation is rising at 3.6% (above the 2% target)",
     "implication": "argues HIKE/HOLD"
    },
    {
