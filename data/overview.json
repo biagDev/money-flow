@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-29T18:17:07Z",
+ "as_of": "2026-10-30T10:01:03Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -17,8 +17,8 @@
   {
    "asset": "gold",
    "expected": "down",
-   "actual": "sideways",
-   "agree": false,
+   "actual": "down",
+   "agree": true,
    "why": "Gold usually falls while bonds still pay well after inflation.",
    "lesson": 9
   },
