@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-02T21:35:36Z",
+ "as_of": "2026-11-03T03:23:32Z",
  "regime": "peak",
  "nodes": [
   {
@@ -134,15 +134,10 @@
   },
   {
    "asset": "dollar",
-   "price": 121.3202,
-   "trend_3mo": 0.34,
+   "price": 121.6656,
+   "trend_3mo": 1.66,
    "trend_unit": "%",
    "spark": [
-    118.8264,
-    118.6207,
-    118.0982,
-    118.0116,
-    118.0392,
     118.0562,
     118.5238,
     118.4737,
@@ -257,18 +252,22 @@
     121.116,
     121.3422,
     121.3531,
-    121.3202
+    121.3202,
+    121.6042,
+    121.6622,
+    121.8491,
+    121.7361,
+    121.6656
    ],
    "driver": "Driver: bond yield differentials vs other currencies. ~90% of forex is this.",
    "stale": false
   },
   {
    "asset": "gold",
-   "price": 3956.10009765625,
-   "trend_3mo": -3.67,
+   "price": 3951.800048828125,
+   "trend_3mo": -3.39,
    "trend_unit": "%",
    "spark": [
-    4706.7002,
     4685.2998,
     4561.8999,
     4558.0,
@@ -387,7 +386,8 @@
     4051.6001,
     4031.3999,
     3898.8999,
-    3956.1001
+    3969.6001,
+    3951.8
    ],
    "driver": "Driver: REAL yields (yield \u2212 inflation). Bonds are its competitor, not war headlines.",
    "stale": false
