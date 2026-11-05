@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-05T00:48:11Z",
+ "as_of": "2026-11-05T19:44:20Z",
  "inflation": {
   "pce_yoy": 3.65,
   "cpi_yoy": 4.02,
@@ -53,7 +53,7 @@
    "nfp": {
     "actual": 29
    },
-   "claims_4wk": 197.0,
+   "claims_4wk": 195.0,
    "jolts": 7.5
   }
  },
