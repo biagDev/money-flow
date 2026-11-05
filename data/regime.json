@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-04T00:09:02Z",
+ "as_of": "2026-11-05T00:48:11Z",
  "stale": false,
  "probabilities": {
   "expansion": 0.41,
@@ -39,7 +39,7 @@
   },
   {
    "input": "fed_stance",
-   "value": "hiking / priced to hike (last move 48d ago)",
+   "value": "hiking / priced to hike (last move 49d ago)",
    "vote": "peak",
    "weight": 0.2,
    "distribution": {
@@ -51,7 +51,7 @@
   },
   {
    "input": "yield_curve",
-   "value": "10Y\u22123M +0.74pp, -0.05pp/3mo (normal)",
+   "value": "10Y\u22123M +0.69pp, -0.05pp/3mo (normal)",
    "vote": "expansion",
    "weight": 0.15,
    "distribution": {
