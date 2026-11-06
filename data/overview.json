@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-03T03:23:32Z",
+ "as_of": "2026-11-06T19:08:00Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -9,8 +9,8 @@
   {
    "asset": "stocks",
    "expected": "sideways",
-   "actual": "sideways",
-   "agree": true,
+   "actual": "down",
+   "agree": false,
    "why": "Stocks tend to stall while the economy loses speed.",
    "lesson": 10
   },
@@ -41,7 +41,7 @@
  ],
  "bullets": [
   "Prices: rising about 3.6% a year. The Fed wants 2%.",
-  "Jobs: hiring is steady at about +51K a month.",
+  "Jobs: hiring is steady at about +137K a month.",
   "Next big date: Jobs report on Nov 6."
  ],
  "next_big_date": {
