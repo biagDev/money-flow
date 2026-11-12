@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-11T00:13:04Z",
+ "as_of": "2026-11-12T01:37:59Z",
  "stale": false,
  "probabilities": {
   "expansion": 0.41,
@@ -39,7 +39,7 @@
   },
   {
    "input": "fed_stance",
-   "value": "hiking / priced to hike (last move 55d ago)",
+   "value": "hiking / priced to hike (last move 56d ago)",
    "vote": "peak",
    "weight": 0.2,
    "distribution": {
