@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-13T10:58:10Z",
+ "as_of": "2026-11-13T19:26:16Z",
  "curve": {
   "today": [
    {
@@ -880,7 +880,7 @@
   "corr_12mo": -0.64,
   "confirm": {
    "expected": "gold down",
-   "actual": "-11.9%/3mo",
+   "actual": "-12.2%/3mo",
    "status": "confirmed"
   }
  },
@@ -2441,13 +2441,13 @@
    },
    {
     "says": "Gold down",
-    "doing": "Gold -11.9% / 3mo",
+    "doing": "Gold -12.2% / 3mo",
     "status": "confirmed"
    },
    {
     "says": "Stocks flat",
-    "doing": "SPX -1.4% / 3mo",
-    "status": "confirmed"
+    "doing": "SPX -2.0% / 3mo",
+    "status": "diverging"
    },
    {
     "says": "Smart money (gold COT) down",
@@ -2455,7 +2455,7 @@
     "status": "confirmed"
    }
   ],
-  "confirmed": 5,
+  "confirmed": 4,
   "total": 5
  },
  "schema_version": 1

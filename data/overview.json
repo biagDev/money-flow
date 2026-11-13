@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-13T00:57:48Z",
+ "as_of": "2026-11-13T19:26:16Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -9,8 +9,8 @@
   {
    "asset": "stocks",
    "expected": "sideways",
-   "actual": "sideways",
-   "agree": true,
+   "actual": "down",
+   "agree": false,
    "why": "Stocks tend to stall while the economy loses speed.",
    "lesson": 10
   },
