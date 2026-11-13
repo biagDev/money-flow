@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-12T19:43:38Z",
+ "as_of": "2026-11-13T00:57:48Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -42,16 +42,12 @@
  "bullets": [
   "Prices: rising about 3.6% a year. The Fed wants 2%.",
   "Jobs: hiring is steady at about +137K a month.",
-  "Next big date: Weekly jobless claims on Nov 12."
+  "Next big date: Weekly jobless claims on Nov 19."
  ],
  "next_big_date": {
-  "date": "2026-11-12",
+  "date": "2026-11-19",
   "event": "Weekly jobless claims",
   "lesson": 13
- },
- "changed": {
-  "recent": true,
-  "line": "The bond market picture warmed this month. The mood is now cautious."
  },
  "schema_version": 1
 }
