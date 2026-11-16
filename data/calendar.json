@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-14T00:26:12Z",
+ "as_of": "2026-11-16T21:49:57Z",
  "upcoming": [
   {
    "date": "2026-11-19",
@@ -171,21 +171,6 @@
     "branch_label": "Strong (payrolls above trend, unemployment holds)",
     "as_mapped": true,
     "note": "Strong (payrolls above trend, unemployment holds) \u2014 gold \u25bc, stocks \u25b2 as mapped."
-   }
-  },
-  {
-   "reference_month": "2026-09-01",
-   "event": "PCE (Personal Income & Outlays)",
-   "reactions": {
-    "dxy_48h": -0.45,
-    "gold_48h": 3.26,
-    "spx_48h": 1.52
-   },
-   "resolution": {
-    "branch": "a",
-    "branch_label": "Hot (accelerates vs its 3-month trend)",
-    "as_mapped": false,
-    "note": "Hot (accelerates vs its 3-month trend) \u2014 1 of 3 asset moves matched."
    }
   }
  ],
