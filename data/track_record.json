@@ -1,19 +1,19 @@
 {
- "as_of": "2026-11-09T00:13:52Z",
+ "as_of": "2026-11-16T00:30:21Z",
  "schema_version": 1,
  "engine_version": "2.0.0",
  "config_hash": "c3a2a1c6d7ad65482d19eae7551411c543fc26fb0393683b0bf9e0bbce274e9d",
  "min_sample_n": 20,
  "note": "Every accuracy figure is engine vs persistence vs naive, with n. Cells below the minimum sample are withheld, not shrunk.",
  "snapshots": 23,
- "resolved_claims": 83,
+ "resolved_claims": 89,
  "overall": {
   "h21": {
-   "n": 66,
+   "n": 72,
    "sufficient": true,
-   "engine": 65.2,
-   "persistence": 16.7,
-   "naive": 5.9,
+   "engine": 59.7,
+   "persistence": 19.4,
+   "naive": 5.6,
    "coin_flip": 50.0
   },
   "h63": {
@@ -29,46 +29,46 @@
  "by_asset": {
   "bonds": {
    "h21": {
-    "n": 17,
+    "n": 18,
     "sufficient": false,
     "coin_flip": 50.0,
-    "note": "insufficient sample: 17 of 20 needed",
-    "engine_withheld": 58.8,
-    "persistence_withheld": 41.2,
+    "note": "insufficient sample: 18 of 20 needed",
+    "engine_withheld": 55.6,
+    "persistence_withheld": 38.9,
     "naive_withheld": null
    }
   },
   "dollar": {
    "h21": {
-    "n": 14,
+    "n": 17,
     "sufficient": false,
     "coin_flip": 50.0,
-    "note": "insufficient sample: 14 of 20 needed",
-    "engine_withheld": 57.1,
-    "persistence_withheld": 14.3,
+    "note": "insufficient sample: 17 of 20 needed",
+    "engine_withheld": 47.1,
+    "persistence_withheld": 29.4,
     "naive_withheld": null
    }
   },
   "gold": {
    "h21": {
-    "n": 18,
+    "n": 19,
     "sufficient": false,
     "coin_flip": 50.0,
-    "note": "insufficient sample: 18 of 20 needed",
-    "engine_withheld": 77.8,
+    "note": "insufficient sample: 19 of 20 needed",
+    "engine_withheld": 73.7,
     "persistence_withheld": 0.0,
     "naive_withheld": null
    }
   },
   "stocks": {
    "h21": {
-    "n": 17,
+    "n": 18,
     "sufficient": false,
     "coin_flip": 50.0,
-    "note": "insufficient sample: 17 of 20 needed",
-    "engine_withheld": 64.7,
-    "persistence_withheld": 11.8,
-    "naive_withheld": 5.9
+    "note": "insufficient sample: 18 of 20 needed",
+    "engine_withheld": 61.1,
+    "persistence_withheld": 11.1,
+    "naive_withheld": 5.6
    }
   }
  },
