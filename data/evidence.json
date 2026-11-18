@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-18T02:47:55Z",
+ "as_of": "2026-11-18T11:41:20Z",
  "curve": {
   "today": [
    {
@@ -875,12 +875,12 @@
    3969.6001,
    4074.8999,
    3885.3,
-   3803.7
+   3769.0
   ],
   "corr_12mo": -0.67,
   "confirm": {
    "expected": "gold down",
-   "actual": "-14.0%/3mo",
+   "actual": "-14.7%/3mo",
    "status": "confirmed"
   }
  },
@@ -2441,7 +2441,7 @@
    },
    {
     "says": "Gold down",
-    "doing": "Gold -14.0% / 3mo",
+    "doing": "Gold -14.7% / 3mo",
     "status": "confirmed"
    },
    {
