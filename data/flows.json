@@ -1,14 +1,13 @@
 {
- "as_of": "2026-11-18T20:14:55Z",
+ "as_of": "2026-11-19T01:58:13Z",
  "regime": "peak",
  "nodes": [
   {
    "asset": "bonds",
-   "price": 5.12,
-   "trend_3mo": 44.0,
+   "price": 5.1,
+   "trend_3mo": 38.0,
    "trend_unit": "bp",
    "spark": [
-    4.5,
     4.48,
     4.45,
     4.45,
@@ -127,7 +126,8 @@
     4.98,
     5.1,
     5.15,
-    5.12
+    5.12,
+    5.1
    ],
    "driver": "The market everything else keys off. Driver: Fed expectations.",
    "stale": false
@@ -264,8 +264,8 @@
   },
   {
    "asset": "gold",
-   "price": 3727.89990234375,
-   "trend_3mo": -15.67,
+   "price": 3753.800048828125,
+   "trend_3mo": -17.41,
    "trend_unit": "%",
    "spark": [
     4506.2998,
@@ -387,18 +387,17 @@
     3886.3,
     3853.0,
     3864.2,
-    3727.8999
+    3753.8
    ],
    "driver": "Driver: REAL yields (yield \u2212 inflation). Bonds are its competitor, not war headlines.",
    "stale": false
   },
   {
    "asset": "stocks",
-   "price": 7340.53,
-   "trend_3mo": -5.22,
+   "price": 7323.63,
+   "trend_3mo": -4.79,
    "trend_unit": "%",
    "spark": [
-    7580.06,
     7599.96,
     7609.78,
     7553.68,
@@ -517,7 +516,8 @@
     7592.4,
     7561.67,
     7416.59,
-    7340.53
+    7340.53,
+    7323.63
    ],
    "driver": "Driver: risk appetite + liquidity. Printed money tends to end up here.",
    "stale": false
