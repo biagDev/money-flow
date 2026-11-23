@@ -1,8 +1,8 @@
 {
- "as_of": "2026-11-21T11:00:51Z",
+ "as_of": "2026-11-23T23:39:10Z",
  "market_pricing": {
-  "hike": 0.96,
-  "hold": 0.04,
+  "hike": 1.0,
+  "hold": 0.0,
   "cut": 0.0
  },
  "pricing_stale": false,
@@ -15,35 +15,35 @@
     "label": "Bond yields",
     "dir": "up",
     "why": "New debt must pay more; the short end jumps hardest.",
-    "current_3mo": "+39bp"
+    "current_3mo": "+23bp"
    },
    {
     "asset": "dollar",
     "label": "US Dollar",
     "dir": "up",
     "why": "Banks park cash where risk-free yield is highest.",
-    "current_3mo": "+2.9%"
+    "current_3mo": "+4.5%"
    },
    {
     "asset": "gold",
     "label": "Gold",
     "dir": "down",
     "why": "Real yields rise \u2014 bonds out-compete gold as the inflation hedge.",
-    "current_3mo": "-23.1%"
+    "current_3mo": "-22.4%"
    },
    {
     "asset": "stocks",
     "label": "Stocks",
     "dir": "caution",
     "why": "Can grind higher until something breaks; watch the curve.",
-    "current_3mo": "-6.9%"
+    "current_3mo": "-9.6%"
    },
    {
     "asset": "curve",
     "label": "Yield curve",
     "dir": "flatten",
     "why": "Overnight-rate pressure on the short end \u2014 the historic recession precursor.",
-    "current_3mo": "-0.22pp"
+    "current_3mo": "-0.31pp"
    }
   ],
   "cut": [
@@ -52,35 +52,35 @@
     "label": "Bond yields",
     "dir": "down",
     "why": "Cheaper money; existing bonds rally as yields fall.",
-    "current_3mo": "+39bp"
+    "current_3mo": "+23bp"
    },
    {
     "asset": "dollar",
     "label": "US Dollar",
     "dir": "down",
     "why": "Yield advantage evaporates; capital hunts returns elsewhere.",
-    "current_3mo": "+2.9%"
+    "current_3mo": "+4.5%"
    },
    {
     "asset": "gold",
     "label": "Gold",
     "dir": "up",
     "why": "Real yields fall \u2014 gold wins the safe-haven contest.",
-    "current_3mo": "-23.1%"
+    "current_3mo": "-22.4%"
    },
    {
     "asset": "stocks",
     "label": "Stocks",
     "dir": "up",
     "why": "Cheap credit \u2192 borrowing \u2192 earnings \u2192 risk appetite (once the reason for cutting passes).",
-    "current_3mo": "-6.9%"
+    "current_3mo": "-9.6%"
    },
    {
     "asset": "curve",
     "label": "Yield curve",
     "dir": "steepen",
     "why": "Short end drops first; steepening after inversion is the classic recession confirmation.",
-    "current_3mo": "-0.22pp"
+    "current_3mo": "-0.31pp"
    }
   ],
   "hold": [
@@ -89,35 +89,35 @@
     "label": "Bond yields",
     "dir": "drift",
     "why": "Direction inherits from the expectation trend, not the meeting.",
-    "current_3mo": "+39bp"
+    "current_3mo": "+23bp"
    },
    {
     "asset": "dollar",
     "label": "US Dollar",
     "dir": "drift",
     "why": "Follows the next expected move \u2014 watch the two dials.",
-    "current_3mo": "+2.9%"
+    "current_3mo": "+4.5%"
    },
    {
     "asset": "gold",
     "label": "Gold",
     "dir": "drift",
     "why": "Tracks real-yield expectations while the Fed waits.",
-    "current_3mo": "-23.1%"
+    "current_3mo": "-22.4%"
    },
    {
     "asset": "stocks",
     "label": "Stocks",
     "dir": "up",
     "why": "Structural upward skew persists absent a shock.",
-    "current_3mo": "-6.9%"
+    "current_3mo": "-9.6%"
    },
    {
     "asset": "curve",
     "label": "Yield curve",
     "dir": "drift",
     "why": "Shape set by which move markets price next.",
-    "current_3mo": "-0.22pp"
+    "current_3mo": "-0.31pp"
    }
   ]
  },
