@@ -1,74 +1,89 @@
 {
- "as_of": "2026-11-16T00:30:21Z",
+ "as_of": "2026-11-23T01:13:34Z",
  "schema_version": 1,
  "engine_version": "2.0.0",
  "config_hash": "c3a2a1c6d7ad65482d19eae7551411c543fc26fb0393683b0bf9e0bbce274e9d",
  "min_sample_n": 20,
  "note": "Every accuracy figure is engine vs persistence vs naive, with n. Cells below the minimum sample are withheld, not shrunk.",
  "snapshots": 23,
- "resolved_claims": 89,
+ "resolved_claims": 101,
  "overall": {
   "h21": {
-   "n": 72,
+   "n": 78,
    "sufficient": true,
-   "engine": 59.7,
-   "persistence": 19.4,
-   "naive": 5.6,
+   "engine": 55.1,
+   "persistence": 19.2,
+   "naive": 5.0,
    "coin_flip": 50.0
   },
   "h63": {
-   "n": 0,
+   "n": 6,
    "sufficient": false,
    "coin_flip": 50.0,
-   "note": "insufficient sample: 0 of 20 needed",
-   "engine_withheld": null,
-   "persistence_withheld": null,
-   "naive_withheld": null
+   "note": "insufficient sample: 6 of 20 needed",
+   "engine_withheld": 0.0,
+   "persistence_withheld": 0.0,
+   "naive_withheld": 0.0
   }
  },
  "by_asset": {
   "bonds": {
    "h21": {
-    "n": 18,
-    "sufficient": false,
-    "coin_flip": 50.0,
-    "note": "insufficient sample: 18 of 20 needed",
-    "engine_withheld": 55.6,
-    "persistence_withheld": 38.9,
-    "naive_withheld": null
+    "n": 20,
+    "sufficient": true,
+    "engine": 50.0,
+    "persistence": 35.0,
+    "naive": null,
+    "coin_flip": 50.0
    }
   },
   "dollar": {
    "h21": {
-    "n": 17,
+    "n": 18,
     "sufficient": false,
     "coin_flip": 50.0,
-    "note": "insufficient sample: 17 of 20 needed",
-    "engine_withheld": 47.1,
-    "persistence_withheld": 29.4,
+    "note": "insufficient sample: 18 of 20 needed",
+    "engine_withheld": 44.4,
+    "persistence_withheld": 33.3,
     "naive_withheld": null
    }
   },
   "gold": {
    "h21": {
-    "n": 19,
+    "n": 20,
+    "sufficient": true,
+    "engine": 70.0,
+    "persistence": 0.0,
+    "naive": null,
+    "coin_flip": 50.0
+   },
+   "h63": {
+    "n": 4,
     "sufficient": false,
     "coin_flip": 50.0,
-    "note": "insufficient sample: 19 of 20 needed",
-    "engine_withheld": 73.7,
+    "note": "insufficient sample: 4 of 20 needed",
+    "engine_withheld": 0.0,
     "persistence_withheld": 0.0,
     "naive_withheld": null
    }
   },
   "stocks": {
    "h21": {
-    "n": 18,
+    "n": 20,
+    "sufficient": true,
+    "engine": 55.0,
+    "persistence": 10.0,
+    "naive": 5.0,
+    "coin_flip": 50.0
+   },
+   "h63": {
+    "n": 2,
     "sufficient": false,
     "coin_flip": 50.0,
-    "note": "insufficient sample: 18 of 20 needed",
-    "engine_withheld": 61.1,
-    "persistence_withheld": 11.1,
-    "naive_withheld": 5.6
+    "note": "insufficient sample: 2 of 20 needed",
+    "engine_withheld": 0.0,
+    "persistence_withheld": 0.0,
+    "naive_withheld": 0.0
    }
   }
  },
@@ -96,9 +111,9 @@
   },
   {
    "bucket": "0.45-0.55",
-   "n": 0,
+   "n": 4,
    "sufficient": false,
-   "note": "insufficient sample: 0 of 20"
+   "note": "insufficient sample: 4 of 20"
   },
   {
    "bucket": "0.55-0.70",
