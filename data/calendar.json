@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-25T04:59:27Z",
+ "as_of": "2026-11-25T21:26:21Z",
  "upcoming": [
   {
    "date": "2026-11-25",
@@ -9,7 +9,7 @@
    "watch": {
     "stakes": "low",
     "stakes_why": "Neither branch can move a voter off its current read.",
-    "setup": "PCE runs 3.6% YoY against the 2.0% target and is rising at +0.20pp/3mo, with the Fed priced 100% to hike / 0% to hold \u2014 this print decides whether the hawkish case holds.",
+    "setup": "PCE runs 3.8% YoY against the 2.0% target and is rising at +0.47pp/3mo, with the Fed priced 100% to hike / 0% to hold \u2014 this print decides whether the hawkish case holds.",
     "branches": {
      "a": {
       "label": "Hot (accelerates vs its 3-month trend)",
@@ -291,6 +291,21 @@
     "branch_label": "Strong (payrolls above trend, unemployment holds)",
     "as_mapped": true,
     "note": "Strong (payrolls above trend, unemployment holds) \u2014 gold \u25bc, stocks \u25b2 as mapped."
+   }
+  },
+  {
+   "reference_month": "2026-10-01",
+   "event": "PCE (Personal Income & Outlays)",
+   "reactions": {
+    "dxy_48h": -0.42,
+    "gold_48h": -1.08,
+    "spx_48h": 1.4
+   },
+   "resolution": {
+    "branch": "a",
+    "branch_label": "Hot (accelerates vs its 3-month trend)",
+    "as_mapped": true,
+    "note": "Hot (accelerates vs its 3-month trend) \u2014 gold \u25bc, stocks \u25b2 as mapped."
    }
   }
  ],

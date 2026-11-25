@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-25T04:59:27Z",
+ "as_of": "2026-11-25T21:26:21Z",
  "market_pricing": {
   "hike": 1.0,
   "hold": 0.0,
@@ -15,7 +15,7 @@
     "label": "Bond yields",
     "dir": "up",
     "why": "New debt must pay more; the short end jumps hardest.",
-    "current_3mo": "+18bp"
+    "current_3mo": "+21bp"
    },
    {
     "asset": "dollar",
@@ -29,14 +29,14 @@
     "label": "Gold",
     "dir": "down",
     "why": "Real yields rise \u2014 bonds out-compete gold as the inflation hedge.",
-    "current_3mo": "-24.4%"
+    "current_3mo": "-23.3%"
    },
    {
     "asset": "stocks",
     "label": "Stocks",
     "dir": "caution",
     "why": "Can grind higher until something breaks; watch the curve.",
-    "current_3mo": "-5.7%"
+    "current_3mo": "-5.9%"
    },
    {
     "asset": "curve",
@@ -52,7 +52,7 @@
     "label": "Bond yields",
     "dir": "down",
     "why": "Cheaper money; existing bonds rally as yields fall.",
-    "current_3mo": "+18bp"
+    "current_3mo": "+21bp"
    },
    {
     "asset": "dollar",
@@ -66,14 +66,14 @@
     "label": "Gold",
     "dir": "up",
     "why": "Real yields fall \u2014 gold wins the safe-haven contest.",
-    "current_3mo": "-24.4%"
+    "current_3mo": "-23.3%"
    },
    {
     "asset": "stocks",
     "label": "Stocks",
     "dir": "up",
     "why": "Cheap credit \u2192 borrowing \u2192 earnings \u2192 risk appetite (once the reason for cutting passes).",
-    "current_3mo": "-5.7%"
+    "current_3mo": "-5.9%"
    },
    {
     "asset": "curve",
@@ -89,7 +89,7 @@
     "label": "Bond yields",
     "dir": "drift",
     "why": "Direction inherits from the expectation trend, not the meeting.",
-    "current_3mo": "+18bp"
+    "current_3mo": "+21bp"
    },
    {
     "asset": "dollar",
@@ -103,14 +103,14 @@
     "label": "Gold",
     "dir": "drift",
     "why": "Tracks real-yield expectations while the Fed waits.",
-    "current_3mo": "-24.4%"
+    "current_3mo": "-23.3%"
    },
    {
     "asset": "stocks",
     "label": "Stocks",
     "dir": "up",
     "why": "Structural upward skew persists absent a shock.",
-    "current_3mo": "-5.7%"
+    "current_3mo": "-5.9%"
    },
    {
     "asset": "curve",

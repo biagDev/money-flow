@@ -1,18 +1,17 @@
 {
- "as_of": "2026-11-24T22:10:16Z",
+ "as_of": "2026-11-25T21:26:21Z",
  "inflation": {
-  "pce_yoy": 3.65,
+  "pce_yoy": 3.84,
   "cpi_yoy": 4.08,
   "target": 2.0,
-  "trend_3mo": 0.2,
+  "trend_3mo": 0.47,
   "direction": "rising",
   "sub": {
    "ppi_yoy": 12.79,
    "breakeven_5y": 2.11,
    "oil": {
-    "last": 89.53,
+    "last": 82.24,
     "spark": [
-     99.76,
      91.9,
      84.65,
      78.94,
@@ -41,7 +40,8 @@
      107.56,
      94.05,
      89.62,
-     89.53
+     89.53,
+     81.42
     ]
    }
   }
@@ -53,7 +53,7 @@
    "nfp": {
     "actual": 165
    },
-   "claims_4wk": 198.0,
+   "claims_4wk": 196.0,
    "jolts": 7.5
   }
  },
@@ -62,7 +62,7 @@
   "lines": [
    {
     "dial": "inflation",
-    "reading": "Inflation is rising at 3.6% (above the 2% target)",
+    "reading": "Inflation is rising at 3.8% (above the 2% target)",
     "implication": "argues HIKE/HOLD"
    },
    {

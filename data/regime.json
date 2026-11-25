@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-25T04:59:27Z",
+ "as_of": "2026-11-25T21:26:21Z",
  "stale": false,
  "probabilities": {
   "expansion": 0.41,
@@ -11,11 +11,11 @@
  "projection": "expansion",
  "projection_basis": "momentum",
  "in_regime_since": "2026-09-01",
- "narrative": "Inflation is rising at 3.6% (above the 2% target) while unemployment holds near 4.1% with no stress \u2014 the market is pricing a hawkish Fed, which historically marks the PEAK phase. Watch: yields \u25b2, dollar \u25b2, gold \u25bc.",
+ "narrative": "Inflation is rising at 3.8% (above the 2% target) while unemployment holds near 4.1% with no stress \u2014 the market is pricing a hawkish Fed, which historically marks the PEAK phase. Watch: yields \u25b2, dollar \u25b2, gold \u25bc.",
  "scores": [
   {
    "input": "inflation",
-   "value": "PCE 3.6% YoY, +0.20pp/3mo",
+   "value": "PCE 3.8% YoY, +0.47pp/3mo",
    "vote": "peak",
    "weight": 0.3,
    "distribution": {
