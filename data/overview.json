@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-20T01:51:34Z",
+ "as_of": "2026-11-25T04:59:27Z",
  "stale": false,
  "mood": {
   "label": "CAUTIOUS",
@@ -42,11 +42,11 @@
  "bullets": [
   "Prices: rising about 3.6% a year. The Fed wants 2%.",
   "Jobs: hiring is steady at about +137K a month.",
-  "Next big date: Weekly jobless claims on Nov 25."
+  "Next big date: Fed decision on Dec 9."
  ],
  "next_big_date": {
-  "date": "2026-11-25",
-  "event": "Weekly jobless claims",
+  "date": "2026-12-09",
+  "event": "Fed decision",
   "lesson": 13
  },
  "schema_version": 1

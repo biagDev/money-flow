@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-23T23:39:10Z",
+ "as_of": "2026-11-25T04:59:27Z",
  "upcoming": [
   {
    "date": "2026-11-25",
@@ -210,6 +210,56 @@
      }
     }
    }
+  },
+  {
+   "date": "2026-12-09",
+   "event": "FOMC",
+   "feeds": "both",
+   "hint": "The decision itself \u2014 expectations already moved the money",
+   "highlight": true,
+   "watch": {
+    "stakes": "high",
+    "stakes_why": "The decision itself \u2014 the one scheduled event that can move the policy rate, and the whole curve prices off it.",
+    "setup": "The decision itself, with the Fed priced 100% to hike / 0% to hold, with the regime needle at peak \u2014 expectations have already moved the money.",
+    "branches": {
+     "hike": {
+      "label": "Hike",
+      "implies": "policy tightens further",
+      "pricing_effect": "confirms pricing",
+      "assets": {
+       "bonds": "yields \u25b2",
+       "dollar": "\u25b2",
+       "gold": "\u25bc",
+       "stocks": "caution"
+      },
+      "market_odds": 1.0
+     },
+     "hold": {
+      "label": "Hold",
+      "implies": "direction inherits from the dials",
+      "pricing_effect": "forces repricing",
+      "assets": {
+       "bonds": "drift",
+       "dollar": "drift",
+       "gold": "drift",
+       "stocks": "\u25b2"
+      },
+      "market_odds": 0.0
+     },
+     "cut": {
+      "label": "Cut",
+      "implies": "policy eases",
+      "pricing_effect": "forces repricing",
+      "assets": {
+       "bonds": "yields \u25bc",
+       "dollar": "\u25bc",
+       "gold": "\u25b2",
+       "stocks": "\u25b2"
+      },
+      "market_odds": 0.0
+     }
+    }
+   }
   }
  ],
  "recent": [
@@ -245,8 +295,8 @@
   }
  ],
  "next_catalyst": {
-  "date": "2026-11-25",
-  "event": "Jobless Claims"
+  "date": "2026-12-09",
+  "event": "FOMC"
  },
  "schema_version": 1
 }
