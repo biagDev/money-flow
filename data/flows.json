@@ -1,14 +1,13 @@
 {
- "as_of": "2026-11-27T20:56:01Z",
+ "as_of": "2026-11-28T02:57:34Z",
  "regime": "peak",
  "nodes": [
   {
    "asset": "bonds",
-   "price": 4.91,
+   "price": 4.85,
    "trend_3mo": 21.0,
    "trend_unit": "bp",
    "spark": [
-    4.49,
     4.47,
     4.55,
     4.56,
@@ -127,7 +126,8 @@
     5.04,
     4.92,
     4.92,
-    4.91
+    4.91,
+    4.85
    ],
    "driver": "The market everything else keys off. Driver: Fed expectations.",
    "stale": false
